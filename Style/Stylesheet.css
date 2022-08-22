@@ -22,6 +22,7 @@ body{
 }
 ::-webkit-scrollbar-thumb{
     background-color:crimson;
+
 }
 
 /*navbar styling*/
@@ -207,10 +208,7 @@ body{
     font-size: 75px;
     text-transform: capitalize;
     margin-bottom: 20px;
-    text-shadow: -1px 1px 0 crimson,
-    1px 1px 0 crimson,
-    1px -1px 0 crimson,
-    -1px -1px 0 crimson;
+   
 }
 .about-text h5{
     color: white;
@@ -266,10 +264,11 @@ body{
     font-size: 75px;
     text-transform: capitalize;
     margin-bottom: 20px;
-    text-shadow: -1px 1px 0 crimson,
+   /* text-shadow: -1px 1px 0 crimson,
     1px 1px 0 crimson,
     1px -1px 0 crimson,
     -1px -1px 0 crimson;
+    text-align: center;*/
     text-align: center;
 }
 .skills h2{
@@ -485,11 +484,11 @@ body{
 .section__title {
     color: whitesmoke;
     font-size: 75px;
-    text-shadow: -1px 1px 0 crimson,
+   /* text-shadow: -1px 1px 0 crimson,
     1px 1px 0 crimson,
     1px -1px 0 crimson,
     -1px -1px 0 crimson;
-    text-align:center;
+    text-align:center;*/
 }
 .qualification__section{
 /*    margin-bottom: 40%;
@@ -507,10 +506,6 @@ body{
     text-transform: capitalize;
     position: absolute;
     left: 30%;
-    text-shadow: -1px 1px 0 crimson,
-    1px 1px 0 crimson,
-    1px -1px 0 crimson,
-    -1px -1px 0 crimson;
    /* text-align:center;*/
     margin:10px 50px 20px 50px;
     display: inline;
@@ -589,11 +584,8 @@ body{
 .contact h2 span{
     color: white;
     font-size: 75px;
-    font-width: 500;
-    text-shadow: -1px 1px 0 crimson,
-    1px 1px 0 crimson,
-    1px -1px 0 crimson,
-    -1px -1px 0 crimson;
+    font-width: 500px;
+
 }
 .contact .content{
     max-width: 800px;
@@ -728,10 +720,7 @@ body{
     width: 1130px;
     margin: 30px auto;
     text-align: center;
-    text-shadow: -1px 1px 0 crimson,
-    1px 1px 0 crimson,
-    1px -1px 0 crimson,
-    -1px -1px 0 crimson;
+
 }
 .box{
     display: flex;
@@ -791,10 +780,7 @@ h5{
     color: white;
     font-size: 60px;
     text-align: center;
-    text-shadow: -1px 1px 0 crimson,
-    1px 1px 0 crimson,
-    1px -1px 0 crimson,
-    -1px -1px 0 crimson;
+
 }
 /* Slideshow container */
 .slideshow-container {
