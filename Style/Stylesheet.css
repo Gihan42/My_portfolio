@@ -177,10 +177,21 @@ body{
     bottom: 40px;
     cursor: pointer;
 }
-.up:hover{
-    border:1px solid crimson;
-}
 
+.up > a > i{
+    font-size: 28px;
+    color: green;
+    position: relative;
+    left:3px;
+}
+.up > a > i:hover{
+    font-size: 30px;
+    color: #f9004d;
+}
+.up > a > img:hover{
+   width: 35px;
+   height: 35px;
+}
 
 /*about section style*/
 .about{
@@ -584,8 +595,10 @@ body{
     background-color:#101010 ;
 }
 .icon > i{
-    color:#183153;
+    color:#263e60;
    font-size: 35px;
+   border: 1px solid #263e60;
+   border-radius: 50%;
 }
 .contact h2 span{
     color: white;
