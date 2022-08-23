@@ -167,6 +167,9 @@ body{
     height: 50%;
     left: 30px;
 }
+.social-home > a > i{
+    color:crimson ;
+}
 .up {
     position: fixed;
     border-radius: 41px;
@@ -580,7 +583,10 @@ body{
     flex-direction: column;
     background-color:#101010 ;
 }
-
+.icon > i{
+    color:#183153;
+   font-size: 35px;
+}
 .contact h2 span{
     color: white;
     font-size: 75px;
