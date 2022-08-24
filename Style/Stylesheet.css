@@ -200,10 +200,16 @@ body{
     background-color: #191919;
 
 }
-.about img{
+.main > img{
     height: 400px;
-    width: 380px;
-    border-radius: 53%;
+    width: 350px;
+   margin: 0;
+   padding: 0;
+   border-radius: 53%;
+   box-shadow: 0px 6px 5px rgb(58, 57, 57);
+  -moz-border-radius:190px;
+  -webkit-border-radius:190px;
+  border-radius:190px;
 }
 
 .about-text{
@@ -600,21 +606,27 @@ body{
    border: 1px solid #263e60;
    border-radius: 50%;
 }
+.icon > i:hover{
+    border: 1px solid white;
+    font-size: 38px;
+}
 .contact h2 span{
     color: white;
     font-size: 75px;
     font-width: 500px;
 
 }
-.contact .content{
+.contact > .content{
     max-width: 800px;
     text-align: center;
 }
-.contact  p span{
-    font-width: 500;
+.contact > p {
+    font-width: 500px;
     color:white;
    left: 50px;
+   cursor: pointer;
 }
+
 .container{
     width: 100%;
     display: flex;
