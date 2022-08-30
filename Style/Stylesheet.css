@@ -49,11 +49,11 @@ body{
     color: aliceblue;
 }
 
-.navbar .menu li{
+ .menu li{
     list-style: none;
     display: inline-block;
 }
-.navbar .menu li a{
+.menu li a{
     color: black;
     font-size: 18px;
     font-weight: 500;
