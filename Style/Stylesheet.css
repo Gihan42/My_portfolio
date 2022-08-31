@@ -10,21 +10,11 @@ body{
     z-index: 0;
 }
 .max-width {
-    max-width: 1300px;
+    max-width:100% ;
     padding:0 80px;
     margin: auto;
 
 }
-::-webkit-scrollbar{
-    width: 5px;
-    background-color: #101010;
-
-}
-::-webkit-scrollbar-thumb{
-    background-color:crimson;
-
-}
-
 /*navbar styling*/
 .navbar{
     position: fixed;
@@ -67,13 +57,19 @@ body{
 /*home section styling*/
 .home{
     display: flex;
-    background: url("../assets/images/my.jpgs") no-repeat center;
     height: 100vh;
     color: white;
     min-height: 500px;
     background: #101010;
+    position: relative;
+    width: 100%;
 
-
+}
+.home-center{
+    position: relative;
+    left: 350px;
+    margin: 0;
+    padding: 0;
 }
 .home .home-center span{
     color: white;
@@ -87,6 +83,7 @@ body{
 }
 .home .home-center .text-1{
     font-size: 27px;
+   
 }
 .home .home-center .text-2{
     font-size: 75px;
@@ -100,13 +97,13 @@ body{
 .home .home-center .text-4{
     font-size: 15px;
     font-weight: 100;
-    font-family:"Bold Italic Art";
+    font-family: "Bold Italic Art";
     color: #fcfc;
     position: relative;
-    top: 50px;
+    top: 0px;
 }
 .home .home-center .text-3{
-    position: absolute;
+    position: relative;
 }
 .home .home-center .text-3 span {
   color: crimson;
@@ -134,7 +131,7 @@ body{
     width: 25%;
     margin: 40px 20px 30px 50px;
     text-align: center;
-
+    margin: 0;
 }
 .detel a{
     color: white;
@@ -145,17 +142,18 @@ body{
     cursor: pointer;
 }
 
- .imagebox img{
+ .manimage{
      height: 380px;
      width: 350px;
      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
      margin-left: 10%;
      margin-top: 35%;
-     transition:  left 1s;
-     display: flex;
      background-color: crimson;
-     position: relative;
-     left:830px;
+     position: absolute;
+     left: 880px;
+     margin: 0;
+     padding: 0;
+     top: 105px;
 }
 
 /*.imagebox img:hover {
@@ -167,6 +165,10 @@ body{
     bottom:  58px;
     height: 50%;
     left: 30px;
+}
+.social-home > a img{
+    width:40px;
+    height: 40px;
 }
 .social-home > a > i{
     color:crimson ;
@@ -1027,4 +1029,13 @@ footer p:nth-child(1){
     font-family: "Mistral";
 }
 
+/*scrolbar*/
+::-webkit-scrollbar{
+    width: 5px;
+    background-color: #101010;
 
+}
+::-webkit-scrollbar-thumb{
+    background-color:crimson;
+
+}
