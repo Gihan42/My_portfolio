@@ -187,6 +187,10 @@ body{
     position: relative;
     left:3px;
 }
+.up > a > img{
+    width: 30px;
+    height: 30px;
+}
 .up > a > i:hover{
     font-size: 30px;
     color: #f9004d;
