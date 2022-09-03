@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case One</title>
+    
+    <link rel="stylesheet" href="/assets/fonts/css/all.min.css">
+    <!--Apply CSS Reset-->
+    <style>
+        body{
+            background-color: blue;
+        }
+      div{
+        width: 200px;
+        height: 200px;
+        background-color: gray;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 100%;
+        border: 15px solid white;
+        border-top: 15px solid crimson;
+        cursor: pointer;
+      }
+      div > h1{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: max-content;
+        height: max-content;
+        color: white;
+      }
+      div:hover{
+        transform: rotate(360deg);
+        transition-property: all;
+        transition-duration: 2s;
+      }
+      div:hover > h1{
+        transform: rotate(-360deg);
+        transition-property: all;
+        transition-duration: 2s;
+      }
+       
+    </style>
+</head>
+<body>
+<div>
+    <h1>RWAD</h1>
+</div>
+    
+
+
+</body>
+</html>
