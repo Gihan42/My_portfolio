@@ -175,16 +175,51 @@
     width: 300px;
     position: absolute;
 }
-.right{
-    position: relative;
-    top: 170px;
-}
 .left a{
     position: relative;
     padding: 3px 18px;
     top: 75px;
     font-size: 9px;
     left: 15px;
+    
+}
+.right{
+    position: relative;
+    top: 170px;
+    right: 25px;
+}
+.right .info span {
+    font-size: 8px;
+    }
+.right .line {
+    height: 10px;
+}
+h1.skill-tools {
+    font-size: 15px;
+    position: relative;
+    width: 200px;
+    top: 20px;
+    padding: 20px;
+    right: 50px;
+}
+.Skil-card{
+    width: 200px;
+    height: 70px;
+    margin: 10px;
+}
+.Skill-box {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+.Skil-card > h5{
+    font-size: 10px;
+    margin: 3px;
+}
+.tools-img{
+    width: 20px;
+    height: 20px;
+    margin : 0px 5px 0px 5px;
     
 }
     }
@@ -384,26 +419,26 @@ get a ....
         <div class="Skill-box">
             <div class="Skil-card">
                 <h5>Text Editor</h5>
-               <a href="#"> <abbr title="NetBeans"> <img src="assets/icon/netbeans-logo-335EBA952E-seeklogo.com.png" width="40" height="40" style="border-radius: 50%" ></abbr></a>
-                <a href="#"><abbr title="Intellij Idea"> <img src="assets/icon/intellij-idea.png" width="40" height="40" style="border-radius: 50%"></abbr></a>
-                <a href="#"><abbr title="Visual-Studio"> <img src="assets/icon/visual-studio-code-2019.png" width="40" height="40" style="border-radius: 50%"></abbr></a>
+               <a href="#"> <abbr title="NetBeans"> <img src="assets/icon/netbeans-logo-335EBA952E-seeklogo.com.png" class="tools-img" ></abbr></a>
+                <a href="#"><abbr title="Intellij Idea"> <img src="assets/icon/intellij-idea.png" class="tools-img"></abbr></a>
+                <a href="#"><abbr title="Visual-Studio"> <img src="assets/icon/visual-studio-code-2019.png" class="tools-img"></abbr></a>
                 </div>
             <div class="Skil-card">
                 <h5>Ui / Ux</h5>
-                <a href="#"><abbr title="Figma"> <img src="assets/icon/figma.png" width="38" height="38" style="border-radius: 50%" ></abbr></a>
-                <a href="#"><abbr title="Scene-Builder"> <img src="assets/icon/scene-builder.png" width="40" height="40" style="border-radius: 50%"></abbr></a>
-                <a href="#"><abbr title="Adobe-PS"> <img src="assets/icon/adobe-photoshop.png" width="40" height="40" style="border-radius: 50%"></abbr></a>
+                <a href="#"><abbr title="Figma"> <img src="assets/icon/figma.png"class="tools-img" class="tools-img"></abbr></a>
+                <a href="#"><abbr title="Scene-Builder"> <img src="assets/icon/scene-builder.png" class="tools-img"></abbr></a>
+                <a href="#"><abbr title="Adobe-PS"> <img src="assets/icon/adobe-photoshop.png" class="tools-img" ></abbr></a>
             </div>
             <div class="Skil-card">
                 <h5>Technologies</h5>
-                <a href="#"><abbr title="Hibernet"> <img src="assets/icon/hibernate-icon.svg" width="40" height="40" style="border-radius: 50%" ></abbr></a>
-                <a href="#"><abbr title="Spring"> <img src="assets/icon/springio-icon.svg" width="40" height="40" style="border-radius: 50%"></abbr></a>
+                <a href="#"><abbr title="Hibernet"> <img src="assets/icon/hibernate-icon.svg" class="tools-img"></abbr></a>
+                <a href="#"><abbr title="Spring"> <img src="assets/icon/springio-icon.svg" class="tools-img" ></abbr></a>
             </div>
             <div class="Skil-card">
                 <h5>Others</h5>
-                <a href="#"><abbr title="MS-Office"> <img src="assets/icon/office-365.png" width="40" height="40" style="border-radius: 50%" ></abbr></a>
-                <a href="#"><abbr title="Adobe-Lr"> <img src="assets/icon/lr.png" width="38" height="38"></abbr></a>
-                <a href="#"><abbr title="Visual-Studio"> <img src="assets/icon/visual-studio.png" width="40" height="40" style="border-radius: 50%" ></abbr></a>
+                <a href="#"><abbr title="MS-Office"> <img src="assets/icon/office-365.png" class="tools-img" ></abbr></a>
+                <a href="#"><abbr title="Adobe-Lr"> <img src="assets/icon/lr.png" class="tools-img"></abbr></a>
+                <a href="#"><abbr title="Visual-Studio"> <img src="assets/icon/visual-studio.png"  class="tools-img"></abbr></a>
             </div>
             </div>
     </div>
