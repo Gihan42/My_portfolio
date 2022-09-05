@@ -7,44 +7,145 @@
     <link rel="icon" type="image/x-icon" href="/assets/icon/assigment.png"  >
     <!--Apply CSS Reset-->
     <style>
-        body{
-    background: #101010;
-    overflow: hidden;
-    z-index: 0;
-    
+       .service{
+  background: #191919;
+    width: 100%;
+    padding: 100px 0px;
 }
-        section{
-            width: auto;
-            height: 550px;
-            border: 2px solid white;
-            left: 0;
-            right: 0;
-            top: 0px;
-            bottom: 0;
-            margin: auto;
-            display: grid;
-            grid-template-rows: repeat(3,1fr);
-            grid-template-columns: repeat(4,1fr);
-            gap: 9px;
-        }
-        div > div{
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            color: aliceblue;
-            width: 150px;
-            height: 150px;
-            border: 2px solid red;
-        }
+.title h2{
+    color: white;
+    font-size: 70px;
+    width: 1130px;
+    margin: 30px auto;
+    text-align: center;
+
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px ;
+}
+.card{
+    height: 365px;
+    width: 335px;
+    padding: 20px 35px;
+    background: #101010;
+    border-radius: 20px;
+    margin: 15px;
+    overflow: hidden;
+    text-align: center;
+}
+.card > figure > img{
+    margin: 3px;
+    width: 45px;
+    height: 45px;
+}
+figcaption{
+    color: aliceblue;
+    font-size: 10px;
+    margin: 2px;
+}
+h5{
+    color: white;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+.pra p{
+    color: #fcfc;
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 25px;
+}
+.card .button{
+    background-color: transparent;
+    color: crimson;
+    text-decoration: none;
+    border:2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: .4s;
+    border-color: white;
+}
+.card .button:hover {
+    background-color: #f9004d;
+    border: 2px solid #f9004d;
+    cursor: pointer;
+    color: white;
+}
+figcaption{
+    font-size: 10px;
+    color: white;
+    padding: 0;
+}
+figure{
+margin: 10px;
+padding: 0;
+display: inline-block;
+}
+       
     </style>
 </head>
 <body>
-
-<section>
-    <div><div></div></div>
-</section>
+    <section class="ser" id="service">
+        <div class="service">
+            <div class="title">
+                <h2>My Assigment</h2>
+            </div>
+            <div class="box">
+                <div class="card">
+                    <h5>Basics</h5>
+                    <figure>
+                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <figcaption>Case_1</figcaption>
+                   </figure>
+                   <figure>
+                    <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-assigment-online-education-flaticons-lineal-color-flat-icons.png"/>
+                    <figcaption>Case_2</figcaption>
+                   </figure>
+                   <figure>
+                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <figcaption>Case_3</figcaption>
+                   </figure>
+                   <figure>
+                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <figcaption>Case_4</figcaption>
+                   </figure>
+                   <figure>
+                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <figcaption>Case_5</figcaption>
+                   </figure>
+                   <figure>
+                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <figcaption>Case_6</figcaption>
+                   </figure>
+                
+                </div>
+                <div class="card">
+                    <img src="assets/icon/bar-chart2.png" width="45" height="45"></img>
+                    <h5>Frontend Development</h5>
+                    <div class="pra">
+                        <p>Every website should be built with two primary goals: Firstly, it needs
+                            to work across all devices. Secondly, it needs to be fast as possible.</p>
+                        <p style="text-align: center">
+                            <a class="button" href="#">Read more</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="assets/icon/bar-chart%20(3).png" width="50" height="50"></img>
+                    <h5>Standalone Application Development</h5>
+                    <div class="pra">
+                        <p>Every website should be built with two primary goals: Firstly, it needs
+                            to work across all devices. Secondly.</p>
+                        <p style="text-align: center">
+                            <a class="button" href="#">Read more</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     </body>
 </html>

@@ -160,7 +160,98 @@
             background: url("/assets/images/gif.gif");
             right: 0;
         }
+        @media all and (max-width: 425px) {
+            header {
+                height: 100px;
+            }
 
+            header > img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+
+            header > nav {
+                top: 49px;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: max-content;
+            }
+
+            header > nav > ul > li {
+                padding: 0px 5px 0px 5px;
+                font-size: 15px;
+            }
+
+            header > nav > ul {
+                padding: 0;
+            }
+
+            header ul > li > i {
+                padding-right: 2px;
+            }
+
+            main > nav {
+                display: none;
+            }
+
+            main > section {
+                margin-left: 0px;
+            }
+
+            main > section > section:first-child {
+                height: 900px;
+                position: relative;
+            }
+
+            main > section > section:first-child > div {
+                height: 300px;
+                width: 100%;
+                position: relative;
+            }
+
+            main > section > section:first-child > div:nth-child(1) {
+                background: url("/assets/images/gif.gif");
+                background-position: center;
+                left: 0;
+            }
+
+            main > section > section:first-child > div:nth-child(2) {
+                background: url("/assets/images/gif.gif");
+                background-position: center;
+                left: 0;
+            }
+
+            main > section > section:first-child > div:nth-child(3) {
+                background: url("/assets/images/gif.gif");
+                background-position: center;
+                left: 0;
+            }
+        }
+
+
+        @media all and (max-width: 768px){
+            header > nav > ul > li {
+                font-size: 16px;
+            }
+
+            main > nav {
+                display: none;
+            }
+
+            main > section {
+                margin-left: 0px;
+            }
+
+        }
+
+        @media all and (max-width: 375px){
+            header > nav > ul > li {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
