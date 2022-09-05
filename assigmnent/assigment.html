@@ -7,10 +7,14 @@
     <link rel="icon" type="image/x-icon" href="/assets/icon/assigment.png"  >
     <!--Apply CSS Reset-->
     <style>
+        body{
+            background: #191919;
+        }
        .service{
-  background: #191919;
+ 
     width: 100%;
     padding: 100px 0px;
+    overflow: hidden;
 }
 .title h2{
     color: white;
@@ -36,28 +40,26 @@
     overflow: hidden;
     text-align: center;
 }
-.card > figure > img{
+.card > figure > a > img{
     margin: 3px;
     width: 45px;
     height: 45px;
+    cursor: pointer;
 }
-figcaption{
-    color: aliceblue;
-    font-size: 10px;
-    margin: 2px;
+.card > figure > a > img:hover{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid #f9004d;
 }
+
 h5{
-    color: white;
+    color: #f9004d;
     font-size: 23px;
     margin-bottom: 15px;
 }
-.pra p{
-    color: #fcfc;
-    font-size: 16px;
-    line-height: 27px;
-    margin-bottom: 25px;
-}
-.card .button{
+
+.card:hover{
     background-color: transparent;
     color: crimson;
     text-decoration: none;
@@ -67,12 +69,6 @@ h5{
     border-radius: 30px;
     transition: .4s;
     border-color: white;
-}
-.card .button:hover {
-    background-color: #f9004d;
-    border: 2px solid #f9004d;
-    cursor: pointer;
-    color: white;
 }
 figcaption{
     font-size: 10px;
@@ -95,57 +91,58 @@ display: inline-block;
             </div>
             <div class="box">
                 <div class="card">
+                    
                     <h5>Basics</h5>
                     <figure>
-                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                        <a href="/assigmnent/css/Basics/case1.html" >  <img  src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/></a>
                     <figcaption>Case_1</figcaption>
                    </figure>
                    <figure>
-                    <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-assigment-online-education-flaticons-lineal-color-flat-icons.png"/>
+                    <a href="/assigmnent/css/Basics/case2.html" >  <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-counselling-mental-health-flaticons-flat-flat-icons-5.png"/></a>
                     <figcaption>Case_2</figcaption>
                    </figure>
                    <figure>
-                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <a href="/assigmnent/css/Basics/case3.html" > <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-assignment-gig-economy-flaticons-lineal-color-flat-icons.png"/></a>
                     <figcaption>Case_3</figcaption>
                    </figure>
                    <figure>
-                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <a href="/assigmnent/css/Basics/case4.html" > <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-assignment-online-education-flaticons-lineal-color-flat-icons-2.png"/></a>
                     <figcaption>Case_4</figcaption>
                    </figure>
                    <figure>
-                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <a href="/assigmnent/css/Basics/case5.html" ><img src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-assignment-gig-economy-flaticons-flat-flat-icons-2.png"/></a>
                     <figcaption>Case_5</figcaption>
                    </figure>
                    <figure>
-                    <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-coding-interface-kiranshastry-lineal-color-kiranshastry.png"/>
+                    <a href="/assigmnent/css/Basics/case6.html" > <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-logs-mobile-app-development-flaticons-lineal-color-flat-icons.png"/></a>
                     <figcaption>Case_6</figcaption>
                    </figure>
                 
                 </div>
                 <div class="card">
-                    <img src="assets/icon/bar-chart2.png" width="45" height="45"></img>
-                    <h5>Frontend Development</h5>
-                    <div class="pra">
-                        <p>Every website should be built with two primary goals: Firstly, it needs
-                            to work across all devices. Secondly, it needs to be fast as possible.</p>
-                        <p style="text-align: center">
-                            <a class="button" href="#">Read more</a>
-                        </p>
-                    </div>
+                    <h5>Transition</h5>
+                    <figure>
+                        <a href="/assigmnent/css/Transition/case1.html" >   <img src="https://img.icons8.com/color/48/000000/one-way-transition.png"/></a>
+                        <figcaption>Case_1</figcaption>
+                       </figure>
+                       <figure>
+                        <a href="/assigmnent/css/Transition/case2.html" > <img src="https://img.icons8.com/nolan/64/transition-circle.png"/></a>
+                        <figcaption>Case_2</figcaption>
+                       </figure>
                 </div>
                 <div class="card">
-                    <img src="assets/icon/bar-chart%20(3).png" width="50" height="50"></img>
-                    <h5>Standalone Application Development</h5>
-                    <div class="pra">
-                        <p>Every website should be built with two primary goals: Firstly, it needs
-                            to work across all devices. Secondly.</p>
-                        <p style="text-align: center">
-                            <a class="button" href="#">Read more</a>
-                        </p>
-                    </div>
-                </div>
+                    <h5>Animation</h5>
+                    <figure>
+                        <a href="/assigmnent/css/Animation/case_1.html" > <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-animation-movie-theater-flaticons-lineal-color-flat-icons-3.png"/></a>
+                        <figcaption>Case_1</figcaption>
+                       </figure>
+                       <figure>
+                        <a href="/assigmnent/css/Animation/case_2.html" > <img src="https://img.icons8.com/external-glyph-on-circles-amoghdesign/48/000000/external-animation-movies-glyph-on-circles-amoghdesign.png"/></a>
+                        <figcaption>Case_2</figcaption>
+                       </figure>
+                       
             </div>
-        </div>
+        
     </section>
     </body>
 </html>
