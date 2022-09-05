@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  div{
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid red;
+    height:50px;
+    width: 50px;
+    animation-name: my-animation;
+    animation-duration: .9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes my-animation {
+    0%{
+    width: 10px;
+      height: 10px;
+    }
+
+    100%{
+    width: 200px;
+      height: 200px;
+    }
+  }
+</style>
+<body>
+<div ></div>
+<div ></div>
+<div ></div>
+</body>
+</html>
