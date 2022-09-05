@@ -778,6 +778,10 @@ border-radius: 3%;
     overflow: hidden;
     text-align: center;
 }
+.card > img{
+    width: 45px;
+    height: 45px;
+}
 h5{
     color: white;
     font-size: 23px;
