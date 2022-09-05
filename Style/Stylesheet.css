@@ -491,59 +491,23 @@ border-radius: 3%;
 }
 /*styling educatin & qualification*/
 .qualification_section{
-    min-height: 100vh;
-    padding: 50px 100px;
-    display: flex;
-    background-color:#191919;
-
-
-}
-.edu_img img{
-    height: 450px;
-    width: 620px;
-    display: block;
-    position: relative;
-    margin-top: 10%;
-    left :95%;
-
-
+    background-color: #191919;
+    height: 100vh;
+    color: white;
 }
 .section__title {
-    color: whitesmoke;
-    font-size: 75px;
-
-   /* text-shadow: -1px 1px 0 crimson,
-    1px 1px 0 crimson,
-    1px -1px 0 crimson,
-    -1px -1px 0 crimson;
-    text-align:center;*/
+    text-align: center;
+    font-size: 40px;
+   padding: 30px;
 }
-.qualification__section{
-/*    margin-bottom: 40%;
-    align-items: center;*/
-    left: 10%;
-    margin-top: 90px;
-    position: absolute;
-
-
+.section__subtitle{
+   
+    width: 100px;
 }
-.edu_title h1{
-    /*text-align: center;*/
-    color: cornsilk;
-    font-size: 65px;
-    text-transform: capitalize;
-    position: absolute;
-    left: 30%;
-   /* text-align:center;*/
-    margin:10px 50px 20px 50px;
-    display: inline;
-}
-.qualification__container_container{
-    margin-top:0px;
-}
-.qualification__tabs h5{
-    color: white;
-    white-space: nowrap;
+.qualification__tabs{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: var(--mb-2);
 }
 .qualification__button{
     font-size: var(--h3-font-size);
@@ -551,7 +515,7 @@ border-radius: 3%;
     cursor: pointer;
 }
 .qualification__button:hover{
-    color: cornflowerblue;
+    color: var(--first-color);
 }
 .qualification__icon{
     font-size: 1.8rem;
@@ -559,37 +523,65 @@ border-radius: 3%;
 }
 .qualification__data{
     display: grid;
-    grid-template-columns: 3fr max-content 2fr;
+    grid-template-columns: 1fr max-content 1fr;
     column-gap: 1.5rem;
 }
-.qualification__data .qualification__title{
-    color: crimson;
-    font-size: 30px;
-}
-.qualification__subtitle {
-    display: inline-block;
-    color: white;
+.qualification__title{
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: #f9004d;
     font-size: 20px;
 }
-.qualification__calendar{
-  color:lightskyblue;
+.qualification__subtitle{
+    display: inline-block;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
 }
-
-.qualification__line{
-    display: block;
-    width: 2px;
-    height: 100%;
-    background-color:white;
-    transform: translate(6px, -7px);
+.qualification__calendar{
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    color:rgb(254, 254, 254);
+}
+.qualification__calendar > i{
+    color: #00bcd4;
 }
 .qualification__rounder{
     display: inline-block;
     width: 13px;
     height: 13px;
-    background-color: crimson;
+    background-color: #f9004d;
     border-radius: 50%;
 }
-
+.qualification__line{
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: #f9004d;
+    transform: translate(6px, -7px);
+}
+.qualification [data-content]{
+    display: none;
+}
+.qualification__active[data-content]{
+    display: block;
+}
+/* @media screen and (min-width: 768px){
+    .qualification__tabs{
+        justify-content: center;
+    }
+    .qualification__button{
+        margin: 0 var(--mb-1);
+    }
+    .qualification__section{
+        grid-template-columns: .5fr;
+    
+    }
+    .qualification__container{
+        width: 90%;
+        margin: auto;
+    }
+} */
+    
 /*.qualification [data-content]{
     display: none;
 }
@@ -669,7 +661,7 @@ border-radius: 3%;
     font-size: 16px;
     color: floralwhite;
     flex-direction: column;
-    font-width: 300;
+    font-width: 300px;
 }
 .container .contactinfo .cbox .Conatctext h3{
     font-width: 500;
@@ -818,6 +810,7 @@ h5{
     flex-direction: column;
     background-color: #101010;
 }
+
 .projectH1{
     text-align: center;
     color: white;

@@ -21,6 +21,7 @@
         .navbar{
         height: 50px;
        width: 100%;
+       position: fixed;
     }
     .logo a{
         font-size: 20px;
@@ -91,11 +92,12 @@
     .up > a > i{
         font-size: 18px; 
         margin: 5px 0 5px 0;
+       
     }
     .up > a > img{
         width: 20px;
         height: 20px;
-        position: fixed;
+        
     }
      /*about section*/
      .main{
@@ -180,8 +182,7 @@
     padding: 3px 18px;
     top: 75px;
     font-size: 9px;
-    left: 15px;
-    
+    left: 15px;  
 }
 .right{
     position: relative;
@@ -297,15 +298,29 @@ h1.skill-tools {
 .card .button{
     position: relative;
     bottom: 19px;
-    /* height: 15px; */
     padding: 2px 8px;
     font-size: 10px;
 }
-    .qualification_section{
-        display: none;
+/*project*/
+.projectH1{
+    width: 200px;
+    position: relative;
+    right: 50px;
+    font-size: 20px;
+}
+.slideshow-container{
+    right: 100px;
+    width: 300px;
+    display: inline;
+}
+/* Education */
+.qualification__container{
+        width: 90%;
+        margin: auto;
+        margin-top: 90px;
     }
+}
 
-    }
     /*@media all and (max-width:425px){
     .navbar{
         height: 80px;
@@ -528,26 +543,11 @@ get a ....
 
 </section>
 <!--Educatin section statrt-->
-<section class="qualification_section" id="qualification">
-<div class="edu_img">
-    <img src="assets/images/student.png" >
-</div>
-    <div class="qualification__container_container">
-        <div class="edu_title">
-            <h1  >Education  </h1>
+<section class="qualification_section">
+    <h2 class="section__title">Qualification</h2>
+    <!-- <span class="section__subtitle">My personal Journey</span> -->
 
-
-        </div>
-        <div class="qualification__tabs">
-            <div class="qualification__button button--flex qualification__active" >
-                <i class="uil uil-graduation-cap qualification__icon"></i>
-                <!--<h5>Educaton | </h5>-->
-            </div>
-            <div class="qualification__button button--flex">
-                <i class="uil uil-briefcase-alt qualification__icon"></i>
-              <!-- <h5>Work</h5>-->
-            </div>
-        </div>
+    <div class="qualification__container container">
         <div class="qualification__section">
             <div class="qualification__content qualification__active" >
                 <div class="qualification__data">
@@ -635,6 +635,7 @@ get a ....
             </div>
         </div>
     </div>
+</section>
 
 </section>
 <!--contact me section statrt-->
@@ -855,6 +856,11 @@ get a ....
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
     }
+
+    const tabs = document.querySelectorAll('[data-target]'),
+    tabContents = document.querySelectorAll('[data-content]')
+
+
 </script>
 </body>
 </html>
