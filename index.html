@@ -33,6 +33,9 @@
     .menu > li{
       display: none;
     }
+    .home{
+        height: 80vh;
+    }
     .home .home-center .text-1{
     font-size: 18px;
     display: inline;
@@ -76,7 +79,7 @@
     font-size: 12px;
 }
 .manimage {
-    left:100px;
+    left: 80px;
     height: 150px;
     width: 150px;
     top: 70px;
@@ -225,7 +228,8 @@ h1.skill-tools {
 }
 /*contact-me*/
 .contact h2 span {
-    font-size: 25px;
+    font-size: 20px;
+    bottom: 60px;
     }
     .icon > i{
         font-size: 25px;
@@ -238,12 +242,13 @@ h1.skill-tools {
     }
 .container {
         margin-top: 10px;
+        display: inline-grid;
     }
     .contactForm{
         display: contents;
     }
     .contactForm h2{
-        font-size: 25px;
+    font-size: 20px;
     right: 80px;
     position: relative;
     }
@@ -303,9 +308,9 @@ h1.skill-tools {
 }
 /*project*/
 .projectH1{
-    width: 200px;
+    width: 300px;
     position: relative;
-    right: 50px;
+    right: 90px;
     font-size: 20px;
 }
 .slideshow-container{
@@ -317,7 +322,19 @@ h1.skill-tools {
 .qualification__container{
         width: 90%;
         margin: auto;
-        margin-top: 90px;
+        margin-top: 0px;
+        margin-left: 30px;
+        font-size: 10px;
+    }
+    .section__title{
+        font-size: 20px;
+        margin-right: 0px;
+    }
+    .qualification__subtitle {
+        margin-right: 5px;
+    }
+    .qualification_section{
+        height: 90vh;
     }
 }
 
@@ -543,8 +560,8 @@ get a ....
 
 </section>
 <!--Educatin section statrt-->
-<section class="qualification_section">
-    <h2 class="section__title">Qualification</h2>
+<section class="qualification_section" id="qualification">
+    <h2 class="section__title">Education</h2>
     <!-- <span class="section__subtitle">My personal Journey</span> -->
 
     <div class="qualification__container container">
@@ -857,8 +874,8 @@ get a ....
         dots[slideIndex-1].className += " active";
     }
 
-    const tabs = document.querySelectorAll('[data-target]'),
-    tabContents = document.querySelectorAll('[data-content]')
+    // const tabs = document.querySelectorAll('[data-target]'),
+    // tabContents = document.querySelectorAll('[data-content]')
 
 
 </script>

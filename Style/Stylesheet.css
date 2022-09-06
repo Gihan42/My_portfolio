@@ -59,7 +59,7 @@ body{
     display: flex;
     height: 100vh;
     color: white;
-    min-height: 500px;
+    min-height: 400px;
     background: #101010;
     position: relative;
     width: 100%;
@@ -582,12 +582,19 @@ border-radius: 3%;
     }
 } */
     
-/*.qualification [data-content]{
+/* .qualification [data-content]{
     display: none;
 }
 .qualification__active[data-content]{
     display: block;
-}*/
+} */
+/* @media (max-width: 991px) {
+    .contact{ padding: 50px}
+    .container{flex-direction: column}
+    .container .contactinfo{ margin-bottom: 40px}
+    .container .contactinfo, contactForm{ width:100%}
+
+} */
 
 /*contact me area styling*/
 .contact{
@@ -731,13 +738,7 @@ border-radius: 3%;
     color: black;
     width: 100px
 }
-@media (max-width: 991px) {
-    .contact{ padding: 50px}
-    .container{flex-direction: column}
-    .container .contactinfo{ margin-bottom: 40px}
-    .container .contactinfo, contactForm{ width:100%}
 
-}
 
     /*service area styling*/
 .service{
@@ -941,9 +942,9 @@ h5{
     to {opacity: 1}
 }
 
-@media only screen and (max-width: 300px) {
+/* @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
-}
+} */
 /*styling contact-me*/
 .contact-me{
     width: 100%;
