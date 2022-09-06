@@ -497,7 +497,7 @@ border-radius: 3%;
 }
 .section__title {
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
    padding: 30px;
 }
 .section__subtitle{
@@ -948,7 +948,7 @@ h5{
 /*styling contact-me*/
 .contact-me{
     width: 100%;
-    height: 290px;
+    height: 250px;
     background: #191919;
     display: flex;
     align-items: center;
@@ -983,11 +983,14 @@ h5{
     cursor: pointer;
 
 }
-
+.social > a > img{
+    width: 45px;
+    height: 45px;
+}
  .social{
     font-size: 30px;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     font-weight: bold;
 }
 .contact-me .social a{
@@ -1027,7 +1030,7 @@ footer{
 footer p:nth-child(1){
     font-size: 40px;
     color: crimson;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     font-family: "Mistral";
 }
 
