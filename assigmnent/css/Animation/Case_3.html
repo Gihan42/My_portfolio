@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Case3</title>
+</head>
+<style>
+main{
+    width: 900px;
+    height: 400px;
+    position: absolute;
+   box-shadow: 0px 1px 7px 3px #736060 ;
+    /* display: flex; */
+    left: 0;
+    right:0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+
+}
+main > section{
+    height: 100%;
+    width: 400%;
+    display: flex;
+    animation-name: my-animation;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+main > section > div{
+    height: 100%;
+    width: 100%;
+}
+main > section > div:nth-child(1){
+    background :url("/assets/images/about.jpg") ;
+    background-size: cover;
+    background-position: center;
+}
+main > section > div:nth-child(2){
+    background :url("/assets/images/photo_3.jpg") ;
+    background-size: cover;
+    background-position: center;
+    justify-content: space-around;  
+}
+main > section > div:nth-child(3){
+    background :url("/assets/images/favicon.png") ;
+    background-size: cover;
+    background-position: center;
+}
+main > section > div:nth-child(4){
+    background :url("/assets/images/gif.gif") ;
+    background-size: cover;
+    background-position: center;
+}
+@keyframes my-animation{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-25%);
+    }
+    50%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(-75%);
+    }
+
+}
+
+</style>
+<body>
+    <main>
+        <section>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+        
+    </main>
+</body>
+</html>
