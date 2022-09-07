@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./assets/sky.jpg);
+    overflow-x: hidden;
+}
+
+body, #city, #road {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#mover {
+    height: 75%;
+    width: 300%;
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 100vw);
+    grid-template-rows: repeat(2, 50%);
+    animation: moving 10s ease-in-out 0s infinite normal;
+}
+
+#city {
+    height: 100%;
+    width: 100%;
+    background-image: url(/assets/images/city.png);
+    grid-row: auto;
+    grid-column: auto;
+}
+
+#road {
+    height: 100%;
+    width: 100%;
+    background-image: url(/assets/images/road.jpg);
+    grid-row: auto;
+    grid-column: auto;
+}
+
+#car {
+    z-index: 1;
+    margin: auto;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    width: 50em;
+}
+
+.wheels {
+    z-index: 0;
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    bottom: 40px;
+    animation: roll 10s ease-in-out 1s infinite normal;
+}
+
+#wheel1 {
+    left: 300px;
+}
+
+#wheel2 {
+    right: 330px;
+}
+
+
+@keyframes moving {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(-300vw);
+    }
+}
+
+@keyframes roll {
+    0%{
+        transform: rotate(360deg);
+    }
+    50%{
+        transform: rotate(-180deg);
+    }
+}
+</style>
+<body>
+    <div id="mover">
+        <div id="city"></div>
+        <div id="city"></div>
+        <div id="city"></div>
+        <div id="city"></div>
+        <div id="road"></div>
+        <div id="road"></div>
+        <div id="road"></div>
+        <div id="road"></div>
+    </div>
+    <img src="/assets/images/car.png" alt="car" id="car">
+    <img src="/assets/images/wheel.png" alt="wheel" id="wheel1" class="wheels">
+    <img src="/assets/images/wheel.png" alt="wheel" id="wheel2" class="wheels">
+</body>
+</html>
