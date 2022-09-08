@@ -288,11 +288,6 @@ border-radius: 3%;
     font-size: 75px;
     text-transform: capitalize;
     margin-bottom: 20px;
-   /* text-shadow: -1px 1px 0 crimson,
-    1px 1px 0 crimson,
-    1px -1px 0 crimson,
-    -1px -1px 0 crimson;
-    text-align: center;*/
     text-align: center;
 }
 .skills h2{
@@ -565,37 +560,6 @@ border-radius: 3%;
 .qualification__active[data-content]{
     display: block;
 }
-/* @media screen and (min-width: 768px){
-    .qualification__tabs{
-        justify-content: center;
-    }
-    .qualification__button{
-        margin: 0 var(--mb-1);
-    }
-    .qualification__section{
-        grid-template-columns: .5fr;
-    
-    }
-    .qualification__container{
-        width: 90%;
-        margin: auto;
-    }
-} */
-    
-/* .qualification [data-content]{
-    display: none;
-}
-.qualification__active[data-content]{
-    display: block;
-} */
-/* @media (max-width: 991px) {
-    .contact{ padding: 50px}
-    .container{flex-direction: column}
-    .container .contactinfo{ margin-bottom: 40px}
-    .container .contactinfo, contactForm{ width:100%}
-
-} */
-
 /*contact me area styling*/
 .contact{
    /* position: relative;*/
@@ -942,9 +906,6 @@ h5{
     to {opacity: 1}
 }
 
-/* @media only screen and (max-width: 300px) {
-    .prev, .next,.text {font-size: 11px}
-} */
 /*styling contact-me*/
 .contact-me{
     width: 100%;
@@ -1042,5 +1003,6 @@ footer p:nth-child(1){
 }
 ::-webkit-scrollbar-thumb{
     background-color:crimson;
+    
 
 }
