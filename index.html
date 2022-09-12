@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Gihan Madushanka</title>
     <link rel="icon" type="image/x-icon" href="assets/images/my-vector-removebg-preview.png"  >
-    <link rel="stylesheet" href="Style/Stylesheet.css">
     <link rel="stylesheet" href="assets/lib/normalize.css">
     <!--<base href="localhost">-->
     <meta name="keywords" content="My-Portfolio, My-Portfolio example, My profile, My Portfolio,Gihan Madushanka,gihancv,My Portfolio">
@@ -14,10 +13,11 @@
     <meta content="width=device-width initial-scale=1" name="viewport">
     <meta name="theme color" content="#A70D2A">
     <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+    <link rel="stylesheet" href="Style/Stylesheet.css">
 </head>
 <style>
     /*responsive device*/
- @media screen and (max-width: 350px){
+@media screen and (max-width: 350px){
         .navbar{
         height: 50px;
        width: 100%;
@@ -53,7 +53,7 @@
     font-size: 8px;
 }
 .home-center{
-    left: 300px;
+    left: 150px;
     width: 300px;
     top: 70px;
 }
@@ -406,7 +406,7 @@ footer p:nth-child(1){
     font-size: 8px;
 }
 .home-center{
-    left: 300px;
+    left: 140px;
     width: 300px;
     top: 70px;
     margin-left: 50px;
@@ -725,6 +725,10 @@ footer p:nth-child(1){
    
 }  
 @media screen and (min-width: 568px) and (max-width: 768px) {
+    body{
+        width: 100vw;
+        overflow-x: hidden;
+    }
     .navbar{
         height: 50px;
        width: 100%;
@@ -753,7 +757,8 @@ footer p:nth-child(1){
     }
     .home {
     height: 50vh;
-}
+    overflow: hidden;
+    }
     .home .home-center .text-1{
     font-size: 18px;
     display: inline;
@@ -1120,45 +1125,105 @@ footer p:nth-child(1){
     .logo a {
     font-size: 20px;
     }
-    .menu{
-        margin-right: 150px;
+    .menu {
+    margin-right: 0px;
     }
+
     .menu li a {
     color: black;
     font-size: 15px;
     margin-left: 20px;
 }
+.home-center{
+    margin-left: 0;
+    left: 150px;
+}
 .home .home-center .text-1 {
     font-size: 20px;
+}
+.home .home-center .text-2 {
+    font-size: 30px;
+}
+.home .home-center .text-3 {
+    font-size: 21px;
+}
+.home .detel {
+    padding: 0px 10px;
+    width: 35%;
+}
+.manimage {
+    height: 230px;
+    width: 200px;
+    top: 100px;
+    left: 470px;
+}
+.up {
+    right: 160px;
+    bottom: 70px;
+    left: 700px;
+}
+.Skil-card {
+    height: 205px;
+    margin-top: 10px;
+
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1440px){
+    /* .manimage {
+        height: 300px;
+    width: 300px;
+    left: 600px;
+    top: 150px;
+}
+.home-center{
+    left: 60px;
+}
+.home .max-width{
+    margin: auto 0 auto 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    top: 100px;
+}
+.home .home-center .text-1 {
+    font-size: 25px;
 }
 .home .home-center .text-2 {
     font-size: 45px;
 }
 .home .home-center .text-3 {
-    font-size: 30px;
+    font-size: 28px;
 }
 .home .detel {
-    padding: 5px 20px;
-    width: 40%;
-}
-.manimage {
-    height: 280px;
-    width: 250px;
-    left: 700px;
+    padding: 10px 20px;
 }
 .up {
-    right: 160px;
-    bottom: 70px;
+ left: 900px;
+} */
 }
-.Skil-card {
-    height: 205px;
-    margin-top: 10px;
+@media screen and (min-width: 1440px) and (max-width: 2560px) {
+    /* .manimage{
+    height: 380px;
+    width: 380px;
+    left: 950px;
     }
-}
- @media screen and (min-width: 1024px)and (max-width: 1440px){
- .menu{
-    margin-right: 10px;
- }
+    .home-center {
+     left: 80px;
+    }
+    .home .home-center .text-1 {
+    font-size: 43px;
+    }
+    .home .home-center .text-2 {
+    font-size: 65px;
+    }
+    .home .home-center .text-3 {
+    font-size: 35px;
+    }
+    .social-home {
+    left: 70px;
+    }
+    .up {
+        left: 1300px;
+    } */
 }
 </style>
 <body>
@@ -1207,26 +1272,19 @@ get a ....
             </div>
             <div class="detel"> <a href="#contact">Lets Talk</a>
                 </div>
-
-
         </div>
-
 <!--    ...............................................-->
-</nav>
     </div>
-
     <div class="social-home">
         <a href="https://www.facebook.com/gih.an.94043/" target="_blank"><img src="assets/icon/facebook-new.png" ></a><br>
         <a href=" https://github.com/Gihan42" target="_blank"><img src="assets/icon/github.png" ></a><br>
         <a href="https://www.linkedin.com/in/gihan-madushanka-b53a89244/"target="_blank"><img src="assets/icon/linkedin.png"></a><br>
         <a href="https://www.instagram.com/gi.h.an/" target="_blank"><img src="assets/icon/inshot.png" ></a><br>
-
     </div>
     <div class="up">
         <a href="#home" ><img src="assets/icon/external-Up-mobile-phone-call-others-inmotus-design.png" ></a><br>
         <a href="#" ><i class="fa-brands fa-whatsapp" ></i></a><br>
     </div>
-
 </section>
 <!--about section-->
 <section class="about" id="about">
