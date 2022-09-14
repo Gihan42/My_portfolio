@@ -5,9 +5,16 @@
     <title>pos system</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="icon" type="image/x-icon" href="/assets/images/my-vector-removebg-preview.png"  >
+    <link rel="stylesheet" href="/assets/fonts/css/all.min.css">
     <!--link Bootstrap Framework-->
     <link href="/assigmnent/css/frameworks/assests/css/bootstrap.min.css" rel="stylesheet">
    <style>
+    * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
     .blockquote{
         margin: 40px;
     }
@@ -22,13 +29,16 @@
         height: 200px;
         width: 400px;
     }
+    .nav-item > a:hover {
+        color: rgb(255, 255, 255);
+    }
    </style>
 </head>
 <body>
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg" style="background-color: #a9ff46;">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #a9ff46;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" >  <img src="/assigmnent/css/frameworks/assests/pos_img/shopping-cart.png" alt="Bootstrap" width="30" height="24" > my pos</a>
+      <a class="navbar-brand" href="#" style="color: rgb(116, 4, 4); font-size: 25px;">  <img src="/assigmnent/css/frameworks/assests/pos_img/shopping-cart.png" alt="cart" width="35" height="28" style="margin: 5px;" >my pos </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,10 +48,13 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">customer</a>
+            <a class="nav-link" href="#customer">customer</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-moon"></i></a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -55,7 +68,7 @@
   <section class="home container-fluid">
     <figure class="text-center">
         <blockquote class="blockquote">
-            <img src="/assigmnent/css/frameworks/assests/pos_img/icons8-active-58.png" alt="Bootstrap" width="50" height="44" >
+            <abbr title="Active"><img src="/assigmnent/css/frameworks/assests/pos_img/icons8-active-58.png" alt="Bootstrap" width="50" height="44" style="margin-top: 40px;" ></abbr>
           <p style="font-size: 40px;">pos system.</p>
         </blockquote>
       </figure>
@@ -66,7 +79,7 @@
             <div class="card-body">
               <h5 class="card-title">customer</h5>
               <p class="card-text">customer manage form (+add new customer, delete, update, search).</p>
-              <a href="#" class="btn btn-primary">Go here</a>
+              <a href="#customer" class="btn btn-primary">Go here -></a>
             </div>
           </div>
         </div>
@@ -75,7 +88,7 @@
             <div class="card-body">
               <h5 class="card-title">orders</h5>
               <p class="card-text">place orders . find order details. add to cart iteam. payment</p>
-              <a href="#" class="btn btn-primary">Go here</a>
+              <a href="#" class="btn btn-primary">Go here -></a>
             </div>
           </div>
         </div>
@@ -84,12 +97,64 @@
               <div class="card-body">
                 <h5 class="card-title">products</h5>
                 <p class="card-text">item manage form (+add new item, delete, update, search).</p>
-                <a href="#" class="btn btn-primary">Go here</a>
+                <a href="#" class="btn btn-primary">Go here -></a>
               </div>
             </div>
           </div>
       </div>
-
+</section>
+<br><br><br><br><br><br><br><br><br><br>
+<!-- customer form -->
+<section id="customer" class="customer">
+    <nav class="navbar navbar-expand-lg  bg-primary" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">customer form</a>
+    </nav><br>
+    <!--Nav bar ends-->
+    <section class="row container-fluid"> <!--row-->
+        <section class="col"> <!--col 1-->
+            <!--form starts here-->
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">NIC / NAME  / ID</label>
+            </div>
+            <!--form ends here-->
+        </section>
+        <section class="col"><!--col-2-->
+            <button type="button" class="btn btn-danger">+ add new customer</button>
+            <button type="button" class="btn btn-secondary">load all customer</button>
+    </section>
+    <section class="row"><!--col-2-->
+        <section class="col"><!--col-2-->
+            <button type="button" class="btn btn-success">🔎 Search</button>
+            <select name="names" id="name" style="width: 250px; height: 40px;">
+            </select>
+    </section><br><br><br>
+    <section class="row"><!--col-2-->
+        <section class="col"><!--col-2-->
+            <button type="button" class="btn btn-dark">Delete</button>
+            <button type="button" class="btn btn-danger">Details</button>
+            <button type="button" class="btn btn-warning">Clear</button>
+            </select>
+    </section>
+</section>
+        </section>
+    </section>
+    <!--Table contents starts from here-->
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">address</th>
+            <th scope="col">salary</th>
+        </tr>
+        </thead>
+        <tbody>
+     
+        </tbody>
+    </table>
+    <!--Table contents ends from here-->
 </section>
 <!--Import js for bootstrap-->
 <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
