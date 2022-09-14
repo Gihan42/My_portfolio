@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pos system</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" type="image/x-icon" href="/assets/images/my-vector-removebg-preview.png"  >
+    <!--link Bootstrap Framework-->
+    <link href="/assigmnent/css/frameworks/assests/css/bootstrap.min.css" rel="stylesheet">
+   <style>
+    .blockquote{
+        margin: 40px;
+    }
+    .card{
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #dcdadaf2;
+        margin: 5px;
+    }
+    .card:hover{
+        border: 1px solid rgb(21, 153, 255);
+        height: 200px;
+        width: 400px;
+    }
+   </style>
+</head>
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: #a9ff46;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" >  <img src="/assigmnent/css/frameworks/assests/pos_img/shopping-cart.png" alt="Bootstrap" width="30" height="24" > my pos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">customer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">products</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- home section -->
+  <section class="home container-fluid">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <img src="/assigmnent/css/frameworks/assests/pos_img/icons8-active-58.png" alt="Bootstrap" width="50" height="44" >
+          <p style="font-size: 40px;">pos system.</p>
+        </blockquote>
+      </figure>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">customer</h5>
+              <p class="card-text">customer manage form (+add new customer, delete, update, search).</p>
+              <a href="#" class="btn btn-primary">Go here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">orders</h5>
+              <p class="card-text">place orders . find order details. add to cart iteam. payment</p>
+              <a href="#" class="btn btn-primary">Go here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">products</h5>
+                <p class="card-text">item manage form (+add new item, delete, update, search).</p>
+                <a href="#" class="btn btn-primary">Go here</a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+</section>
+<!--Import js for bootstrap-->
+<script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
+
+</body>
+</html>
