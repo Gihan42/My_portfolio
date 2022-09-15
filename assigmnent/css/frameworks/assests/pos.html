@@ -51,7 +51,7 @@
             <a class="nav-link" href="#customer">customer</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">products</a>
+            <a class="nav-link" href="#item">products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-moon"></i></a>
@@ -79,7 +79,7 @@
             <div class="card-body">
               <h5 class="card-title">customer</h5>
               <p class="card-text">customer manage form (+add new customer, delete, update, search).</p>
-              <a href="#customer" class="btn btn-primary">Go here -></a>
+              <a href="#customer" class="btn btn-outline-dark">Go here -></a>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@
             <div class="card-body">
               <h5 class="card-title">orders</h5>
               <p class="card-text">place orders . find order details. add to cart iteam. payment</p>
-              <a href="#" class="btn btn-primary">Go here -></a>
+              <a href="#" class=" btn btn-outline-dark">Go here -></a>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
               <div class="card-body">
                 <h5 class="card-title">products</h5>
                 <p class="card-text">item manage form (+add new item, delete, update, search).</p>
-                <a href="#" class="btn btn-primary">Go here -></a>
+                <a href="#" class="btn btn-outline-dark">Go here -></a>
               </div>
             </div>
           </div>
@@ -106,10 +106,7 @@
 <br><br><br><br><br><br><br><br><br><br>
 <!-- customer form -->
 <section id="customer" class="customer">
-    <nav class="navbar navbar-expand-lg  " style="background-color: #a1d5fffd;" >
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">customer form</a>
-    </nav><br>
+  <span class="d-block p-2 text-bg-primary">customer form</span><br>
     <!--Nav bar ends-->
     <section class="row container-fluid"> <!--row-->
         <section class="col"> <!--col 1-->
@@ -199,6 +196,99 @@
         </tbody>
     </table>
     <!--Table contents ends from here-->
+</section>
+<!-- item form -->
+<section id="item" class="item">
+  <span class="d-block p-2 text-bg-primary" >products form</span><br>
+  <!--Nav bar ends-->
+  <section class="row container-fluid"> <!--row-->
+      <section class="col"> <!--col 1-->
+          <!--form starts here-->
+          <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput"> ID / CODE</label>
+          </div>
+          <!--form ends here-->
+      </section>
+      <section class="col"><!--col-2-->
+        <button type="button" class="btn btn-secondary">load all item</button>
+        <button class="btn btn-danger" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button">
+          + add new item
+      </button>
+      <!-- new item -->
+      <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal0" tabindex="-1" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #46b2ff;">
+                    <h5 class="modal-title" id="exampleModalLabel"> save item</h5>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <section>
+                        <div class="mb-3">
+                            <label class="form-label" for="formFile"> item code</label>
+                            <input class="form-control" id="formFile" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="formFileMultiple">item name</label>
+                            <input class="form-control" id="formFileMultiple" multiple type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="formFileDisabled">item price</label>
+                            <input class="form-control" id="formFileDisabled" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="formFileSm">itemquantity</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="number">
+                        </div>
+    
+                        <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                            <button class="btn btn-danger" type="button">item Delete</button>
+                            <button class="btn btn-warning" type="button">Update</button>
+                            <button class="btn btn-success" type="button">Save</button>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary" type="button">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </section>
+  <section class="row"><!--col-2-->
+      <section class="col"><!--col-2-->
+          <button type="button" class="btn btn-success">🔎 Search</button>
+          <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
+          </select>
+  </section><br><br><br>
+  <section class="row"><!--col-2-->
+      <section class="col"><!--col-2-->
+          <button type="button" class="btn btn-dark">Delete</button>
+          <button type="button" class="btn btn-danger">Details</button>
+          <button type="button" class="btn btn-warning">Clear</button>
+          </select>
+  </section>
+</section>
+      </section>
+  </section>
+  <!--Table contents starts from here-->
+  <table class="table table-warning">
+      <thead>
+      <tr>
+          <th scope="col">code</th>
+          <th scope="col">name</th>
+          <th scope="col">price rs.</th>
+          <th scope="col">quantity</th>
+      </tr>
+      </thead>
+      <tbody>
+   
+      </tbody>
+  </table>
+  <!--Table contents ends from here-->
 </section>
 <!--Import js for bootstrap-->
 <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
