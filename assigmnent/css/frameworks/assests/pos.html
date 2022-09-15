@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>pos system</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="icon" type="image/x-icon" href="/assets/images/my-vector-removebg-preview.png"  >
+    <link rel="icon" type="image/x-icon" href="/assigmnent/css/frameworks/assests/pos_img/shopping-cart.png"  >
     <link rel="stylesheet" href="/assets/fonts/css/all.min.css">
     <!--link Bootstrap Framework-->
     <link href="/assigmnent/css/frameworks/assests/css/bootstrap.min.css" rel="stylesheet">
@@ -15,6 +15,9 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+body{
+  background-color: white;
+}
     .blockquote{
         margin: 40px;
     }
@@ -23,6 +26,15 @@
         padding: 10px;
         box-shadow: 5px 10px #dcdadaf2;
         margin: 5px;
+        background-color: rgb(237, 239, 240);
+    }
+    .card-2{
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #dcdadaf2;
+        margin: 0px;
+        margin-bottom: 20px;
+        background-color: rgb(237, 239, 240);
     }
     .card:hover{
         border: 1px solid rgb(21, 153, 255);
@@ -31,6 +43,9 @@
     }
     .nav-item > a:hover {
         color: rgb(255, 255, 255);
+    }
+    .row{
+      margin-bottom: 5px;
     }
    </style>
 </head>
@@ -52,6 +67,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#item">products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#order">orders</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-moon"></i></a>
@@ -88,7 +106,7 @@
             <div class="card-body">
               <h5 class="card-title">orders</h5>
               <p class="card-text">place orders . find order details. add to cart iteam. payment</p>
-              <a href="#" class=" btn btn-outline-dark">Go here -></a>
+              <a href="#order" class=" btn btn-outline-dark">Go here -></a>
             </div>
           </div>
         </div>
@@ -97,7 +115,7 @@
               <div class="card-body">
                 <h5 class="card-title">products</h5>
                 <p class="card-text">item manage form (+add new item, delete, update, search).</p>
-                <a href="#" class="btn btn-outline-dark">Go here -></a>
+                <a href="#item" class="btn btn-outline-dark">Go here -></a>
               </div>
             </div>
           </div>
@@ -288,7 +306,153 @@
    
       </tbody>
   </table>
-  <!--Table contents ends from here-->
+  
+<!-- order form -->
+</section>
+<!-- order form -->
+<section class="order container-fluid  " id="order">
+  <span class="d-block p-2 text-bg-primary" > orders form</span><br>
+  <div class="container">
+  <div class="row">
+     <!-- order detail -->
+    <div class=" col-sm-12 col-lg-4">
+      <div class="card-2">
+            <div class="card-body">
+              <span class="d-block" style="background-color: rgb(104, 255, 149);">order details</span><br>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="order id" aria-label="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="date" aria-label="Last name">
+                </div>
+              </div>
+            </div>
+            <!-- \//// -->
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="id" aria-label="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="cus id" aria-label="Last name">
+              </div>
+            </div>
+            <!-- \//// -->
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="name" aria-label="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="salary" aria-label="Last name">
+              </div>
+            </div>
+            <!-- \//// -->
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="address" aria-label="First name">
+              </div>
+            </div>
+            
+          </div>
+            </div>
+    <!-- place order -->
+    <div class="col-sm-12 col-lg-5">
+      <div class="card-2">
+        <div class="card-body">
+          <span class="d-block" style="background-color: rgb(104, 255, 149);">place order</span><br>
+          <div class="row">
+            <div class="row" style="margin-top: 10px;">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="code" aria-label="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="item code" aria-label="Last name">
+              </div>
+            </div>
+            <!-- \//// -->
+            <div class="row" style="margin-top: 10px;">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="item name" aria-label="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="price rs." aria-label="Last name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="qty on-hand" aria-label="Last name">
+              </div>
+              <!-- \//// -->
+              <div class="row" style="margin-top: 10px;">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="item name" aria-label="First name">
+                </div>
+                <div class="col">
+                  <button class="btn btn-primary" type="submit">place order</button>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  <!-- total -->
+  <div class="col-sm-12 col-lg-3">
+    <div class="card-2">
+      <div class="card-body">
+        <div class="row">
+          <div class="row" >
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Total :</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col">
+              <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Sub Total :</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col">
+              <input type="text" class="form-control" placeholder="cash" aria-label="First name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="discount" aria-label="First name">
+            </div>
+            <div class="row" style=" margin-top: 10px; margin-bottom: 10px;" >
+              <div class="col">
+                <input type="text" class="form-control" placeholder="balance" aria-label="First name">
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-danger"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-top: 5px; ">
+  + to cart
+</button>
+              </div>
+        </div>
+</div>
+    </div>
+</div>
+</div>
+</div>
+  <!--Table contents starts from here-->
+  <table class="table table-warning table-dark" style="margin-top: 10px;">
+    <thead>
+    <tr>
+        <th scope="col">code</th>
+        <th scope="col">item name</th>
+        <th scope="col">price rs.</th>
+        <th scope="col">quantity</th>
+        <th scope="col">balance</th>
+    </tr>
+    </thead>
+    <tbody>
+ 
+    </tbody>
+</table>
 </section>
 <!--Import js for bootstrap-->
 <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
