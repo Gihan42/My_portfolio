@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pos system item page</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" type="image/x-icon" href="/assigmnent/css/frameworks/assests/pos_img/external-Products-grocery-flat-berkahicon.png"  >
+    <link rel="stylesheet" href="/assets/fonts/css/all.min.css">
+    <!--link Bootstrap Framework-->
+    <link href="/assigmnent/css/frameworks/assests/css/bootstrap.min.css" rel="stylesheet">
+   <style>
+    * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+  background-color: white;
+}
+    .blockquote{
+        margin: 40px;
+    }
+    .card{
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #dcdadaf2;
+        margin: 5px;
+        background-color: rgb(237, 239, 240);
+    }
+    .card-2{
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #dcdadaf2;
+        margin: 0px;
+        margin-bottom: 20px;
+        background-color: rgb(237, 239, 240);
+    }
+    .card:hover{
+        border: 1px solid rgb(21, 153, 255);
+        height: 200px;
+        width: 400px;
+    }
+    .nav-item > a:hover {
+        color: rgb(255, 255, 255);
+    }
+    .row{
+      margin-bottom: 5px;
+    }
+    table{
+      height: 180px;
+    }
+    button{
+      margin: 5px;
+    }
+    .item{
+        margin-top: 80px;
+    }
+   </style>
+</head>
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #a9ff46;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: rgb(116, 4, 4); font-size: 25px;">  <img src="/assigmnent/css/frameworks/assests/pos_img/external-Products-grocery-flat-berkahicon.png" alt="cart" width="35" height="28" style="margin: 5px;" >products</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/assigmnent/css/frameworks/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/assigmnent/css/frameworks/pages/customer.html" >customer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/assigmnent/css/frameworks/pages/item.html">products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/assigmnent/css/frameworks/pages/order.html">orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-moon"></i></a>
+              </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- item form -->
+<section id="item" class="item">
+    <span class="d-block p-2 text-bg-primary" >products form</span><br>
+    <!--Nav bar ends-->
+    <section class="row container-fluid"> <!--row-->
+        <section class="col"> <!--col 1-->
+            <!--form starts here-->
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput"> ID / CODE</label>
+            </div>
+            <!--form ends here-->
+        </section>
+        <section class="col"><!--col-2-->
+          <button type="button" class="btn btn-secondary">load all item</button>
+          <button class="btn btn-danger" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button">
+            + add new item
+        </button>
+        <!-- new item -->
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal0" tabindex="-1" >
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header" style="background-color: #46b2ff;">
+                      <h5 class="modal-title" id="exampleModalLabel"> save item</h5>
+                      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                  </div>
+                  <div class="modal-body">
+                      <section>
+                          <div class="mb-3">
+                              <label class="form-label" for="formFile"> item code</label>
+                              <input class="form-control" id="formFile" type="text">
+                          </div>
+                          <div class="mb-3">
+                              <label class="form-label" for="formFileMultiple">item name</label>
+                              <input class="form-control" id="formFileMultiple" multiple type="text">
+                          </div>
+                          <div class="mb-3">
+                              <label class="form-label" for="formFileDisabled">item price</label>
+                              <input class="form-control" id="formFileDisabled" type="text">
+                          </div>
+                          <div class="mb-3">
+                              <label class="form-label" for="formFileSm">itemquantity</label>
+                              <input class="form-control form-control-sm" id="formFileSm" type="number">
+                          </div>
+      
+                          <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                              <button class="btn btn-danger" type="button">item Delete</button>
+                              <button class="btn btn-warning" type="button">Update</button>
+                              <button class="btn btn-success" type="button">Save</button>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                      <button class="btn btn-primary" type="button">Save changes</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+    </section>
+    <section class="row"><!--col-2-->
+        <section class="col"><!--col-2-->
+            <button type="button" class="btn btn-success">🔎 Search</button>
+            <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
+            </select>
+    </section><br><br><br>
+    <section class="row"><!--col-2-->
+        <section class="col"><!--col-2-->
+            <button type="button" class="btn btn-dark">Delete</button>
+            <button type="button" class="btn btn-danger">Details</button>
+            <button type="button" class="btn btn-warning">Clear</button>
+            </select>
+    </section>
+  </section>
+        </section>
+    </section>
+    <!--Table contents starts from here-->
+    <table class="table table-warning">
+        <thead>
+        <tr>
+            <th scope="col">code</th>
+            <th scope="col">name</th>
+            <th scope="col">price rs.</th>
+            <th scope="col">quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+     
+        </tbody>
+    </table>
+    
+  <!-- order form -->
+  </section>
+  <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pos system order page</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" type="image/x-icon" href="/assigmnent/css/frameworks/assests/pos_img/external-product-e-commerce-fauzidea-flat-fauzidea-2.png"  >
+    <link rel="stylesheet" href="/assets/fonts/css/all.min.css">
+    <!--link Bootstrap Framework-->
+    <link href="/assigmnent/css/frameworks/assests/css/bootstrap.min.css" rel="stylesheet">
+   <style>
+    * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+  background-color: white;
+}
+    .blockquote{
+        margin: 40px;
+    }
+    .card{
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #dcdadaf2;
+        margin: 5px;
+        background-color: rgb(237, 239, 240);
+    }
+    .card-2{
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #dcdadaf2;
+        margin: 0px;
+        margin-bottom: 20px;
+        background-color: rgb(237, 239, 240);
+    }
+    .card:hover{
+        border: 1px solid rgb(21, 153, 255);
+        height: 200px;
+        width: 400px;
+    }
+    .nav-item > a:hover {
+        color: rgb(255, 255, 255);
+    }
+    .row{
+      margin-bottom: 5px;
+    }
+    table{
+      height: 180px;
+    }
+    button{
+      margin: 5px;
+    }
+    #order{
+        margin-top: 80px;
+    }
+   </style>
+</head>
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #a9ff46;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: rgb(116, 4, 4); font-size: 25px;">  <img src="/assigmnent/css/frameworks/assests/pos_img/shopping-cart.png" alt="cart" width="35" height="28" style="margin: 5px;" >place order </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/assigmnent/css/frameworks/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/assigmnent/css/frameworks/pages/customer.html" >customer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/assigmnent/css/frameworks/pages/item.html">products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/assigmnent/css/frameworks/pages/order.html">orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-moon"></i></a>
+              </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+ 
+<!-- order form -->
+<section class="order container-fluid  " id="order">
+    <div class="container">
+    <div class="row">
+       <!-- order detail -->
+      <div class=" col-sm-12 col-lg-4">
+        <div class="card-2">
+              <div class="card-body">
+                <span class="d-block" style="background-color: rgb(104, 255, 149);">order details</span><br>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="order id" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="date" aria-label="Last name">
+                  </div>
+                </div>
+              </div>
+              <!-- \//// -->
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="id" aria-label="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="cus id" aria-label="Last name">
+                </div>
+              </div>
+              <!-- \//// -->
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="name" aria-label="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="salary" aria-label="Last name">
+                </div>
+              </div>
+              <!-- \//// -->
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="address" aria-label="First name">
+                </div>
+              </div>
+              
+            </div>
+              </div>
+      <!-- place order -->
+      <div class="col-sm-12 col-lg-5">
+        <div class="card-2">
+          <div class="card-body">
+            <span class="d-block" style="background-color: rgb(104, 255, 149);">place order</span><br>
+            <div class="row">
+              <div class="row" style="margin-top: 10px;">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="code" aria-label="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="item code" aria-label="Last name">
+                </div>
+              </div>
+              <!-- \//// -->
+              <div class="row" style="margin-top: 10px;">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="item name" aria-label="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="price rs." aria-label="Last name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="qty on-hand" aria-label="Last name">
+                </div>
+                <!-- \//// -->
+                <div class="row" style="margin-top: 10px;">
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="item name" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <button class="btn btn-primary" type="submit">place order</button>
+                  </div>
+              </div>
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>
+    <!-- total -->
+    <div class="col-sm-12 col-lg-3">
+      <div class="card-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="row" >
+              <div class="col">
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Total :</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+              </div>
+            </div>
+            <div class="row" >
+              <div class="col">
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Sub Total :</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+              </div>
+            </div>
+            <div class="row" >
+              <div class="col">
+                <input type="text" class="form-control" placeholder="cash" aria-label="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="discount" aria-label="First name">
+              </div>
+              <div class="row" style=" margin-top: 10px; margin-bottom: 10px;" >
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="balance" aria-label="First name">
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-danger"
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-top: 5px; ">
+    + to cart
+  </button>
+                </div>
+          </div>
+  </div>
+      </div>
+  </div>
+  </div>
+  </div>
+    <!--Table contents starts from here-->
+    <table class="table table-warning table-dark" style="margin-top: 10px;">
+      <thead>
+      <tr>
+          <th scope="col">code</th>
+          <th scope="col">item name</th>
+          <th scope="col">price rs.</th>
+          <th scope="col">quantity</th>
+          <th scope="col">balance</th>
+      </tr>
+      </thead>
+      <tbody>
+   
+      </tbody>
+  </table>
+  </section>
+  <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
+
+</body>
+</html>

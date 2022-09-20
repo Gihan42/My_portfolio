@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>pos system</title>
+    <title>pos system (single play application)</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="icon" type="image/x-icon" href="/assigmnent/css/frameworks/assests/pos_img/shopping-cart.png"  >
     <link rel="stylesheet" href="/assets/fonts/css/all.min.css">
@@ -57,10 +57,10 @@ body{
 </head>
 <body>
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #a9ff46;">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #a9ff46;" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" style="color: rgb(116, 4, 4); font-size: 25px;">  <img src="/assigmnent/css/frameworks/assests/pos_img/shopping-cart.png" alt="cart" width="35" height="28" style="margin: 5px;" >my pos </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
@@ -69,7 +69,7 @@ body{
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#customer">customer</a>
+            <a class="nav-link" href="#customer" id="custmer-button-spa">customer</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#item">products</a>
@@ -89,7 +89,7 @@ body{
     </div>
   </nav>
   <!-- home section -->
-  <section class="home container-fluid">
+  <section class="home container-fluid" id="home">
     <figure class="text-center">
         <blockquote class="blockquote">
             <abbr title="Active"><img src="/assigmnent/css/frameworks/assests/pos_img/icons8-active-58.png" alt="Bootstrap" width="50" height="44" style="margin-top: 40px;" ></abbr>
@@ -129,7 +129,7 @@ body{
 </section>
 <br><br><br><br><br><br><br><br><br><br>
 <!-- customer form -->
-<section id="customer" class="customer">
+<section id="customer" class="customer" id="customer">
   <span class="d-block p-2 text-bg-primary">customer form</span><br>
     <!--Nav bar ends-->
     <section class="row container-fluid"> <!--row-->
@@ -222,7 +222,7 @@ body{
     <!--Table contents ends from here-->
 </section>
 <!-- item form -->
-<section id="item" class="item">
+<section id="item" class="item" id="#item">
   <span class="d-block p-2 text-bg-primary" >products form</span><br>
   <!--Nav bar ends-->
   <section class="row container-fluid"> <!--row-->
@@ -463,5 +463,22 @@ body{
 <!--Import js for bootstrap-->
 <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
 
+<script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
+<script>
+$("#navbar").css("visibility","visible");
+$("#home").css("visibility","visible");
+$("#customer").css("display","none");
+$("#item").css("display","none");
+$("#order").css("display","none");
+
+$("#custmer-button-spa").click(function(){
+$("#navbar").css("visibility","visible");
+$("#home").css("display","none");
+$("#customer").css("display","visible");
+$("#item").css("display","none");
+$("#order").css("display","none");
+
+})
+</script>
 </body>
 </html>
