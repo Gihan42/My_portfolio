@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>calculator</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="icon" type="image/x-icon" href="/assigmnent/js/calculator/assests/icons8-calculator.gif"  >
+    <link rel="stylesheet" href="/assets/fonts/css/all.min.css">
+    <!--link Bootstrap Framework-->
+    <link href="/assigmnent/css/frameworks/assests/js/bootstrap.min.js" rel="stylesheet">
+</head>
+<style>
+    body{
+      background: url("/assets/images/sky.jpg");
+      background-size: cover;
+      
+    }
+    section{
+       position: absolute;
+        background-position: center;
+        border: 2px solid crimson;
+        height: auto;
+        width: 450px;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        display: grid;
+        grid-template-rows: repeat(6,1fr);
+        grid-template-columns: repeat(4,1fr);
+        gap: 10px;
+        background-color: rgb(218, 240, 241);
+        background: transparent;
+        padding: 10px;
+    }
+    h1{
+      position: relative;
+      left: 160px;
+      color: crimson;
+     
+    }
+    input{
+        border: 2px solid black;
+        grid-column: 1/4;
+        margin: 5px;
+        background: transparent;
+        font-size: 25px;
+    }
+    button{
+        margin: 5px;
+         cursor: pointer;
+         border: 1px solid crimson ;
+         font-size: 28px;
+         border-radius: 5px;
+    }
+    button:hover{
+        height: 70px;
+        width: 90px;
+        border: 2px solid rgb(31, 150, 255) ;
+    }
+    .clear{
+        font-size: 20px;
+        background-color: aquamarine;
+    }
+    .clear:hover{
+        background: transparent;
+    }
+   </style>
+<body>
+    <main>
+    <section>
+        
+            <input type="text" placeholder="00.00" class="anwser">
+        
+            <button class="clear">clear</button>
+
+            <button class="one" value="1">1</button>
+        
+            <button class="two">2</button>
+        
+            <button class="three">3</button>
+        
+            <button class="plus">+</button>
+        
+            <button class="four">4</button>
+        
+            <button class="five">5</button>
+        
+            <button class="six">6</button>
+        
+            <button class="Minus">-</button>
+        
+            <button class="seven">7</button>
+       
+            <button class="eight">8</button>
+        
+            <button class="nine">9</button>
+        
+            <button class="Multiply">x</button>
+        
+            <button class="Divides">/</button>
+        
+            <button class="zero">0</button>
+        
+            <button class="dot">.</button>
+        
+            <button class="Equals">=</button>
+        
+           <h1 class="title">calculator</h1>
+        
+    </section>
+</main>
+<script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
+<script>
+    var number1= $('.anwser'). val($('.anwser').val());
+    let number2=null;
+    $('.anwser').keyup(function (){
+            $('.title').text($('anwser').val())
+            
+    })
+    
+    $('.clear').click(function(){
+        $('.anwser'). val('');
+    })
+    // numbers
+$('.one').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(1) )
+})
+$('.two').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(2))
+})
+$('.three').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(3))
+})
+$('.four').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(4))
+})
+$('.five').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(5))
+})
+$('.six').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(6))
+})
+$('.seven').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(7))
+})
+$('.eight').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(8))
+})
+$('.nine').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(9))
+})
+$('.zero').click(function(){
+    $('.anwser'). val($('.anwser').val()+parseInt(0))
+})
+// operators
+$('.plus').click(function(){
+    $('.anwser'). val($('.anwser').val()+('+'))
+    // number1=$('.anwser').val();
+    
+})
+$('.Minus').click(function(){
+    $('.anwser'). val($('.anwser').val()+('-'))
+})
+$('.Multiply').click(function(){
+    $('.anwser'). val($('.anwser').val()+('*'))
+})
+$('.Divides').click(function(){
+    $('.anwser'). val($('.anwser').val()+('/'))
+})
+//.
+$('.dot').click(function(){
+    $('.anwser'). val($('.anwser').val()+('.'))
+})
+// equals
+$('.Equals').click(function(){
+   alert(number1)
+})
+</script>
+</body>
+    </html>

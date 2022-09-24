@@ -122,25 +122,25 @@ body{
                         <section>
                             <div class="mb-3">
                                 <label class="form-label" for="formFile">Customer ID</label>
-                                <input class="form-control" id="formFile" type="text">
+                                <input class="form-control" id="txtcustomerId" type="text">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="formFileMultiple">Customer Name</label>
-                                <input class="form-control" id="formFileMultiple" multiple type="text">
+                                <input class="form-control" id="txtcustomerName" multiple type="text">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="formFileDisabled">Customer Address</label>
-                                <input class="form-control" id="formFileDisabled" type="text">
+                                <input class="form-control" id="txtcustomerAddress" type="text">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="formFileSm">Customer Salary</label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="number">
+                                <input class="form-control form-control-sm" id="txtcustomerSalary" type="number">
                             </div>
         
                             <div aria-label="Basic mixed styles example" class="btn-group" role="group">
                                 <button class="btn btn-danger" type="button">Customer Delete</button>
                                 <button class="btn btn-warning" type="button">Update</button>
-                                <button class="btn btn-success" type="button">Save</button>
+                                <button class="btn btn-success " type="button" id="save-customer">Save</button>
                             </div>
                         </section>
                     </div>
@@ -186,6 +186,24 @@ body{
       <!--Table contents ends from here-->
   </section>
   <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
+  <script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
+  <script>
+    $('#save-customer').click(function(){
+      alert('customer is save!')
+    let customerId=  $('#txtcustomerId').val()
+    let custonerName=  $('#txtcustomerName').val()
+    let customerAddress=  $('#txtcustomerAddress').val()
+    let customerSalary=  $('txtcustomerSalary').val()
+
+    var custome = {
+      customerId,
+      custonerName,
+      customerAddress,
+      customerSalary
+    }
+    console.log(custome)
+  })
+  </script>
 
 </body>
 </html>
