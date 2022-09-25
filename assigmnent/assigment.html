@@ -12,8 +12,8 @@
             background-size: cover;
             width: max-content;
             height: max-content;
-           overflow-x: hidden;
-           overflow: hidden;
+          
+            overflow-x: hidden;
            background: #191919;
         }
 
@@ -25,8 +25,9 @@
     text-align: center;
 }
 .box{
-    display: flex;
-    justify-content: center;
+    display: inline-grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
     align-items: center;
     min-height: 400px ;
 }
@@ -40,6 +41,7 @@
     overflow: hidden;
     text-align: center;
     border: 2px solid #f9004d;
+
 }
 .card > figure > a > img{
     margin: 3px;
@@ -156,6 +158,18 @@ display: inline-block;
                        </figure>
                        
             </div>
+            <div class="card">
+                <h5>Java-Script</h5>
+                <figure>
+                    <a href="/assigmnent/js/spa/index.html" > <img src="/assigmnent/js/spa/assests/pos_img/icons8-shopping-cart-100.png"/></a>
+                    <figcaption>pos-system</figcaption>
+                   </figure>
+                   <figure>
+                    <a href="/assigmnent/js/calculator/index.html" > <img src="/assigmnent/js/calculator/assests/icons8-calculator.gif"/></a>
+                    <figcaption>Calculator</figcaption>
+                   </figure>
+                   
+        </div>
         
     </section>
     </body>
