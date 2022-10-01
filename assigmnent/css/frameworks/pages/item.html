@@ -100,13 +100,13 @@ body{
         <section class="col"> <!--col 1-->
             <!--form starts here-->
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control" placeholder="name@example.com" id="item-search">
                 <label for="floatingInput"> ID / CODE</label>
             </div>
             <!--form ends here-->
         </section>
         <section class="col"><!--col-2-->
-          <button type="button" class="btn btn-secondary">load all item</button>
+          <button type="button" class="btn btn-secondary" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button" id="loadForm">load item details</button>
           <button class="btn btn-danger" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button">
             + add new item
         </button>
@@ -122,25 +122,27 @@ body{
                       <section>
                           <div class="mb-3">
                               <label class="form-label" for="formFile"> item code</label>
-                              <input class="form-control" id="formFile" type="text">
+                              <input class="form-control" id="txtItemcode" type="text">
                           </div>
                           <div class="mb-3">
                               <label class="form-label" for="formFileMultiple">item name</label>
-                              <input class="form-control" id="formFileMultiple" multiple type="text">
+                              <input class="form-control" id="txtItemName"  type="text">
                           </div>
                           <div class="mb-3">
                               <label class="form-label" for="formFileDisabled">item price</label>
-                              <input class="form-control" id="formFileDisabled" type="text">
+                              <input class="form-control" id="txtItemPrice" type="number">
                           </div>
                           <div class="mb-3">
                               <label class="form-label" for="formFileSm">itemquantity</label>
-                              <input class="form-control form-control-sm" id="formFileSm" type="number">
+                              <input class="form-control form-control-sm" id="txtitemQty" type="number">
                           </div>
       
                           <div aria-label="Basic mixed styles example" class="btn-group" role="group">
-                              <button class="btn btn-danger" type="button">item Delete</button>
-                              <button class="btn btn-warning" type="button">Update</button>
-                              <button class="btn btn-success" type="button">Save</button>
+                              <button class="btn btn-danger" type="button" id="delet-item">item Delete</button>
+                              <button class="btn btn-warning" type="button" id="update-item">Update</button>
+                              <button class="btn btn-success" type="button" id="save-item">Save</button>
+                              <button class="btn btn-info " type="button" id="getAll-iteam">Get-All</button>
+
                           </div>
                       </section>
                   </div>
@@ -155,7 +157,7 @@ body{
     </section>
     <section class="row"><!--col-2-->
         <section class="col"><!--col-2-->
-            <button type="button" class="btn btn-success">🔎 Search</button>
+          <button class="btn btn-outline-success" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button" id="search">🔎 Search</button>
             <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
             </select>
     </section><br><br><br>
@@ -170,7 +172,7 @@ body{
         </section>
     </section>
     <!--Table contents starts from here-->
-    <table class="table table-warning">
+    <table class="table table-warning" id="iteam-table">
         <thead>
         <tr>
             <th scope="col">code</th>
@@ -179,7 +181,7 @@ body{
             <th scope="col">quantity</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="iteam-tablebody">
      
         </tbody>
     </table>
@@ -187,6 +189,100 @@ body{
   <!-- order form -->
   </section>
   <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
+  <script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.34/dist/sweetalert2.all.min.js"></script>
+  <script>
+    var itemsArray=[];
+    $('#save-item').click(function(){
+      Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Your item has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})
+      let itemcode= $('#txtItemcode').val();
+      let itemName= $('#txtItemName').val();
+      let itemPrice= $('#txtItemPrice').val();
+      let itemqty= $('#txtitemQty').val();
 
+      var item={
+        itemcode,
+        itemName,
+        itemPrice,
+        itemqty
+      }
+      itemsArray.push(item)
+      console.log(itemsArray)
+      getAllItem();
+      loadDetails();
+      clear()
+})
+    $('#getAll-iteam').click(function(){
+      getAllItem();
+    })
+    function getAllItem(){
+      $('#iteam-tablebody').empty();
+      for(var i of itemsArray ){
+      var row=`<tr ><td>${i.itemcode}</td><td >${ i.itemName}</td> <td >${i.itemPrice}</td><td >${i.itemqty}</td></tr>`;
+      $('#iteam-tablebody').append(row)
+    }
+    clear()
+  }
+  // SEARCH ITEM
+  function findItem(){
+    var result=$('#item-search').val();
+    for (var i of itemsArray){
+      if(i.itemcode == result){
+        $('#txtItemcode').val(i.itemcode)
+        $('#txtItemName').val(i.itemName)
+        $('#txtItemPrice').val(i.itemPrice)
+        $('#txtitemQty').val(i.itemqty)
+      }
+    }
+  }
+$('#search').click(function(){
+findItem()
+})
+$('#txtItemcode').change(function(){
+  findItem()
+})
+  function clear(){
+    $('#txtItemcode').val('')
+    $('#txtItemName').val('')
+    $('#txtItemPrice').val('')
+    $('#txtitemQty').val('')
+  }
+  ////////////end find item///////////
+  //CLICK ROW AND SET VALUES TEXT FEILD/////
+$('#loadForm').click(function(){
+  loadDetails()
+})
+function loadDetails(){
+  $("#iteam-tablebody>tr").click(function(){
+    let code=$(this).children(':eq(0)').text()
+    let name=$(this).children(':eq(1)').text()
+    let price=$(this).children(':eq(2)').text()
+    let qty=$(this).children(':eq(3)').text()
+
+    $('#txtItemcode').val(code)
+    $('#txtItemName').val(name)
+    $('#txtItemPrice').val(price)
+    $('#txtitemQty').val(qty)
+  })
+}
+///ENTER EVENT///
+$('#txtItemcode').keyup(function(){
+  $('#txtItemName').focus();
+})
+$('#txtItemName').keyup(function(){
+  $('#txtItemPrice').focus();
+})
+$('#txtItemPrice').keyup(function(){
+  $('#txtitemQty').focus();
+})
+$('#txtitemQty').keyup(function(){
+})
+  </script>
 </body>
 </html>

@@ -49,12 +49,16 @@ body{
     }
     table{
       height: 180px;
+      border: 1px solid rgb(105, 105, 105);
     }
     button{
       margin: 5px;
     }
     .customer{
         margin-top: 80px;
+    }
+    .tableHead {
+        background-color: crimson;
     }
    </style>
 </head>
@@ -86,7 +90,7 @@ body{
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success" type="submit" >Search</button>
         </form>
       </div>
     </div>
@@ -100,18 +104,18 @@ body{
           <section class="col"> <!--col 1-->
               <!--form starts here-->
               <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <input type="email" class="form-control" id="customer-search" placeholder="name@example.com">
                   <label for="floatingInput">NIC / NAME  / ID</label>
               </div>
               <!--form ends here-->
           </section>
           <section class="col"><!--col-2-->
-            <button type="button" class="btn btn-secondary">load all customer</button>
-            <button class="btn btn-danger" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button">
+            <button type="button" class="btn btn-secondary" data-bs-target="#exampleModal" data-bs-toggle="modal" id="loadForm" >load customer details</button>
+            <button class="btn btn-danger" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="addnewCustomer">
               + add new customer
           </button>
           <!-- new customer -->
-          <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1" >
+          <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1" id="Customerform" >
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #46b2ff;">
@@ -141,6 +145,7 @@ body{
                                 <button class="btn btn-danger" type="button">Customer Delete</button>
                                 <button class="btn btn-warning" type="button">Update</button>
                                 <button class="btn btn-success " type="button" id="save-customer">Save</button>
+                                <button class="btn btn-info " type="button" id="getAll-customer">Get-All</button>
                             </div>
                         </section>
                     </div>
@@ -155,7 +160,7 @@ body{
       </section>
       <section class="row"><!--col-2-->
           <section class="col"><!--col-2-->
-              <button type="button" class="btn btn-success">🔎 Search</button>
+            <button class="btn btn-outline-success" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="search">🔎 Search</button>
               <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
               </select>
       </section><br><br><br>
@@ -170,16 +175,16 @@ body{
           </section>
       </section>
       <!--Table contents starts from here-->
-      <table class="table table-warning">
+      <table class="table table-warning" id="table-customer">
           <thead>
-          <tr>
-              <th scope="col">id</th>
-              <th scope="col">name</th>
-              <th scope="col">address</th>
-              <th scope="col">salary</th>
+          <tr >
+              <th scope="col" id="cusId" class="tableHead">id</th>
+              <th scope="col" class="tableHead">name</th>
+              <th scope="col" class="tableHead">address</th>
+              <th scope="col" class="tableHead">salary</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody id="customer-tablebody">
        
           </tbody>
       </table>
@@ -187,13 +192,21 @@ body{
   </section>
   <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
   <script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.34/dist/sweetalert2.all.min.js"></script>
   <script>
+    var customers=[]
     $('#save-customer').click(function(){
-      alert('customer is save!')
+      Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Your work has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})
     let customerId=  $('#txtcustomerId').val()
     let custonerName=  $('#txtcustomerName').val()
     let customerAddress=  $('#txtcustomerAddress').val()
-    let customerSalary=  $('txtcustomerSalary').val()
+    let customerSalary=  $('#txtcustomerSalary').val()
 
     var custome = {
       customerId,
@@ -201,8 +214,92 @@ body{
       customerAddress,
       customerSalary
     }
-    console.log(custome)
+  
+  customers.push(custome)
+  console.log(customers)
+  loadAllCustomers();
+  loadDetails();
+  doubleClickRemoveRow();
+  clear();
   })
+  $('#getAll-customer').click(function(){
+    loadAllCustomers();
+    clear()
+  })
+
+  function loadAllCustomers(){
+  $('#customer-tablebody').empty()
+    for(var i of customers){
+      // console.log('customerId='+i.customerId)
+      var row=`<tr ><td>${i.customerId}</td><td >${ i.custonerName}</td> <td >${i.customerAddress}</td><td >${i.customerSalary}</td></tr>`;
+      $('#customer-tablebody').append(row); 
+    }
+}
+  // SEARCH CUSTOMER
+  $('#search').click(function(){
+    findCustomer()
+  })
+  
+function findCustomer(){
+  var result=$('#customer-search').val()
+    for(var i of customers ){
+      console.log(i.customerId)
+      if(i.customerId == result ){
+        $('#txtcustomerId').val(i.customerId)
+        $('#txtcustomerName').val(i.custonerName)
+        $('#txtcustomerAddress').val(i.customerAddress)
+        $('#txtcustomerSalary').val(i.customerSalary)
+      }
+    }
+   
+}
+
+function clear(){
+  $('#txtcustomerId').val('')
+  $('#txtcustomerName').val('')
+  $('#txtcustomerAddress').val('')
+  $('#txtcustomerSalary').val('')
+}
+////////end find customer////////
+//CLICK ROW AND SET VALUES TEXT FEILD//////
+$('#loadForm').click(function(){
+  loadDetails()
+})  
+function loadDetails(){
+$("#customer-tablebody>tr").click(function(){
+  let id= $(this).children(':eq(0)').text()
+  let name=$(this).children(':eq(1)').text()
+  let address=$(this).children(':eq(2)').text()
+  let salary=$(this).children(':eq(3)').text()
+  console.log(id,name,address,salary)
+
+  $('#txtcustomerId').val(id)
+  $('#txtcustomerName').val(name)
+  $('#txtcustomerAddress').val(address)
+  $('#txtcustomerSalary').val(salary)
+})
+
+}
+///// DOUBLE CLICK REMOVE ROW /////
+// function doubleClickRemoveRow(){
+//   $("#customer-tablebody>tr").dblclick(function(){
+  
+// })
+// }
+
+///ENTER EVENT///
+$('#txtcustomerId').keyup(function(){
+    $('#txtcustomerName').focus();
+})
+$('#txtcustomerName').keyup(function(){
+    $('#txtcustomerAddress').focus();
+})
+$('#txtcustomerAddress').keyup(function(){
+    $('#txtcustomerSalary').focus(); 
+})
+$('#txtcustomerSalary').keyup(function(){
+   alert('save')
+})
   </script>
 
 </body>
