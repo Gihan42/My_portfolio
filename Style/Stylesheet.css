@@ -4,6 +4,15 @@ padding:0;
 box-sizing: border-box;
 text-decoration: none;
 }
+h1,h2{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+h5{
+    font-family: 'Inter Tight', sans-serif;
+}
+p,pre{
+    font-family: 'Inter Tight', sans-serif;
+}
 body{
     width: 100vw;
     overflow-x: hidden;
@@ -279,6 +288,9 @@ border-radius: 3%;
     display: flex;
     flex-direction: column;
     background-color:#101010 ;
+}
+.info>span{
+    font-family: 'Inter Tight', sans-serif;
 }
 .skills h1{
     color: whitesmoke;
