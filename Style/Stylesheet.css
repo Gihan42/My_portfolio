@@ -727,6 +727,7 @@ border-radius: 3%;
     text-align: center;
 
 }
+
 .box{
     display: flex;
     justify-content: center;
@@ -805,15 +806,154 @@ h5{
     text-align: center;
 
 }
-.Project-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px ;
+.col-One{
+    grid-column: 1/2;
+    grid-row: 1/1;
 }
-.Project-card{
-    height: 165px;
-    width: 235px;
+.col-two{
+    grid-column: 2/2;
+    grid-row: 1/1;
+   
+}
+#progect1{
+    right: 190px;
+    position: relative;
+    background-color: #EC9325;
+    color:#101010;
+    text-decoration: none;
+    border:2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#progect1:hover{
+    background-color:transparent;
+    border: 1px solid #EC9325;;
+    color: white;
+}
+#progect2{
+    right: 190px;
+    position: relative;
+    background-color: #FB3C2B;
+    color:#101010;
+    text-decoration: none;
+    border:2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#progect2:hover{
+    background-color:transparent;
+    border: 1px solid  #FB3C2B;
+    color: white;
+}
+#progect3{
+    right: 190px;
+    position: relative;
+    background-color: #f9004d;
+    color:#101010;
+    text-decoration: none;
+    border:2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 10px;
+    cursor: pointer;  
+}
+#progect3:hover{
+    background-color:transparent;
+    border: 1px solid  #f9004d;
+    color: white;
+}
+#progect4{
+    right: 190px;
+    position: relative;
+    background-color: #59b2bc;
+    color:#101010;
+    text-decoration: none;
+    border:2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#progect4:hover{
+    background-color:transparent;
+    border: 1px solid  #59b2bc;
+    color: white;
+}
+.col-two > h5{
+    color: #EC9325;
+    text-align: left;
+    font-size: 25px;
+}
+.col-two > p{
+    color: #ffffff;
+    text-align: left;
+    font-size: 20px;
+    margin: 10px;
+}
+.col-three{
+    grid-column: 1/2;
+    grid-row: 1/1;
+}
+.col-four{
+    grid-column: 2/2;
+    grid-row: 1/1;
+}
+.col-four > h5{
+    color: #FB3C2B;
+    text-align: left;
+    font-size: 25px;
+}
+.col-four > p{
+    color: #ffffff;
+    text-align: left;
+    font-size: 20px;
+    margin: 10px;
+}
+.col-five{
+    grid-column: 1/2;
+    grid-row: 1/1;
+}
+.col-six{
+    grid-column: 2/2;
+    grid-row: 1/1;
+}
+.col-six> h5{
+    color:#f9004d;
+    text-align: left;
+    font-size: 25px;
+}
+.col-six > p{
+    color: #ffffff;
+    text-align: left;
+    font-size: 20px;
+    margin: 10px;
+}
+.col-eight > h5{
+    color:#59b2bc;
+    text-align: left;
+    font-size: 25px;
+}
+.col-eight > p{
+    color: #ffffff;
+    text-align: left;
+    font-size: 20px;
+    margin: 10px;
+}
+.Project-box{
+    display: grid;
+    justify-content: left;
+    align-items: flex-start;
+    min-height: 200px;
+    grid-template-rows: repeat(1,1fr);
+    grid-template-columns: repeat(2,1fr);
+}
+.Project-card1{
+    height: 200px;
+    width: 335px;
     padding: 20px 35px;
     background: gray;
     border-radius: 20px;
@@ -823,6 +963,59 @@ h5{
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
+    background: url(/assets/images/kottulabs.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.Project-card2{
+    height: 200px;
+    width: 335px;
+    padding: 20px 35px;
+    background: gray;
+    border-radius: 20px;
+    margin: 15px;
+    /*position: relative;*/
+    overflow: hidden;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: url(/assets/images/groceryshop.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.Project-card3{
+    height: 200px;
+    width: 335px;
+    padding: 20px 35px;
+    background: gray;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin: 15px;
+    /*position: relative;*/
+    overflow: hidden;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: url(/assets/images/portfolio.png);
+    background-size: cover;
+    background-position: center;
+}
+.Project-card4{
+    height: 200px;
+    width: 335px;
+    padding: 20px 35px;
+    background: gray;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin: 15px;
+    /*position: relative;*/
+    overflow: hidden;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: url(/assets/images/assigment.jpg);
+    background-size: cover;
+    background-position: center;
 }
 .Project-card:hover{
     border: 1px solid crimson;
