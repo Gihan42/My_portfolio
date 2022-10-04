@@ -194,12 +194,18 @@ body{
   <script>
     var itemsArray=[];
     $('#save-item').click(function(){
-      Swal.fire({
-  position: 'center',
-  icon: 'success',
-  title: 'Your item has been saved',
-  showConfirmButton: false,
-  timer: 1500
+      saveItem();
+      getAllItem();
+      loadDetails();
+      clear()
+})
+function saveItem(){
+  Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your item has been saved',
+        showConfirmButton: false,
+        timer: 1500
 })
       let itemcode= $('#txtItemcode').val();
       let itemName= $('#txtItemName').val();
@@ -214,10 +220,7 @@ body{
       }
       itemsArray.push(item)
       console.log(itemsArray)
-      getAllItem();
-      loadDetails();
-      clear()
-})
+}
     $('#getAll-iteam').click(function(){
       getAllItem();
     })
@@ -245,7 +248,7 @@ $('#search').click(function(){
 findItem()
 })
 $('#txtItemcode').change(function(){
-  findItem()
+findItem()
 })
   function clear(){
     $('#txtItemcode').val('')
@@ -253,7 +256,7 @@ $('#txtItemcode').change(function(){
     $('#txtItemPrice').val('')
     $('#txtitemQty').val('')
   }
-  ////////////end find item///////////
+  //////////// end find item ///////////
   //CLICK ROW AND SET VALUES TEXT FEILD/////
 $('#loadForm').click(function(){
   loadDetails()
@@ -271,18 +274,86 @@ function loadDetails(){
     $('#txtitemQty').val(qty)
   })
 }
-///ENTER EVENT///
-$('#txtItemcode').keyup(function(){
-  $('#txtItemName').focus();
+///ENTER EVENT  SAVE ITEM  & VALIDATION///
+$('#txtItemcode').on('keydown',function(event){
+  if(event.key=='Enter'){
+    var code=/^(I)[0-9]{3}$/;
+    var result=code.test($('#txtItemcode').val());
+    if(result){
+      $("#txtItemcode").css({
+        'border-color': 'green'
+      })
+      $('#txtItemName').focus();
+    }
+    else{
+      $("#txtItemcode").css({
+        'border-color': 'red'
+      })
+    }
+  }
 })
-$('#txtItemName').keyup(function(){
-  $('#txtItemPrice').focus();
+$('#txtItemName').on('keydown',function(event){
+  if(event.key=='Enter'){
+    var Name=/^[A-z ]{3,15}$/
+    var result=Name.test($('#txtItemName').val());
+    if(result){
+      $("#txtItemName").css({
+        'border-color': 'green'
+      })
+      $('#txtItemPrice').focus();
+    }
+    else{
+      $("#txtItemName").css({
+        'border-color': 'red'
+      })
+    }
+    
+  }
 })
-$('#txtItemPrice').keyup(function(){
-  $('#txtitemQty').focus();
+$('#txtItemPrice').on('keydown',function(event){
+  if(event.key=='Enter'){
+    var price=/^[1-9][0-9]*(.[0-9]{2})?$/;
+    var result=price.test($('#txtItemPrice').val());
+    if(result){
+      $("#txtItemPrice").css({
+        'border-color': 'green'
+      })
+      $('#txtitemQty').focus();
+    }
+    else{
+      $("#txtItemPrice").css({
+        'border-color': 'red'
+      })
+    }
+  }
 })
-$('#txtitemQty').keyup(function(){
+$('#txtitemQty').on('keydown',function(event){
+  if(event.key=='Enter'){
+    var qty=/^[0-9]{1,}$/;
+    var result=qty.test($('#txtitemQty').val());
+    if(result){
+      $("#txtitemQty").css({
+        'border-color': 'green'
+      })
+    confirm('Do you want to save this item');
+    saveItem();
+    getAllItem();
+    }
+    else{
+      $("#txtitemQty").css({
+        'border-color': 'red'
+      })
+    }
+    
+  }
 })
+////disable tab key of all  text fields
+$('#txtItemcode,#txtItemName,#txtItemPrice,#txtitemQty').on('keydown',function(event){
+     if(event.key=='Tab'){
+      event.preventDefault();
+     }
+})
+/////END ENTER EVENT & SAVE ITEM/////
   </script>
 </body>
 </html>

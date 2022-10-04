@@ -84,6 +84,29 @@ margin: 10px;
 padding: 0;
 display: inline-block;
 }
+/* loader content */
+#loader{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #F5F5F5
+}
+#loader > div{
+    width: 900px;
+    height: 400px;
+    border: 2px solid #F5F5F5;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: url("/assets/loadingimg/1.gif");
+    background-size: cover;
+    background-position: center;
+}
 /* media responsive */
 /* @media screen and (max-width: 350px){
     .box {
@@ -100,7 +123,10 @@ display: inline-block;
     </style>
 </head>
 <body>
-    
+    <div id="loader">
+        <div>
+        </div>
+    </div>
     <section class="ser" id="service">
         <div class="service">
             <div class="title">
@@ -170,7 +196,16 @@ display: inline-block;
                    </figure>
                    
         </div>
-        
     </section>
+    <script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+    $(window).on('load', function () {
+        console.log("Window on load");
+        $("#loader").fadeOut(1000);
+    });
+    $(document).ready(function () {
+        console.log("Document is ready");
+    });
+    </script>
     </body>
 </html>
