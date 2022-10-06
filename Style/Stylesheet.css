@@ -958,7 +958,7 @@ h5{
     background: gray;
     border-radius: 20px;
     margin: 15px;
-    /* position: absolute; */
+    position: relative;
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
@@ -974,7 +974,7 @@ h5{
     background: gray;
     border-radius: 20px;
     margin: 15px;
-    /*position: relative;*/
+    position: relative;
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
@@ -991,7 +991,7 @@ h5{
     border-radius: 10px;
     border: 1px solid white;
     margin: 15px;
-    /*position: relative;*/
+    position: relative;
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
@@ -1008,7 +1008,7 @@ h5{
     border-radius: 10px;
     border: 1px solid white;
     margin: 15px;
-    /*position: relative;*/
+    position: relative;
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
