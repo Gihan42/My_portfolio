@@ -958,7 +958,7 @@ h5{
     background: gray;
     border-radius: 20px;
     margin: 15px;
-    position: absolute;
+    /* position: absolute; */
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
