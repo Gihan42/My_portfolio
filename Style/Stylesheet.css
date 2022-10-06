@@ -989,9 +989,9 @@ h5{
     padding: 20px 35px;
     /* background: gray; */
     border-radius: 10px;
-    border: 1px solid white;
     margin: 15px;
     /* position: relative; */
+    border: 1px solid #f9004d;
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
@@ -1006,7 +1006,6 @@ h5{
     padding: 20px 35px;
     /* background: gray; */
     border-radius: 10px;
-    border: 1px solid white;
     margin: 15px;
     /* position: relative; */
     overflow: hidden;
