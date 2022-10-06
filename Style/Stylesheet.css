@@ -979,7 +979,7 @@ h5{
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    background: url(/assets/images/groceryshop.jpg);
+    background: url("/assets/images/groceryshop.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -996,7 +996,7 @@ h5{
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    background: url(/assets/images/portfolio.png);
+    background: url("/assets/images/portfolio.png");
     background-size: cover;
     background-position: center;
 }
@@ -1013,7 +1013,7 @@ h5{
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    background: url(/assets/images/assigment.jpg);
+    background: url("/assets/images/assigment.jpg");
     background-size: cover;
     background-position: center;
 }
