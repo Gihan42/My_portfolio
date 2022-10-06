@@ -8,7 +8,7 @@ Mock-up URL:- https://www.figma.com/file/xSaBUvA93b3H30WFAQZKdo/Untitled?node-id
 
 GitHub Page URL :-https://gihan42.github.io/My_portfolio/
 
-GitHub URL :- https://github.com/Gihan42>
+GitHub URL :- https://github.com/Gihan42
 
 
 #👋my-pos-system👋
