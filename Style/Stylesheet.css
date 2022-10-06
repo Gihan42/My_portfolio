@@ -958,7 +958,7 @@ h5{
     /* background: gray; */
     border-radius: 20px;
     margin: 15px;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
@@ -974,12 +974,12 @@ h5{
     /* background: gray; */
     border-radius: 20px;
     margin: 15px;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    background: url("/assets/images/groceryshop.jpg");
+    background: url("https://i.ibb.co/zVVk8Qh/groceryshop.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -991,12 +991,12 @@ h5{
     border-radius: 10px;
     border: 1px solid white;
     margin: 15px;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    background-image: url("/assets/images/portfolio.png");
+    background-image: url("https://i.ibb.co/wcBS1R6/portfolio.png" );
     background-size: cover;
     background-position: center;
 }
@@ -1008,12 +1008,12 @@ h5{
     border-radius: 10px;
     border: 1px solid white;
     margin: 15px;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    background-image: url("/assets/images/assigment.jpg");
+    background-image: url("https://i.ibb.co/9T1sK1h/assigment.jpg" );
     background-size: cover;
     background-position: center;
 }
