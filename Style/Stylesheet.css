@@ -955,7 +955,7 @@ h5{
     height: 200px;
     width: 335px;
     padding: 20px 35px;
-    background: gray;
+    /* background: gray; */
     border-radius: 20px;
     margin: 15px;
     position: relative;
@@ -971,7 +971,7 @@ h5{
     height: 200px;
     width: 335px;
     padding: 20px 35px;
-    background: gray;
+    /* background: gray; */
     border-radius: 20px;
     margin: 15px;
     position: relative;
@@ -987,7 +987,7 @@ h5{
     height: 200px;
     width: 335px;
     padding: 20px 35px;
-    background: gray;
+    /* background: gray; */
     border-radius: 10px;
     border: 1px solid white;
     margin: 15px;
@@ -1004,7 +1004,7 @@ h5{
     height: 200px;
     width: 335px;
     padding: 20px 35px;
-    background: gray;
+    /* background: gray; */
     border-radius: 10px;
     border: 1px solid white;
     margin: 15px;
