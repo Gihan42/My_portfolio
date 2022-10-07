@@ -163,7 +163,7 @@ body{
     </section><br><br><br>
     <section class="row"><!--col-2-->
         <section class="col"><!--col-2-->
-            <button type="button" class="btn btn-dark">Delete</button>
+            <button type="button" class="btn btn-dark" id="deleteItem">Delete</button>
             <button type="button" class="btn btn-danger">Details</button>
             <button type="button" class="btn btn-warning">Clear</button>
             </select>
@@ -233,19 +233,37 @@ function saveItem(){
     clear()
   }
   // SEARCH ITEM
-  function findItem(){
-    var result=$('#item-search').val();
-    for (var i of itemsArray){
-      if(i.itemcode == result){
-        $('#txtItemcode').val(i.itemcode)
-        $('#txtItemName').val(i.itemName)
-        $('#txtItemPrice').val(i.itemPrice)
-        $('#txtitemQty').val(i.itemqty)
+  // function findItem(){
+  //   var result=$('#item-search').val();
+  //   for (var i of itemsArray){
+  //     if(i.itemcode == result){
+  //       $('#txtItemcode').val(i.itemcode)
+  //       $('#txtItemName').val(i.itemName)
+  //       $('#txtItemPrice').val(i.itemPrice)
+  //       $('#txtitemQty').val(i.itemqty)
+  //     }
+  //   }
+  // }
+  function searchItem(itemCode){
+      for (let item of itemsArray) {
+        if(item.itemcode==itemCode){
+            return item;
+        }
       }
-    }
+      return null;
   }
 $('#search').click(function(){
-findItem()
+  let typecode=$('#item-search').val();
+  let item=searchItem(typecode)
+  if(item !=null){
+    $('#txtItemcode').val(item.itemcode)
+    $('#txtItemName').val(item.itemName)
+    $('#txtItemPrice').val(item.itemPrice)
+    $('#txtitemQty').val(item.itemqty)
+  }
+  else {
+        Swal.fire("There is no item available for that " + typecode)
+        }
 })
 $('#txtItemcode').change(function(){
 findItem()
@@ -257,6 +275,80 @@ findItem()
     $('#txtitemQty').val('')
   }
   //////////// end find item ///////////
+
+  ////ITEM DELETE /////
+  $('#delet-item').click(function(){
+    let iCode=$('#item-search').val();
+    let option=confirm('Do you want to delete this item'+iCode)
+    if(option){
+    if(deletItem(iCode)){
+      Swal.fire({
+        icon: 'delete',
+        title: 'Deleted...',
+        text: 'Item Successfully Deleted!',
+})
+  $('#txtcustomerId').val('')
+  $('#txtcustomerName').val('')
+  $('#txtcustomerAddress').val('')
+  $('#txtcustomerSalary').val('')
+
+    }
+    else{
+  Swal.fire("No such item to delete. please check the id" )
+}
+    }
+  })
+  function deletItem(itemcode){
+    let item=searchItem(itemcode)
+    if(item!=null){
+        let indexNo=itemsArray.indexOf(item)
+        itemsArray.splice(indexNo,1)
+        getAllItem();
+        return true;
+    }
+    else{
+      return false;
+    }
+
+  }
+
+  ///END ITEM DELETE////
+  ///UPDATE ITEM////
+  $('#update-item').click(function(){
+    let itemCode=$('#txtItemcode').val()
+    let response=updateItem(itemCode)
+    if(response){
+      Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Customer Updated Successfully',
+  showConfirmButton: false,
+  timer: 1500
+})
+$('#txtItemcode').val('')
+$('#txtItemName').val('')
+$('#txtItemPrice').val('')
+$('#txtitemQty').val('')
+    }
+    else{
+      Swal.fire("Update Failed..!" )
+    }
+  })
+  function updateItem(itemCode){
+    let item=searchItem(itemCode)
+    if(item != null){
+      item.itemCode=$('#txtItemcode').val()
+      item.itemName= $('#txtItemName').val()
+      item.itemPrice= $('#txtItemPrice').val()
+      item.itemqty=$('#txtitemQty').val()
+      getAllItem()
+      return true
+    }
+    else{
+      return false
+    }
+  }
+  ///DELETE ITEM///
   //CLICK ROW AND SET VALUES TEXT FEILD/////
 $('#loadForm').click(function(){
   loadDetails()

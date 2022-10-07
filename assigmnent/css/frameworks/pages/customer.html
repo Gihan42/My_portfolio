@@ -142,8 +142,8 @@ body{
                             </div>
         
                             <div aria-label="Basic mixed styles example" class="btn-group" role="group">
-                                <button class="btn btn-danger" type="button">Customer Delete</button>
-                                <button class="btn btn-warning" type="button">Update</button>
+                                <button class="btn btn-danger" type="button" id="customerDelete">Customer Delete</button>
+                                <button class="btn btn-warning" type="button" id="customerUpdate">Update</button>
                                 <button class="btn btn-success " type="button" id="save-customer">Save</button>
                                 <button class="btn btn-info " type="button" id="getAll-customer">Get-All</button>
                             </div>
@@ -167,7 +167,7 @@ body{
       <section class="row"><!--col-2-->
           <section class="col"><!--col-2-->
               <button type="button" class="btn btn-dark">Delete</button>
-              <button type="button" class="btn btn-danger">Details</button>
+              <button type="button" class="btn btn-danger" id="details">Details</button>
               <button type="button" class="btn btn-warning">Clear</button>
               </select>
       </section>
@@ -194,6 +194,7 @@ body{
   <script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.34/dist/sweetalert2.all.min.js"></script>
   <script>
+    
     var customers=[]
     $('#save-customer').click(function(){
   saveCustomer();
@@ -240,22 +241,114 @@ body{
 }
   // SEARCH CUSTOMER
   $('#search').click(function(){
-    findCustomer()
+            let typedId = $("#customer-search").val();
+            let customer = searchCustomer(typedId);
+            if (customer != null) {
+                $('#txtcustomerId').val(customer.customerId)
+                $('#txtcustomerName').val(customer.custonerName)
+                $('#txtcustomerAddress').val(customer.customerAddress)
+                $('#txtcustomerSalary').val(customer.customerSalary)
+            } else {
+                Swal.fire("There is no cusotmer available for that " + typedId)
+                setTextfieldValues("", "", "", "");
+            }
   })
   
-function findCustomer(){
-  var result=$('#customer-search').val()
-    for(var i of customers ){
-      console.log(i.customerId)
-      if(i.customerId == result ){
-        $('#txtcustomerId').val(i.customerId)
-        $('#txtcustomerName').val(i.custonerName)
-        $('#txtcustomerAddress').val(i.customerAddress)
-        $('#txtcustomerSalary').val(i.customerSalary)
-      }
-    }
-}
+// function findCustomer(){
+//   var result=$('#customer-search').val()
+//     for(var i of customers ){
+//       console.log(i.customerId)
+//       if(i.customerId == result ){
+//         $('#txtcustomerId').val(i.customerId)
+//         $('#txtcustomerName').val(i.custonerName)
+//         $('#txtcustomerAddress').val(i.customerAddress)
+//         $('#txtcustomerSalary').val(i.customerSalary)
+//       }
+//     }
+//     }
+// }
 
+function searchCustomer(cusID) {
+        for (let customer of customers) {
+            if (customer.customerId == cusID) {
+                return customer;
+                console.log(customer)
+            }
+        }
+        return null;
+    }
+    //END SEARCH CUSTOMER
+
+//////CUSTOMER DELETE//////
+$('#customerDelete').click(function(){
+  let cusId=$("#customer-search").val();
+  let option=confirm('Do you want to delete this customer'+cusId)
+  if(option){
+    if(deleteCustomer(cusId)){
+Swal.fire({
+  icon: 'delete',
+  title: 'Deleted...',
+  text: 'Customer Successfully Deleted!',
+})
+$('#txtcustomerId').val('')
+  $('#txtcustomerName').val('')
+  $('#txtcustomerAddress').val('')
+  $('#txtcustomerSalary').val('')
+}
+else{
+  Swal.fire("No such customer to delete. please check the id" )
+}
+    }
+
+})
+function deleteCustomer(customerID){
+  let customer= searchCustomer(customerID)
+  if(customer!=null){
+    let indexNo= customers.indexOf(customer);
+    customers.splice(indexNo,1)
+    loadAllCustomers()
+    return true;
+  }else{
+    return false;
+  }
+}
+//////END   CUSTOMER DELETE//////
+/////UPDATE CUSTOMER//////
+$('#customerUpdate').click(function(){
+  let cutomerId=$('#txtcustomerId').val()
+  let response=updateCustomer(cutomerId)
+  if(response){
+    Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Customer Updated Successfully',
+  showConfirmButton: false,
+  timer: 1500
+})
+$('#txtcustomerId').val('')
+  $('#txtcustomerName').val('')
+  $('#txtcustomerAddress').val('')
+  $('#txtcustomerSalary').val('')
+  }
+  else{
+    Swal.fire("Update Failed..!" )
+  }
+})
+function updateCustomer(customerID){
+  let customer= searchCustomer(customerID)
+  if(customer !=null){
+    customer.customerID=$('#txtcustomerId').val()
+    customer.custonerName= $('#txtcustomerName').val()
+    customer.customerAddress= $('#txtcustomerAddress').val()
+    customer.customerSalary= $('#txtcustomerSalary').val()
+    loadAllCustomers()
+    return true
+  }
+  else{
+    return false
+  }
+}
+////END UPDATE CUSTOMER////
 function clear(){
   $('#txtcustomerId').val('')
   $('#txtcustomerName').val('')
@@ -288,21 +381,26 @@ function removeRow(){
 });
 }
 ///// END REMOVE ROW /////
-
+$('#addnewCustomer').click(function(){
+  $('#txtcustomerId').focus()
+})
 ///ENTER EVENT  SAVE CUSTOMER & VALIDATION///
+$('#txtcustomerId').focus()
 $('#txtcustomerId').on('keydown',function(event){
     if(event.key=='Enter'){
             var id = /^(C)[0-9]{3}$/;
             var result = id.test($("#txtcustomerId").val());
             if (result) {
                 $("#txtcustomerId").css({
-                    'border-color': 'green'
+                    'border': '2px solid green'
                 })
                 $('#txtcustomerName').focus();
             } else {
                 $("#txtcustomerId").css({
                     'border-color': 'red'
                 })
+
+                $('#txtcustomerId').error='Customer ID Pattern is Wrong : C00-001'
             }
     }
 })
@@ -353,6 +451,7 @@ $('#txtcustomerSalary').on('keydown',function(event){
                   confirm('Do you want to save this customer')
                   saveCustomer();
                   loadAllCustomers();
+                  clear();
             }
             else{
                 $('#txtcustomerSalary').css({
@@ -361,6 +460,7 @@ $('#txtcustomerSalary').on('keydown',function(event){
             }
   }
 })
+
 ////disable tab key of all  text fields
 $('#txtcustomerId,#txtcustomerName,#txtcustomerAddress,#txtcustomerSalary').on('keydown',function(event){
   if(event.key=='Tab'){
