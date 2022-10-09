@@ -134,113 +134,114 @@ body{
       </div>
 </section>
 <!-- customer form -->
-<section id="customer" class="customer" id="customer">
-  <span class="d-block p-2 text-bg-primary">customer form</span><br>
-    <!--Nav bar ends-->
-    <section class="row container-fluid"> <!--row-->
-        <section class="col"> <!--col 1-->
-            <!--form starts here-->
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">NIC / NAME  / ID</label>
-            </div>
-            <!--form ends here-->
-        </section>
-        <section class="col"><!--col-2-->
-          <button type="button" class="btn btn-secondary">load all customer</button>
-          <button class="btn btn-danger" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button">
-            + add new customer
-        </button>
-        <!-- new customer -->
-        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1" >
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header" style="background-color: #46b2ff;">
-                      <h5 class="modal-title" id="exampleModalLabel">Customer Save</h5>
-                      <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
-                  </div>
-                  <div class="modal-body">
-                      <section>
-                          <div class="mb-3">
-                              <label class="form-label" for="formFile">Customer ID</label>
-                              <input class="form-control" id="formFile" type="text">
-                          </div>
-                          <div class="mb-3">
-                              <label class="form-label" for="formFileMultiple">Customer Name</label>
-                              <input class="form-control" id="formFileMultiple" multiple type="text">
-                          </div>
-                          <div class="mb-3">
-                              <label class="form-label" for="formFileDisabled">Customer Address</label>
-                              <input class="form-control" id="formFileDisabled" type="text">
-                          </div>
-                          <div class="mb-3">
-                              <label class="form-label" for="formFileSm">Customer Salary</label>
-                              <input class="form-control form-control-sm" id="formFileSm" type="number">
-                          </div>
-      
-                          <div aria-label="Basic mixed styles example" class="btn-group" role="group">
-                              <button class="btn btn-danger" type="button">Customer Delete</button>
-                              <button class="btn btn-warning" type="button">Update</button>
-                              <button class="btn btn-success" type="button">Save</button>
-                          </div>
-                      </section>
-                  </div>
-                  <div class="modal-footer">
-                      <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
-                      <button class="btn btn-primary" type="button">Save changes</button>
-                  </div>
+<section id="customer" class="customer">
+    <span class="d-block p-2 text-bg-primary">customer form</span><br>
+      <!--Nav bar ends-->
+      <section class="row container-fluid"> <!--row-->
+          <section class="col"> <!--col 1-->
+              <!--form starts here-->
+              <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="customer-search" placeholder="name@example.com">
+                  <label for="floatingInput">NIC / NAME  / ID</label>
               </div>
-          </div>
-      </div>
-      
-    </section>
-    <section class="row"><!--col-2-->
-        <section class="col"><!--col-2-->
-            <button type="button" class="btn btn-success">🔎 Search</button>
-            <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
-            </select>
-    </section><br><br><br>
-    <section class="row"><!--col-2-->
-        <section class="col"><!--col-2-->
-            <button type="button" class="btn btn-dark">Delete</button>
-            <button type="button" class="btn btn-danger">Details</button>
-            <button type="button" class="btn btn-warning">Clear</button>
-            </select>
-    </section>
-</section>
-        </section>
-    </section>
-    <!--Table contents starts from here-->
-    <table class="table table-warning">
-        <thead>
-        <tr>
-            <th scope="col">id</th>
-            <th scope="col">name</th>
-            <th scope="col">address</th>
-            <th scope="col">salary</th>
-        </tr>
-        </thead>
-        <tbody>
-     
-        </tbody>
-    </table>
-    <!--Table contents ends from here-->
-</section>
-<!-- item form -->
-<section id="item" class="item" id="item">
+              <!--form ends here-->
+          </section>
+          <section class="col"><!--col-2-->
+            <button type="button" class="btn btn-secondary" data-bs-target="#exampleModal" data-bs-toggle="modal" id="loadForm" >load customer details</button>
+            <button class="btn btn-danger" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="addnewCustomer">
+              + add new customer
+          </button>
+          <!-- new customer -->
+          <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1" id="Customerform" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #46b2ff;">
+                        <h5 class="modal-title" id="exampleModalLabel">Customer Save</h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <section>
+                            <div class="mb-3">
+                                <label class="form-label" for="formFile">Customer ID</label>
+                                <input class="form-control" id="txtcustomerId" type="text">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="formFileMultiple">Customer Name</label>
+                                <input class="form-control" id="txtcustomerName" multiple type="text">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="formFileDisabled">Customer Address</label>
+                                <input class="form-control" id="txtcustomerAddress" type="text">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="formFileSm">Customer Salary</label>
+                                <input class="form-control form-control-sm" id="txtcustomerSalary" type="number">
+                            </div>
+        
+                            <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+                                <button class="btn btn-danger" type="button" id="customerDelete">Customer Delete</button>
+                                <button class="btn btn-warning" type="button" id="customerUpdate">Update</button>
+                                <button class="btn btn-success " type="button" id="save-customer">Save</button>
+                                <button class="btn btn-info " type="button" id="getAll-customer">Get-All</button>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary" type="button">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      </section>
+      <section class="row"><!--col-2-->
+          <section class="col"><!--col-2-->
+            <button class="btn btn-outline-success" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="search">🔎 Search</button>
+              <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
+              </select>
+      </section><br><br><br>
+      <section class="row"><!--col-2-->
+          <section class="col"><!--col-2-->
+              <button type="button" class="btn btn-dark">Delete</button>
+              <button type="button" class="btn btn-danger" id="details">Details</button>
+              <button type="button" class="btn btn-warning">Clear</button>
+              </select>
+      </section>
+  </section>
+          </section>
+      </section>
+      <!--Table contents starts from here-->
+      <table class="table table-warning" id="table-customer">
+          <thead>
+          <tr >
+              <th scope="col" id="cusId" class="tableHead">id</th>
+              <th scope="col" class="tableHead">name</th>
+              <th scope="col" class="tableHead">address</th>
+              <th scope="col" class="tableHead">salary</th>
+          </tr>
+          </thead>
+          <tbody id="customer-tablebody">
+       
+          </tbody>
+      </table>
+      <!--Table contents ends from here-->
+  </section>
+ <!-- item form -->
+ <section id="item" class="item">
   <span class="d-block p-2 text-bg-primary" >products form</span><br>
   <!--Nav bar ends-->
   <section class="row container-fluid"> <!--row-->
       <section class="col"> <!--col 1-->
           <!--form starts here-->
           <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="email" class="form-control" placeholder="name@example.com" id="item-search">
               <label for="floatingInput"> ID / CODE</label>
           </div>
           <!--form ends here-->
       </section>
       <section class="col"><!--col-2-->
-        <button type="button" class="btn btn-secondary">load all item</button>
+        <button type="button" class="btn btn-secondary" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button" id="loadForm">load item details</button>
         <button class="btn btn-danger" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button">
           + add new item
       </button>
@@ -256,25 +257,27 @@ body{
                     <section>
                         <div class="mb-3">
                             <label class="form-label" for="formFile"> item code</label>
-                            <input class="form-control" id="formFile" type="text">
+                            <input class="form-control" id="txtItemcode" type="text">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="formFileMultiple">item name</label>
-                            <input class="form-control" id="formFileMultiple" multiple type="text">
+                            <input class="form-control" id="txtItemName"  type="text">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="formFileDisabled">item price</label>
-                            <input class="form-control" id="formFileDisabled" type="text">
+                            <input class="form-control" id="txtItemPrice" type="number">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="formFileSm">itemquantity</label>
-                            <input class="form-control form-control-sm" id="formFileSm" type="number">
+                            <input class="form-control form-control-sm" id="txtitemQty" type="number">
                         </div>
     
                         <div aria-label="Basic mixed styles example" class="btn-group" role="group">
-                            <button class="btn btn-danger" type="button">item Delete</button>
-                            <button class="btn btn-warning" type="button">Update</button>
-                            <button class="btn btn-success" type="button">Save</button>
+                            <button class="btn btn-danger" type="button" id="delet-item">item Delete</button>
+                            <button class="btn btn-warning" type="button" id="update-item">Update</button>
+                            <button class="btn btn-success" type="button" id="saveitem">Save</button>
+                            <button class="btn btn-info " type="button" id="getAll-iteam">Get-All</button>
+
                         </div>
                     </section>
                 </div>
@@ -289,13 +292,13 @@ body{
   </section>
   <section class="row"><!--col-2-->
       <section class="col"><!--col-2-->
-          <button type="button" class="btn btn-success">🔎 Search</button>
+        <button class="btn btn-outline-success" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button" id="search">🔎 Search</button>
           <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
           </select>
   </section><br><br><br>
   <section class="row"><!--col-2-->
       <section class="col"><!--col-2-->
-          <button type="button" class="btn btn-dark">Delete</button>
+          <button type="button" class="btn btn-dark" id="deleteItem">Delete</button>
           <button type="button" class="btn btn-danger">Details</button>
           <button type="button" class="btn btn-warning">Clear</button>
           </select>
@@ -304,7 +307,7 @@ body{
       </section>
   </section>
   <!--Table contents starts from here-->
-  <table class="table table-warning">
+  <table class="table table-warning" id="iteam-table">
       <thead>
       <tr>
           <th scope="col">code</th>
@@ -313,7 +316,7 @@ body{
           <th scope="col">quantity</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody id="iteam-tablebody">
    
       </tbody>
   </table>
@@ -532,5 +535,7 @@ $("#item").css("display","none");
 $("#order").show();
 })
 </script>
+<script src="/assigmnent/js/spa/controlers/CustomerControlers.js"></script>
+<script src="/assigmnent/js/spa/controlers/ItemControllers.js"></script>
 </body>
 </html>
