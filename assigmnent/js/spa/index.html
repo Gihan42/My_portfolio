@@ -56,6 +56,7 @@ body{
     #customer,#item{
       margin-top: 80px;
     }
+    
     #order{
       margin-top: 80px;
     }
@@ -198,7 +199,7 @@ body{
       <section class="row"><!--col-2-->
           <section class="col"><!--col-2-->
             <button class="btn btn-outline-success" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="search">🔎 Search</button>
-              <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
+              <select class="fctorm-sele" name="names" id="cmbloadCusId" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
               </select>
       </section><br><br><br>
       <section class="row"><!--col-2-->
@@ -275,7 +276,7 @@ body{
                         <div aria-label="Basic mixed styles example" class="btn-group" role="group">
                             <button class="btn btn-danger" type="button" id="delet-item">item Delete</button>
                             <button class="btn btn-warning" type="button" id="update-item">Update</button>
-                            <button class="btn btn-success" type="button" id="saveitem">Save</button>
+                            <button class="btn btn-success" type="button" id="save-item">Save</button>
                             <button class="btn btn-info " type="button" id="getAll-iteam">Get-All</button>
 
                         </div>
@@ -292,8 +293,8 @@ body{
   </section>
   <section class="row"><!--col-2-->
       <section class="col"><!--col-2-->
-        <button class="btn btn-outline-success" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button" id="search">🔎 Search</button>
-          <select class="fctorm-sele" name="names" id="name" style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " >
+        <button class="btn btn-outline-success" data-bs-target="#exampleModal0" data-bs-toggle="modal" type="button" id="searchI">🔎 Search M</button>
+          <select class="fctorm-sele" name="names"  style="width: 250px; height: 38px; border: 1px solid black; border-radius: 8px; " id="cmbitCodes">
           </select>
   </section><br><br><br>
   <section class="row"><!--col-2-->
@@ -344,25 +345,26 @@ body{
             <!-- \//// -->
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="id" aria-label="First name">
+                <select class="fctorm-sele" name="names" id="cmbCusId" style="width: 150px; height:35px; border-radius:8px;" placeholder="cus-id" >
+                </select>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="cus id" aria-label="Last name">
-              </div>
-            </div>
-            <!-- \//// -->
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="name" aria-label="First name">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" placeholder="salary" aria-label="Last name">
+                <input type="text" class="form-control" placeholder="cus id" aria-label="Last name" id="cusid">
               </div>
             </div>
             <!-- \//// -->
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="address" aria-label="First name">
+                <input type="text" class="form-control" placeholder="name" aria-label="First name" id="txtcusName">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="salary" aria-label="Last name" id="txtcusSalary">
+              </div>
+            </div>
+            <!-- \//// -->
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="address" aria-label="First name" id="txtcusAddress">
               </div>
             </div>
             
@@ -376,30 +378,33 @@ body{
           <div class="row">
             <div class="row" style="margin-top: 10px;">
               <div class="col">
-                <input type="text" class="form-control" placeholder="code" aria-label="First name">
+                <select class="fctorm-sele" name="names" id="cmbItemcode" style="width: 150px; height:35px; border-radius:8px;" ></select>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="item code" aria-label="Last name">
+                <input type="text" class="form-control" placeholder="item code" aria-label="Last name" id="itCode">
               </div>
             </div>
             <!-- \//// -->
             <div class="row" style="margin-top: 10px;">
               <div class="col">
-                <input type="text" class="form-control" placeholder="item name" aria-label="First name">
+                <input type="text" class="form-control" placeholder="item name" aria-label="First name" id="itName">
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="price rs." aria-label="Last name">
+                <input type="text" class="form-control" placeholder="price rs." aria-label="Last name" id="itPrice">
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="qty on-hand" aria-label="Last name">
+                <input type="text" class="form-control" placeholder="qty on-hand" aria-label="Last name" id="itQty">
               </div>
               <!-- \//// -->
               <div class="row" style="margin-top: 10px;">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="item name" aria-label="First name">
+                  <input type="text" class="form-control" placeholder="item price" aria-label="First name" id="#" >
                 </div>
                 <div class="col">
-                  <button class="btn btn-primary" type="submit">place order</button>
+                  <input type="text" class="form-control" placeholder="item qty" aria-label="First name" id="#" >
+                </div>
+                <div class="col">
+                  <button class="btn btn-primary" type="submit" style="width: 400px;">place order</button>
                 </div>
             </div>
     </div>
@@ -467,75 +472,14 @@ body{
     </tbody>
 </table>
 </section>
+<script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
 <!--Import js for bootstrap-->
 <script src="/assigmnent/css/frameworks/assests/js/bootstrap.min.js"></script>
+<script src="/assigmnent/js/spa/db/db.js"></script>
+<script src="/assigmnent/js/spa/controlers/DashboardControllers.js"></script>
+<script src="/assigmnent/js/spa/controlers/ItemController.js"></script>
+<script src="/assigmnent/js/spa/controlers/CustomerControllers.js"></script>
+<script src="/assigmnent/js/spa/controlers/order.js"></script>
 
-<script src="/assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
-<script>
-$("#navbar").css("visibility","visible");
-$("#home").css("visibility","visible");
-$("#customer").css("display","none");
-$("#item").css("display","none");
-$("#order").css("display","none");
-// HOME
-$("#home-button-spa").click(function(){
-$("#navbar").show()
-$("#home").show()
-$("#customer").css("display","none");
-$("#item").css("display","none");
-$("#order").css("display","none");
-})
-// CUSTOMER
-$("#custmer-button-spa").click(function(){
-$("#navbar").show()
-$("#home").css("display","none");
-$("#customer").show()
-$("#item").css("display","none");
-$("#order").css("display","none");
-})
-// ITEM
-$("#item-button-spa").click(function(){
-$("#navbar").show()
-$("#home").css("display","none");
-$("#customer").css("display","none");
-$("#item").show();
-$("#order").css("display","none");
-})
-// ORDER
-$("#order-button-spa").click(function(){
-$("#navbar").show()
-$("#home").css("display","none");
-$("#customer").css("display","none");
-$("#item").css("display","none");
-$("#order").show();
-})
-
-// customet-card-button
-$("#cus-card-btn").click(function(){
-$("#navbar").show()
-$("#home").css("display","none");
-$("#customer").show()
-$("#item").css("display","none");
-$("#order").css("display","none");
-})
-// item-card-button
-$("#item-card-btn").click(function(){
-$("#navbar").show()
-$("#home").css("display","none");
-$("#customer").css("display","none");
-$("#item").show();
-$("#order").css("display","none");
-})
-// order-card-button
-$("#order-card-btn").click(function(){
-$("#navbar").show()
-$("#home").css("display","none");
-$("#customer").css("display","none");
-$("#item").css("display","none");
-$("#order").show();
-})
-</script>
-<script src="/assigmnent/js/spa/controlers/CustomerControlers.js"></script>
-<script src="/assigmnent/js/spa/controlers/ItemControllers.js"></script>
 </body>
 </html>

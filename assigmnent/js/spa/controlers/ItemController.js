@@ -1,18 +1,19 @@
-var itemsArray=[];
+
 $('#save-item').click(function(){
   saveItem();
   getAllItem();
   loadDetails();
   clear()
+
 })
 function saveItem(){
-Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Your item has been saved',
-    showConfirmButton: false,
-    timer: 1500
-})
+// Swal.fire({
+//     position: 'center',
+//     icon: 'success',
+//     title: 'Your item has been saved',
+//     showConfirmButton: false,
+//     timer: 1500
+// })
   let itemcode= $('#txtItemcode').val();
   let itemName= $('#txtItemName').val();
   let itemPrice= $('#txtItemPrice').val();
@@ -26,6 +27,8 @@ Swal.fire({
   }
   itemsArray.push(item)
   console.log(itemsArray)
+  loadallIteamOption();
+  loadCode();
 }
 $('#getAll-iteam').click(function(){
   getAllItem();
@@ -58,7 +61,8 @@ function searchItem(itemCode){
   }
   return null;
 }
-$('#search').click(function(){
+$('#searchI').click(function(){
+  alert("D");
 let typecode=$('#item-search').val();
 let item=searchItem(typecode)
 if(item !=null){
@@ -68,7 +72,7 @@ $('#txtItemPrice').val(item.itemPrice)
 $('#txtitemQty').val(item.itemqty)
 }
 else {
-    Swal.fire("There is no item available for that " + typecode)
+    alert("There is no item available for that " + typecode)
     }
 })
 $('#txtItemcode').change(function(){
@@ -88,11 +92,11 @@ let iCode=$('#item-search').val();
 let option=confirm('Do you want to delete this item'+iCode)
 if(option){
 if(deletItem(iCode)){
-  Swal.fire({
-    icon: 'delete',
-    title: 'Deleted...',
-    text: 'Item Successfully Deleted!',
-})
+//   Swal.fire({
+//     icon: 'delete',
+//     title: 'Deleted...',
+//     text: 'Item Successfully Deleted!',
+// })
 $('#txtcustomerId').val('')
 $('#txtcustomerName').val('')
 $('#txtcustomerAddress').val('')
@@ -100,7 +104,7 @@ $('#txtcustomerSalary').val('')
 
 }
 else{
-Swal.fire("No such item to delete. please check the id" )
+alert("No such item to delete. please check the id" )
 }
 }
 })
@@ -125,11 +129,11 @@ let itemCode=$('#txtItemcode').val()
 let response=updateItem(itemCode)
 if(response){
   Swal.fire({
-position: 'center',
-icon: 'success',
-title: 'Customer Updated Successfully',
-showConfirmButton: false,
-timer: 1500
+// position: 'center',
+// icon: 'success',
+// title: 'Customer Updated Successfully',
+// showConfirmButton: false,
+// timer: 1500
 })
 $('#txtItemcode').val('')
 $('#txtItemName').val('')
@@ -137,7 +141,7 @@ $('#txtItemPrice').val('')
 $('#txtitemQty').val('')
 }
 else{
-  Swal.fire("Update Failed..!" )
+  alert("Update Failed..!" )
 }
 })
 function updateItem(itemCode){
@@ -250,4 +254,15 @@ $('#txtItemcode,#txtItemName,#txtItemPrice,#txtitemQty').on('keydown',function(e
  if(event.key=='Tab'){
   event.preventDefault();
  }
+})
+// load ids
+function loadCode(){
+$('#cmbitCodes').empty()
+for(let item of itemsArray){
+  $('#cmbitCodes').append(`<option>${item.itemcode}</option>`)
+}
+}
+$('#cmbitCodes').click(function(){
+ let result=$('#cmbitCodes').val();
+ $('#item-search').val(result)
 })

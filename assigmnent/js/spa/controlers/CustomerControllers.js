@@ -1,26 +1,28 @@
 
-var customers=[]
+
 $('#save-customer').click(function(){
     saveCustomer();
-    loadAllCustomers();
+    
     loadDetails();
+    loadAllCustomers();
     doubleClickRemoveRow();
     clear();
-    alert('savecustomer btn')
+    
+    alert('saveCustomer')
 })
 function saveCustomer(){
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your work has been saved',
-        showConfirmButton: false,
-        timer: 1500
-    })
+    // Swal.fire({
+    //     position: 'center',
+    //     icon: 'success',
+    //     title: 'Your work has been saved',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    // })
     let customerId=  $('#txtcustomerId').val()
     let custonerName=  $('#txtcustomerName').val()
     let customerAddress=  $('#txtcustomerAddress').val()
     let customerSalary=  $('#txtcustomerSalary').val()
-
+   
     var custome = {
         customerId,
         custonerName,
@@ -30,6 +32,8 @@ function saveCustomer(){
 
     customers.push(custome)
     console.log(customers)
+    loadAllCustomerOption();
+    loadCuId();
 }
 $('#getAll-customer').click(function(){
     loadAllCustomers();
@@ -58,6 +62,21 @@ $('#search').click(function(){
         setTextfieldValues("", "", "", "");
     }
 })
+
+// function findCustomer(){
+//   var result=$('#customer-search').val()
+//     for(var i of customers ){
+//       console.log(i.customerId)
+//       if(i.customerId == result ){
+//         $('#txtcustomerId').val(i.customerId)
+//         $('#txtcustomerName').val(i.custonerName)
+//         $('#txtcustomerAddress').val(i.customerAddress)
+//         $('#txtcustomerSalary').val(i.customerSalary)
+//       }
+//     }
+//     }
+// }
+
 function searchCustomer(cusID) {
     for (let customer of customers) {
         if (customer.customerId == cusID) {
@@ -257,6 +276,14 @@ $('#txtcustomerId,#txtcustomerName,#txtcustomerAddress,#txtcustomerSalary').on('
         event.preventDefault();
     }
 })
-$('#SaveChange').click(function(){
-    alert('ok')
+// load ids
+function loadCuId(){
+$('#cmbloadCusId').empty()
+for(let cus of customers){
+    $('#cmbloadCusId').append(`<option>${cus.customerId}</option>`)
+}
+}
+$('#cmbloadCusId').click(function(){
+  let result=  $('#cmbloadCusId').val();
+    $('#customer-search').val(result)
 })
