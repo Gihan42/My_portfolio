@@ -33,3 +33,41 @@ function loadAllCustomerOption(){
             $('#itQty').val(items.itemqty)
         }
      })
+     //SAVE ORDER//
+     function saveOrder(){
+        let orderId=$('#orderId').val();
+        let cusId= $('#cusid').val();
+        let itemCode= $('#itCode').val();
+        let itemName= $('#itName').val();
+        let itemPrice=$('#itPrice').val();
+        let itemsqty=$('#itemsqty').val();
+        let balance=$('#balance').val();
+
+        var order={
+            orderId,
+            cusId,
+            itemCode,
+            itemName,
+            itemPrice,
+            itemsqty,
+            balance, 
+        }
+        orderArray.push(order)
+        console.log(orderArray)
+        console.log('price in= '+itemPrice)
+     }
+     //LOAD ALL DATA TABLE
+     function loadAllOrders(){
+        $('#order-tabelbody').empty();
+        for (var i of orderArray){
+            var TbaleRow=`<tr ><td>${i.orderId}</td><td>${i.cusId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.itemPrice}</td><td>${i.itemsqty}</td><td>${i.balance}</td><td>${'<button class="btn btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="btnRemove">remove</button>'}</td></tr>`
+            $('#order-tabelbody').append(TbaleRow)
+        }
+     }
+     //ADD CART
+     $('#addCart').click(function(){
+        saveOrder();
+        loadAllOrders();
+     })
+
+

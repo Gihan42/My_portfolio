@@ -335,7 +335,7 @@ body{
               <span class="d-block" style="background-color: rgb(104, 255, 149);">order details</span><br>
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="order id" aria-label="First name">
+                  <input type="text" class="form-control" placeholder="order id" aria-label="First name" id="orderId">
                 </div>
                 <div class="col">
                   <input type="text" class="form-control" placeholder="date" aria-label="Last name">
@@ -398,13 +398,10 @@ body{
               <!-- \//// -->
               <div class="row" style="margin-top: 10px;">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="item price" aria-label="First name" id="#" >
+                  <input type="text" class="form-control" placeholder="item qty" aria-label="First name" id="itemsqty" >
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="item qty" aria-label="First name" id="#" >
-                </div>
-                <div class="col">
-                  <button class="btn btn-primary" type="submit" style="width: 400px;">place order</button>
+                  <button class="btn btn-primary" type="submit" >place order</button>
                 </div>
             </div>
     </div>
@@ -435,18 +432,18 @@ body{
           </div>
           <div class="row" >
             <div class="col">
-              <input type="text" class="form-control" placeholder="cash" aria-label="First name">
+              <input type="text" class="form-control" placeholder="cash" aria-label="First name" id="customerpayment">
             </div>
             <div class="col">
               <input type="text" class="form-control" placeholder="discount" aria-label="First name">
             </div>
             <div class="row" style=" margin-top: 10px; margin-bottom: 10px;" >
               <div class="col">
-                <input type="text" class="form-control" placeholder="balance" aria-label="First name">
+                <input type="text" class="form-control" placeholder="balance" aria-label="First name" id="balance">
               </div>
               <div class="col">
                 <button type="button" class="btn btn-danger"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-top: 5px; ">
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; margin-top: 5px; " id="addCart">
   + to cart
 </button>
               </div>
@@ -460,15 +457,17 @@ body{
   <table class="table table-warning table-dark" style="margin-top: 10px;">
     <thead>
     <tr>
+        <th scope="col">order-id</th>
+        <th scope="col">cus-id</th>
         <th scope="col">code</th>
         <th scope="col">item name</th>
         <th scope="col">price rs.</th>
         <th scope="col">quantity</th>
         <th scope="col">balance</th>
+        <th scope="col">remove</th>
     </tr>
     </thead>
-    <tbody>
- 
+    <tbody id="order-tabelbody">
     </tbody>
 </table>
 </section>
@@ -480,6 +479,8 @@ body{
 <script src="/assigmnent/js/spa/controlers/ItemController.js"></script>
 <script src="/assigmnent/js/spa/controlers/CustomerControllers.js"></script>
 <script src="/assigmnent/js/spa/controlers/order.js"></script>
-
+<script>
+  // $('#btnRemove').css("display","none");
+</script>
 </body>
 </html>
