@@ -62,6 +62,86 @@ body{
     color: white;
     font-size: 20px;
 }
+/* ASSIGNMENT */
+#subnav-main {
+    list-style-type: none;
+    position: absolute;
+    width: 120px;
+    top: 44px;
+    right: 110px;
+    background-color: aliceblue;
+    visibility: hidden;
+    background-color: #c2d3d8;
+}
+#subnav li {
+    border-bottom: 1px solid #ededed;
+    position: relative;
+    height: 50px;
+    transition: all 2s;
+}
+
+
+#subnav-main .sub-nav-links {
+    background-color: antiquewhite;
+    border-bottom: 1px solid #7a7e80;
+    margin: 0;
+}
+
+.sub-nav-links,
+.inner-nav {
+    list-style-type: none;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    color: black;
+    margin: auto;
+    height: fit-content;
+    top: 0;
+    bottom: 0;
+    padding: 5px 0;
+    font-size: 20px;
+}
+
+
+#assignments-tab:hover+#subnav-main {
+    visibility: visible;
+}
+#subnav-main:hover {
+    visibility: visible;
+}
+.sub-nav-links:hover+.inner-nav {
+    display: block;
+}
+.inner-nav {
+    font-size: 15px;
+    display: none;
+    transition: all 2s;
+    padding: 5px;
+}
+.inner-nav li {
+    padding: 3px;
+    width: 88%;
+    font-style: italic;
+}
+.inner-nav li a {
+    all: initial;
+}
+.inner-nav li:hover {
+    background-color: #1b3740;
+    cursor: pointer;
+}
+.inner-nav li a:hover {
+    cursor: pointer;
+    color: aliceblue;
+}
+.inner-nav:hover {
+    display: block;
+}
+/* END */
+
+
+
 /*home section styling*/
 .home{
     display: flex;
