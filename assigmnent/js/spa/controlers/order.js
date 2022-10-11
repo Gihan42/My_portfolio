@@ -1,3 +1,4 @@
+
 function loadAllCustomerOption(){
     $('#cmbCusId').empty();
     for(let cus of customers){
@@ -69,5 +70,44 @@ function loadAllCustomerOption(){
         saveOrder();
         loadAllOrders();
      })
+     //////CALCULATE///
+     $('#itemsqty').keyup(function(){
+        let price=$('#itPrice').val()
+        let itqty=$('#itemsqty').val();
+        let total=price*itqty;
+        $('#total').val(total);
+    })
+    $('#customerpayment').keyup(function(){
+        let tot=  $('#total').val();
+        let cash=$('#customerpayment').val()
+        let balance=cash-tot;
+        $('#balance').val(balance);
+    })
+  ////PLACE ORDER
+  $('#placeorder').click(function(){
+    saveOrder();
+    alert('order has been saved!')
+    clear()
+    genarateOrderId()
+})
 
+let oid=001;
+$('#orderId').val('O000')
+function genarateOrderId(){
+    $('#orderId').val('O00'+oid++);
+}
+//CLEAR TEXTFEILD///
+function clear(){
+    $('#cusid').val('')
+    $('#txtcusName').val('')
+    $('#txtcusAddress').val('')
+    $('#txtcusSalary').val('')
+    $('#itCode').val('')
+    $('#itName').val('')
+    $('#itPrice').val('')
+    $('#itQty').val('')
+    $('#total').val('');
+    $('#balance').val('');
+    $('#customerpayment').val('')
+}
 
