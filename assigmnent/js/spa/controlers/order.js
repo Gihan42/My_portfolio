@@ -67,8 +67,11 @@ function loadAllCustomerOption(){
      }
      //ADD CART
      $('#addCart').click(function(){
+        $('#order-tabelbody').empty();
         saveOrder();
         loadAllOrders();
+        genarateOrderId()
+        clear();
      })
      //////CALCULATE///
      $('#itemsqty').keyup(function(){
@@ -85,10 +88,9 @@ function loadAllCustomerOption(){
     })
   ////PLACE ORDER
   $('#placeorder').click(function(){
-    saveOrder();
     alert('order has been saved!')
     clear()
-    genarateOrderId()
+    
 })
 
 let oid=001;
@@ -109,5 +111,6 @@ function clear(){
     $('#total').val('');
     $('#balance').val('');
     $('#customerpayment').val('')
+    $('itemsqty').val('');
 }
 
