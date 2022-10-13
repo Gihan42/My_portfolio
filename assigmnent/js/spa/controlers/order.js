@@ -37,67 +37,102 @@ function loadAllCustomerOption(){
      //SAVE ORDER//
      function saveOrder(){
         let orderId=$('#orderId').val();
-        let cusId= $('#cusid').val();
-        let itemCode= $('#itCode').val();
-        let itemName= $('#itName').val();
-        let itemPrice=$('#itPrice').val();
-        let itemsqty=$('#itemsqty').val();
-        let balance=$('#balance').val();
+        let cusIds= $('#cusid').val();
+        let date=$('#txtDate').val()
+        let items=cart
+        // let cusIds;
+        // let itemCodes;
+        // let itemNames;
+        // let itemPrices;
+        // let itemsqtys;
+        // let balances;
+        // for(let i of cartobj){
+        //     cusIds=i.cusId
+        //     itemCodes=i.itemCode
+        //     itemNames=i.itemName
+        //     itemPrices=i.itemPrice
+        //     itemsqtys=i.itemsqty
+        //     balances=i.balance
+
+        // }
 
         var order={
             orderId,
-            cusId,
-            itemCode,
-            itemName,
-            itemPrice,
-            itemsqty,
-            balance, 
+            cusIds,
+            items,
+            date
         }
         orderArray.push(order)
-        console.log(orderArray)
-        console.log('price in= '+itemPrice)
+        // console.log('order='+orderArray)
+        // console.log('price in= '+itemPrice)
      }
-     //LOAD ALL DATA TABLE
-     function loadAllOrders(){
-        $('#order-tabelbody').empty();
-        for (var i of orderArray){
-            var TbaleRow=`<tr ><td>${i.orderId}</td><td>${i.cusId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.itemPrice}</td><td>${i.itemsqty}</td><td>${i.balance}</td><td>${'<button class="btn btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="btnRemove">remove</button>'}</td></tr>`
-            $('#order-tabelbody').append(TbaleRow)
-        }
-     }
-     //ADD CART
-     $('#addCart').click(function(){
-        $('#order-tabelbody').empty();
-        saveOrder();
-        loadAllOrders();
-        genarateOrderId()
-        clear();
-     })
-     //////CALCULATE///
-     $('#itemsqty').keyup(function(){
-        let price=$('#itPrice').val()
-        let itqty=$('#itemsqty').val();
-        let total=price*itqty;
-        $('#total').val(total);
-    })
-    $('#customerpayment').keyup(function(){
-        let tot=  $('#total').val();
-        let cash=$('#customerpayment').val()
-        let balance=cash-tot;
-        $('#balance').val(balance);
-    })
+   
+   
+  
   ////PLACE ORDER
   $('#placeorder').click(function(){
+    $('#order-tabelbody').empty();
+   console.log("this runs")
+   clear()
+    saveOrder()
+    $('#orderId').val(calculateNextId())
     alert('order has been saved!')
-    clear()
+   
     
 })
+//find order id
+ $('#orderId').on('keyup',function(event){
+    if(event.which==13){
+        
+        let order = orderArray.find((order) => {
+            return order.orderId ==  $('#orderId').val()
+        })
+        console.log(order)
+        // $('#order-tabelbody').empty();
+        order.items.forEach(i => {
+            var TbaleRow=`<tr ><td>${i.cusId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.itemPrice}</td><td>${i.itemsqty}</td><td>${i.balance}</td><td>${'<button class="btn btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="btnRemove">remove</button>'}</td></tr>`
+            $('#order-tabelbody').append(TbaleRow)
+        }
+)
+    subtot(order.items)
+    }
+})
 
-let oid=001;
-$('#orderId').val('O000')
-function genarateOrderId(){
-    $('#orderId').val('O00'+oid++);
+// subtotal
+function subtot(array){
+    let subtotal=0;
+    for (let i of array){
+        subtotal += (parseInt(i.itemPrice) * parseInt(i.itemsqty))
+    }
+    $('#subtotal').val(subtotal);
 }
+//genrate order id
+$('#orderId').val(calculateNextId())
+
+function calculateNextId() {
+    if (orderArray.length > 0) {
+      let id = orderArray[orderArray.length - 1].orderId;
+      let [pre, frag] = id.split("-");
+      let num = parseInt(frag) + 1;
+      let count = num.toString().length;
+      if (count == 1) {
+        return pre + "-00" + num;
+      } else if (count == 2) {
+        return pre + "-0" + num;
+      } else {
+        return pre + "-" + num;
+      }
+    } else {
+      return "O-001";
+    }
+  }
+  
+// let oid=001;
+// $('#orderId').val('O000')
+// function genarateOrderId(){
+//     $('#orderId').val('O00'+oid++);
+// }
+
 //CLEAR TEXTFEILD///
 function clear(){
     $('#cusid').val('')

@@ -3,9 +3,10 @@
 $('#save-customer').click(function(){
     saveCustomer();
     
+    
     loadDetails();
     loadAllCustomers();
-    doubleClickRemoveRow();
+    // doubleClickRemoveRow();
     clear();
     
     alert('saveCustomer')
@@ -184,11 +185,11 @@ function loadDetails(){
     })
 }
 ///// DOUBLE CLICK REMOVE ROW /////
-function removeRow(){
-    $("#customer-tablebody>tr").on('dblclick',function(){
-        $(this).remove()
-    });
-}
+// function removeRow(){
+//     $("#customer-tablebody>tr").on('dblclick',function(){
+//         $(this).remove()
+//     });
+// }
 ///// END REMOVE ROW /////
 $('#addnewCustomer').click(function(){
     $('#txtcustomerId').focus()

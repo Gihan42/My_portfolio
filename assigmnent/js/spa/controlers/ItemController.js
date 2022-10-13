@@ -76,7 +76,7 @@ else {
     }
 })
 $('#txtItemcode').change(function(){
-findItem()
+// findItem()
 })
 function clear(){
 $('#txtItemcode').val('')

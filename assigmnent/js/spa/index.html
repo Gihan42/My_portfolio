@@ -338,7 +338,8 @@ body{
                   <input type="text" class="form-control" placeholder="order id" aria-label="First name" id="orderId">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="date" aria-label="Last name">
+                  <!-- <input type="text" class="form-control" placeholder="date" aria-label="Last name"> -->
+                  <input class="form-control" id="txtDate" type="date">
                 </div>
               </div>
             </div>
@@ -425,8 +426,8 @@ body{
           <div class="row" >
             <div class="col">
               <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Sub Total :</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <span class="input-group-text" id="inputGroup-sizing-sm" >Sub Total :</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="subtotal" value="0">
               </div>
             </div>
           </div>
@@ -457,7 +458,6 @@ body{
   <table class="table table-warning table-dark" style="margin-top: 10px;">
     <thead>
     <tr>
-        <th scope="col">order-id</th>
         <th scope="col">cus-id</th>
         <th scope="col">code</th>
         <th scope="col">item name</th>
@@ -479,6 +479,7 @@ body{
 <script src="/assigmnent/js/spa/controlers/ItemController.js"></script>
 <script src="/assigmnent/js/spa/controlers/CustomerControllers.js"></script>
 <script src="/assigmnent/js/spa/controlers/order.js"></script>
+<script src="/assigmnent/js/spa/controlers/cart.js"></script>
 <script>
   // $('#btnRemove').css("display","none");
 </script>
