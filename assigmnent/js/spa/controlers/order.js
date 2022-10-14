@@ -73,11 +73,11 @@ function loadAllCustomerOption(){
   $('#placeorder').click(function(){
     $('#order-tabelbody').empty();
    console.log("this runs")
-   clear()
     saveOrder()
     $('#orderId').val(calculateNextId())
+    subtot();
     alert('order has been saved!')
-   
+    clear()
     
 })
 //find order id
@@ -90,7 +90,7 @@ function loadAllCustomerOption(){
         console.log(order)
         // $('#order-tabelbody').empty();
         order.items.forEach(i => {
-            var TbaleRow=`<tr ><td>${i.cusId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.itemPrice}</td><td>${i.itemsqty}</td><td>${i.balance}</td><td>${'<button class="btn btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="btnRemove">remove</button>'}</td></tr>`
+            var TbaleRow=`<tr ><td>${i.cusId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.itemPrice}</td><td>${i.itemsqty}</td><td><button class="btn btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="btnRemove">remove</button></td></tr>`
             $('#order-tabelbody').append(TbaleRow)
         }
 )
@@ -99,12 +99,21 @@ function loadAllCustomerOption(){
 })
 
 // subtotal
-function subtot(array){
+// function subtot(array){
+//     let subtotal=0;
+//     for (let i of array){
+//         subtotal += (parseInt(i.itemPrice) * parseInt(i.itemsqty))
+//     }
+//     $('#subtotal').val(subtotal);
+//     console.log(subtotal)
+// }
+function subtot(){
     let subtotal=0;
-    for (let i of array){
+    for (let i of cart){
         subtotal += (parseInt(i.itemPrice) * parseInt(i.itemsqty))
     }
     $('#subtotal').val(subtotal);
+    console.log(subtotal)
 }
 //genrate order id
 $('#orderId').val(calculateNextId())
@@ -126,6 +135,7 @@ function calculateNextId() {
       return "O-001";
     }
   }
+
   
 // let oid=001;
 // $('#orderId').val('O000')
@@ -144,8 +154,22 @@ function clear(){
     $('#itPrice').val('')
     $('#itQty').val('')
     $('#total').val('');
-    $('#balance').val('');
     $('#customerpayment').val('')
     $('itemsqty').val('');
 }
 
+        // $('#customerpayment').keyup(function(){
+        //     let tot=  $('#subtotal').val();
+        //     let cash=$('#customerpayment').val()
+        //     let balance=cash-tot;
+        //     $('#balance').val(balance);
+        // })
+        $('#customerpayment').on('keydown',function(event){
+            if(event.key=='Enter'){
+                let tot=  $('#subtotal').val();
+                let cash=$('#customerpayment').val()
+                let balance=cash-tot;
+                $('#balance').val(balance)
+
+            }
+            })

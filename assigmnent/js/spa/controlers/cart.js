@@ -13,8 +13,8 @@ function saveCart(){
             itemCode,
             itemName,
             itemPrice,
-            itemsqty,
-            balance
+            itemsqty
+            
         }
         cart.push(cartobj)
         console.log(cart)
@@ -25,7 +25,7 @@ function saveCart(){
   function loadAllOrders(){
     $('#order-tabelbody').empty();
     for (var i of cart){
-        var TbaleRow=`<tr ><td>${i.cusId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.itemPrice}</td><td>${i.itemsqty}</td><td>${i.balance}</td><td><button class="btn btn-outline-danger btnRemove" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="removeFromCart()">remove</button></td></tr>`
+        var TbaleRow=`<tr ><td>${i.cusId}</td><td>${i.itemCode}</td><td>${i.itemName}</td><td>${i.itemPrice}</td><td>${i.itemsqty}</td><td><button class="btn btn-outline-danger btnRemove" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" onclick="removeFromCart()">remove</button></td></tr>`
         $('#order-tabelbody').append(TbaleRow)
     }
  }
@@ -45,16 +45,32 @@ function saveCart(){
         // let subtotal=total+$('#subtotal').val()
         // $('#subtotal').val(subtotal ) ;
     })
-    $('#customerpayment').keyup(function(){
-        let tot=  $('#total').val();
-        let cash=$('#customerpayment').val()
-        let balance=cash-tot;
-        $('#balance').val(balance);
-    })
+  
+ 
     // remove cart
-    // $('.btnRemove').click(function(){
-        
-    // })
     function removeFromCart(){
-        alert('remove')
+        let cusId=$("#cusid").val();
+         let option=confirm('Do you want to remove order from crat'+cusId)
+        if (option) {
+            removeCart(cusId)
+        }
+        else{
+                     alert("something went wrong!" )
+                 }
+        }
+       
+    function removeCart(cusId){
+        let customer= searchCustomer(cusId);
+        if(customer!=null){
+            let indexNo= cart.indexOf(customer);
+            cart.splice(indexNo,1)
+            loadAllOrders();
+            return true;
+        }else{
+            return false;
+        }
     }
+
+
+     
+    
