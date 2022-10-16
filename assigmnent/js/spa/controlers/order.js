@@ -41,7 +41,7 @@ function loadAllCustomerOption(){
         let date=$('#txtDate').val()
         let items=cart
    
-        let total = 0;
+        
         cart.forEach(cartItem => {
         let found = itemsArray.find(item => {return item.itemcode == cartItem.itemCode})
         found.itemqty =  found.itemqty - cartItem.itemsqty
