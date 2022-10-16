@@ -40,21 +40,14 @@ function loadAllCustomerOption(){
         let cusIds= $('#cusid').val();
         let date=$('#txtDate').val()
         let items=cart
-        // let cusIds;
-        // let itemCodes;
-        // let itemNames;
-        // let itemPrices;
-        // let itemsqtys;
-        // let balances;
-        // for(let i of cartobj){
-        //     cusIds=i.cusId
-        //     itemCodes=i.itemCode
-        //     itemNames=i.itemName
-        //     itemPrices=i.itemPrice
-        //     itemsqtys=i.itemsqty
-        //     balances=i.balance
+   
+        let total = 0;
+        cart.forEach(cartItem => {
+        let found = itemsArray.find(item => {return item.itemcode == cartItem.itemCode})
+        found.itemqty =  found.itemqty - cartItem.itemsqty
+        // total = total + parseInt(cartItem.total)
+    })
 
-        // }
 
         var order={
             orderId,
