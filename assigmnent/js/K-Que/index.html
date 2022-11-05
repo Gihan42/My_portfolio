@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Quet</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    #container{
+      height: 80px;
+      width: 90vw;
+      border-bottom: 2px dashed red;
+      display: flex;
+      justify-content: flex-end;
+    }
+    #container>div{
+      width: 100px;
+      height: 70px;
+      background-color: red;
+      color: white;
+      position: relative;
+      border: 1px solid #584b4b;
+      border-radius: 10px;
+      margin-right: 8px;
+    }
+    #container>div>h1{
+      font-size: 25px;
+      width: max-content;
+      height: max-content;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin:auto;
+    }
+    main{
+      position: relative;
+    }
+    #img{
+      height: 110px;
+      width: 110px;
+      background: url("assets/img/img.png");
+      position: absolute;
+      top: -13px;
+      right: 0;
+      background-size: cover;
+    }
+
+  </style>
+</head>
+<body>
+<section class="container-fluid">
+  <section class="row mt-3">
+    <section class="col-4">
+      <div class="mb-3">
+        <label  class="form-label">Name</label>
+        <input type="text" class="form-control" id="txtName">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Color</label>
+        <input type="color" class="form-control" id="txtColor" >
+      </div>
+      <div>
+        <button class="btn btn-danger" id="btnAdd">Add to Que</button>
+      </div>
+    </section>
+  </section>
+
+  <main>
+    <section id="container" class="mt-5">
+
+    </section>
+    <section id="img">
+
+    </section>
+  </main>
+
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+
+  var cueData={
+    persons:[
+      {name:'Sadun', color:'red'},
+      {name:'Kavindu', color:'green'},
+      {name:'Ayesh', color:'blue'}
+    ],
+    nextPerson:function (){
+      var lastPerson= this.persons.pop();
+      this.persons.unshift(lastPerson);
+    }
+  }
+
+
+  renderQue();
+  function renderQue(){
+    $("#container").empty();
+    for (let i = 0; i < cueData.persons.length; i++) {
+      $("#container").append(`<div style="background-color: ${cueData.persons[i].color}"><h1>${cueData.persons[i].name}</h1></div>`);
+    }
+    cueData.nextPerson();
+  }
+
+  setInterval(renderQue,900);
+
+
+  //Add a person to the que
+  $('#btnAdd').click(function (){
+    let name= $("#txtName").val();
+    let color= $("#txtColor").val();
+    cueData.persons.unshift({name:name,color:color});
+  });
+
+
+</script>
+</body>
+</html>
