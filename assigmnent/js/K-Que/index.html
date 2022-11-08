@@ -40,14 +40,14 @@
     #img{
       height: 110px;
       width: 110px;
-      background: url("assets/img/img.png");
+      background: url("../../../assets/images/istockphoto-1192236440-640x640.jpg");
       position: absolute;
       top: -13px;
       right: 0;
       background-size: cover;
     }
 
-  </style>
+    /*<!--<img src="../../../assets/images/istockphoto-1192236440-640x640.jpg" height="360" width="640"/></style>-->*/
 </head>
 <body>
 <section class="container-fluid">
@@ -99,7 +99,7 @@
   function renderQue(){
     $("#container").empty();
     for (let i = 0; i < cueData.persons.length; i++) {
-      $("#container").append(`<div style="background-color: ${cueData.persons[i].color}"><h1>${cueData.persons[i].name}</h1></div>`);
+      $("#container").append(`<div  style="background-color: ${cueData.persons[i].color}"><h1>${cueData.persons[i].name}</h1></div>`);
     }
     cueData.nextPerson();
   }

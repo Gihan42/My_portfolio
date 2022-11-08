@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-Que</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<style>
+.container{
+  height:  380px;
+      width: 90vw;
+      border-bottom: 2px dashed red;
+      display: flex;
+      justify-content: flex-end;
+}
+.home{
+    background: url("assets/two-storey-house-with-red-roof_1308-34753.webp");
+    right: 0px;
+    background-size: cover;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    left: 980px;
+    bottom: 250px;
+}
+.person{
+    background: url("assets/animated-walking-image-0019.gif");
+    height: 150;
+    width: 90px;
+    margin-right: 5px;
+    color: black;
+    background-size: cover;
+    top: 230px;
+    position: relative;
+    right: 300px;
+}
+#add{
+  width: 100px;
+  height: 100px;
+}
+</style>
+</head>
+<body>
+    <section class="container" id="container">
+       
+    </section>
+    <div class="home" id="home"></div>
+   
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+var cueData={
+    persons:[
+    {name:"A"},{name:"B"},{name:"C"},{name:"D"},{name:"E"},{name:"F"}
+    ],
+    nextPerson:function (){
+      var lastPerson= this.persons.pop();
+      this.persons.unshift(lastPerson);
+    }
+}
+addDiv();
+function addDiv(){
+  $('#container').empty()
+  for (let i = 0; i < cueData.persons.length; i++) {
+    $('#container').append(`<div class="person">${cueData.persons[i].name}</div>`)
+  }
+  cueData.nextPerson();
+}
+setInterval(addDiv,900);
+$('#add').click(function(){
+ 
+})
+</script>
+</body>
+</html>

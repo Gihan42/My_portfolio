@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript-Que</title>
+    <style>
+        body{
+            background-color:  #283747;
+        }
+        .container{
+    height: 110px;
+    width: 98vw;
+    top: 150px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    border-top: 1px solid rgb(255, 255, 255);;
+        }
+        h1{
+            justify-content: center;
+            text-align: center;
+            font-size: 60px;
+            color: rgb(211, 120, 7);
+        }
+        .box{
+            height: 50px;
+            width: 90px;
+            border: 1px solid rgb(7, 7, 7);
+            margin: 30px;
+        }
+      
+        .box:nth-child(1){
+            
+            border: 1px solid rgb(7, 7, 7);
+            position: relative;
+            bottom: 88px;
+           
+        }
+        .box:nth-child(6){
+            
+            border: 1px solid rgb(7, 7, 7);
+            position: relative;
+            margin-right: 40px;
+            top: 85px;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <section><H1>javascript-Que</H1></section>
+    <section class="container" id="container">
+    
+    </section>
+    <!-- <div class="upDiv">U</div>
+    <div class="downDiv">D</div> -->
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+ cueData={
+    persons:[
+        {color:'red'},{color:'blue'},{color:'orange'},{color:'pink'},{color:'blueviolet'},{color:'brown'},
+    ],
+    
+    nextPerson:function (){
+      var lastPerson= this.persons.pop();
+      this.persons.unshift(lastPerson);
+    }
+ }
+ addDiv();
+ function addDiv(){
+    $('#container').empty()
+for(let i = 0; i < cueData.persons.length ; i++){
+$('#container').append(`<div class="box"  style="background-color: ${cueData.persons[i].color}"></div>`);
+}
+cueData.nextPerson()
+ }
+ setInterval(addDiv,900);
+</script>
+</body>
+</html>
