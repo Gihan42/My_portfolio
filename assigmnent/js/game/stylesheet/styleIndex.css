@@ -1,0 +1,84 @@
+body{
+    /* background-color: #090b0c; */
+    color: darkred;
+    background: url("../assets/castle-fantasy-landscape-halloween-mountain-scenery-ancient-palace-medieval-tower-forest-gothic-fortress-dark-sky-dracula-chateau-night-panorama-.webp");
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+h1{
+    font-family: 'Inter Tight', sans-serif;
+}
+.Titile{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    top: 100px;
+    
+}
+.Titile>h1{
+font-size: 70px;
+color: #ffffff ;
+font-weight: 900;
+margin-left: 5px;
+margin-right: 5px;
+text-transform: uppercase;
+animation: flip 2s infinite;
+animation-delay: calc(.2s * var(--i));
+font-family: 'Sora', sans-serif;
+position: relative;
+bottom: 200px;
+-webkit-text-stroke: 2px black;
+}
+@keyframes flip {
+    0%,80% {
+        transform: rotateY(360deg)
+    }
+}
+.gunIcon,.zombieIcon{
+    height: 80px;
+    width: 80px;
+    margin-right: 5px;
+    position: relative;
+    bottom: 200px;
+}
+.zombieIcon{
+    text-transform: uppercase;
+animation: flip 2s infinite;
+animation-delay: calc(.2s * var(--i))
+}
+.sooteimg{
+    background: url("../assets/240_F_345914199_y2NFNGF2x2GYA5uCncld7egym7dABuA0-removebg-preview.png");
+    background-size: cover;
+    height: 350px;
+    width: 585px;
+    position: relative;
+    bottom: 17px;
+    left: 650px;
+}
+.zombieImg{
+    background: url("../assets/_Pngtree_pumpkin_zombie_halloween_killer_artwork_5107703-removebg-preview.png");
+    background-size: cover;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    bottom: 330px;
+    right: 100px;
+}
+#btnplay{
+    width: 150px;
+    height: 60px;
+    position: relative;
+    bottom: 710px;
+    left: 570px;
+    font-size: 30px;
+    border-radius: 50px;
+    background-color:  #145A32;
+    border: 1px solid black;
+    cursor: pointer;
+}
+#btnplay:hover{
+    background:transparent;
+    color: red;
+    border:2px solid #ffffff;
+}
