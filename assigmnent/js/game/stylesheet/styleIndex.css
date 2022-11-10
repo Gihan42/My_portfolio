@@ -62,7 +62,7 @@ animation-delay: calc(.2s * var(--i))
     height: 300px;
     width: 300px;
     position: relative;
-    bottom: 330px;
+    bottom: 340px;
     right: 100px;
 }
 #btnplay{
@@ -81,4 +81,15 @@ animation-delay: calc(.2s * var(--i))
     background:transparent;
     color: red;
     border:2px solid #ffffff;
+}
+.progress{
+    position: relative;
+    bottom: 500px;
+    /* width: 400px; */
+    left: 450px;
+    height: 5px;
+    background: red; 
+    width: 0px;
+    text-align: center;
+    border: 2px solid gray;
 }

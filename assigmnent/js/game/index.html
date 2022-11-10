@@ -55,10 +55,43 @@
     <div class="zombieImg"></div>
 </section>
 <section>
-    <button type="button" class="btn btn-success" id="btnplay">play</button>
+    <button type="button" class="btn btn-success" id="btnplay">Play</button>
+</section>
+<section>
+    <div class="progress" id="progress">
+        <!-- <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> -->
+    </div>
 </section>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script>
+$('#progress').css("display","none");
+var w=0;
+$('#btnplay').click(function(){
+    $('#progress').show();
+    move()
+})
+ 
+// PROGRESSEVENT
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("progress");
+    var width = 1;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 30) {
+        clearInterval(id);
+        i = 0;
+        window.open("pages/level1.html")
+      } else {
+        width++;
+        elem.style.width = width + "%";
+    
+      }
+    }
+  }
+}
 </script>
 </body>
 </html>
