@@ -3,9 +3,171 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Level One</title>
+    <link rel="stylesheet" href="../lib/jquery-ui.min.css">
+    <style>
+        body{
+            overflow-x: hidden;
+            overflow-y: hidden;
+            background: url("../assets/24Z_2103.w026.n002.243B.p1.243.jpg");
+            background-size: cover;
+        }
+        .shoot{
+            background: url("../assets/download-removebg-preview.png");
+            background-size: cover;
+            height: 50px;
+            width: 52px;
+            justify-content: center;
+            justify-items: center;
+            position: relative;
+            left: 600px;
+            top: 0px;
+            
+        }
+        .main{
+            height: 500px;
+            display: flex;
+        }
+        .box{
+            height: 100px;
+            width: 345px;
+            border: 1px solid red;
+            position: relative;
+            top: 150px;
+            left: 350px;
+            display: flex;
+        }
+        .zBox1,.zBox2,.zBox3,.zBox4{
+            height: 100px;
+            width: 50px;
+            background: url("../assets/output-onlinegiftools2.gif");
+            background-size: cover;
+            position: relative;
+        }
+        .zBox1{
+            top: 200px;
+            transform: scaleX(-1);
+        }
+        .zBox2{
+            left: 400px;
+            top: 300px;
+           
+        }
+        .zBox3{
+            left: 610px;
+            top: 220px;
+            transform: scaleX(-1);
+        }
+        .zBox4{
+            left: 1000px;
+            top: 380px;
+        }
+        .count{
+            border: 2px solid #b2aeae;
+            width: 20px;
+            height: 200px;
+            position: relative;
+            top: 70px;
+            left: 1020px;
+            border-radius: 20px;
+            background-color: red;
+           
+      
+        }
+        .score{
+            width: 200px;
+            height: 100px;
+            position: relative;
+            background: url("../assets/photo_2022-11-13_00-01-31-removebg-preview\ \(1\).png");
+            background-size: cover;
+            left: 750px;
+            bottom: 20px;
+        }
+        h1{
+            font-size: 45px;
+            position: relative;
+            left: 740px;
+             bottom: 21px;
+             color: aliceblue;
+}
+        }
+    </style>
 </head>
 <body>
-   <H1>Level 01</H1>
+   <section class="main"> 
+    <div class="zBox1" id="zBox1"></div>
+    <div class="zBox2" id="zBox2"></div>
+    <div class="zBox3" id="zBox3"></div>
+    <div class="zBox4" id="zBox4"></div>
+    <div class="count"></div>
+    <div class="score"></div><h1>000</h1>
+   </section>
+    <div class="shoot" id="shoot"></div>
+  
+   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="../lib/jquery-ui.min.js"></script>
+
+<script>
+     var cueData={
+    persons:[
+      {name:'1'},
+      {name:'2'},
+      {name:'3'},
+      {name:'4'}
+    ]
+  }
+
+var length;
+$( "#shoot" ).draggable();
+$('.zBox1').droppable({
+    drop: function( event, ui ) {
+        $('.zBox1').css('height','50px');
+        $('.zBox1').css('width','50px');
+        $('.zBox1').css('background','url("../assets/blast.gif")');
+        $('.zBox1').css('background-size','cover');
+        azl();
+    }
+    
+});
+$('.zBox2').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox2').css('height','50px');
+        $('.zBox2').css('width','50px');
+        $('.zBox2').css('background','url("../assets/blast.gif")');
+        $('.zBox2').css('background-size','cover');
+        azl();
+    }
+
+});
+$('.zBox3').droppable({
+    drop: function( event, ui ) {
+        $('.zBox3').css('height','50px');
+        $('.zBox3').css('width','50px');
+        $('.zBox3').css('background','url("../assets/blast.gif")');
+        $('.zBox3').css('background-size','cover');
+        azl();
+    }
+});
+$('.zBox4').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox4').css('height','50px');
+        $('.zBox4').css('width','50px');
+        $('.zBox4').css('background','url("../assets/blast.gif")');
+        $('.zBox4').css('background-size','cover');
+        azl();
+    }
+});
+
+function azl(){
+    cueData.persons.pop();
+    console.log("pop")
+    if(cueData.persons.length==0){
+        setTimeout(() =>alert('missonpass'), 1000 ) 
+        window.open("../pages/level2.html")  
+    }
+}
+</script>
 </body>
 </html>
