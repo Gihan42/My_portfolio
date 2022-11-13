@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level One</title>
     <link rel="stylesheet" href="../lib/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <style>
         body{
             overflow-x: hidden;
@@ -77,7 +79,7 @@
             width:17% ;
             height: 20px;
             position: relative;
-            top: 70px;
+            top: 72px;
             left: 845px;
             border-radius: 20px;
             background-color: red;
@@ -89,8 +91,47 @@
             font-size: 45px;
             position: fixed;
             left: 1180px;
-            bottom: 458px;
+            bottom: 490px;
             color: aliceblue;
+}
+
+#start{
+    position: fixed;
+    left: 1029px;
+    top: 156px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.level{
+    position: fixed; 
+}
+.levelOne{
+    position: fixed;
+    font-size: 30px;
+    color: azure;
+    left: 1030px;
+    top: 110px;
+}
+#stop{
+    position: fixed;
+    left: 1089px;
+    top: 155px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+/* #start,#stop:hover{
+    width: 50px;
+    height: 50px;
+} */
+.simg{
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: url("../assets/external-soldier-history-flaticons-flat-flat-icons-4.png");
+    background-size: cover;
+    left: 1018px;
+    top: 73px;
+
 }
         
     </style>
@@ -102,7 +143,11 @@
     <div class="zBox3" id="zBox3"></div>
     <div class="zBox4" id="zBox4"></div>
     <div class="count" id="count"></div>
+    <div class="simg"></div>
     <div class="score"></div><h1 class="scoreRate"id="sc"></h1>
+    <div class="level"> <h2 class="levelOne">Level One</h2></div>
+    <button type="button" class="btn btn-success" id="start">Play</button>
+    <button type="button" class="btn btn-danger"  id="stop">Pause</button>
    </section>
     <div class="shoot" id="shoot"></div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -175,29 +220,33 @@ function azl(){
     cueData.persons.pop();
     if(cueData.persons.length==0){
         stop=  setTimeout(() => window.open("../pages/level2.html") , 1000 ) 
+        // $('.main').empty();
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
-            title: 'Misson Is Complited',
+            title: 'Misson Is Complited ',
             showConfirmButton: false,
             timer: 1500
 })
     }
 }
 var i=0;
+var identity;
+var test;
+
 update();
 function update() {
   var element = document.getElementById("count");   
   var width = 17;
-  var identity = setInterval(scene, 1000);
-  function scene() {
+  identity = setInterval(scene, 1000);
+   function scene() {
     if (width <=0) {
       clearInterval(identity);
-      $('.main').empty();
+    //   $('.main').empty();
       Swal.fire({
   icon: 'error',
   title: 'Oops...',
-  text: 'Time Is Over.! please try',
+  text: 'Time Is Over.! please try again',
   footer: '<a href="">What Happen?</a>'
 }
       );
@@ -207,6 +256,13 @@ function update() {
     }
   }
 }
+$('#stop').click(function(){
+    clearInterval(identity);
+});
+$('#start').click(function(){
+    // setInterval(, 1000);
+    // update();
+});
 
 </script>
 </body>

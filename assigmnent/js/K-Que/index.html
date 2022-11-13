@@ -99,7 +99,8 @@
   function renderQue(){
     $("#container").empty();
     for (let i = 0; i < cueData.persons.length; i++) {
-      $("#container").append(`<div  style="background-color: ${cueData.persons[i].color}"><h1>${cueData.persons[i].name}</h1></div>`);
+      $("#container").append(`<div
+ style="background-color: ${cueData.persons[i].color}"><h1>${cueData.persons[i].name}</h1></div>`);
     }
     cueData.nextPerson();
   }

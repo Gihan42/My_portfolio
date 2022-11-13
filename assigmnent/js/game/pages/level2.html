@@ -3,9 +3,324 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>level2</title>
+    <title>Level two</title>
+    <link rel="stylesheet" href="../lib/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        body{
+            overflow-x: hidden;
+            overflow-y: hidden;
+            background: url("../assets/zombie_game_background_by_biondic2016_d4uxtyd-fullview.png");
+            background-size: cover;
+        }
+        .shoot{
+            background: url("../assets/download-removebg-preview.png");
+            background-size: cover;
+            height: 50px;
+            width: 52px;
+            justify-content: center;
+            justify-items: center;
+            position: relative;
+            left: 600px;
+            top: 0px;
+            
+        }
+        .main{
+            height: 500px;
+            display: flex;
+        }
+        .box{
+            height: 100px;
+            width: 345px;
+            border: 1px solid red;
+            position: relative;
+            top: 150px;
+            left: 350px;
+            display: flex;
+        }
+        .zBox1,.zBox2,.zBox3,.zBox4,.zBox5,.zBox6{
+            height: 100px;
+            width: 50px;
+            background: url("../assets/output-onlinegiftools2.gif");
+            background-size: cover;
+            position: relative;
+        }
+        .zBox1{
+            top: 200px;
+            transform: scaleX(-1);
+        }
+        .zBox2{
+            left: 400px;
+            top: 300px;
+           
+        }
+        .zBox3{
+            left: 610px;
+            top: 220px;
+            transform: scaleX(-1);
+        }
+        .zBox4{
+            left: 1000px;
+            top: 380px;
+        }
+        .zBox5{
+            left: 40px;
+            top: 83px;
+            height: 75px;
+        }
+        .zBox6{
+            left: 685px;
+            top: 70px;
+            height: 73px;
+            position: fixed;
+        }
+        .score{
+            width: 200px;
+        height: 100px;
+        position: fixed;
+        background: url(../assets/photo_2022-11-13_00-01-31-removebg-preview\ \(1\).png);
+        background-size: cover;
+        left: 1000px;
+        bottom: 480px;
+    }
+    
+        .count{
+            border: 2px solid #b2aeae;
+            width:17% ;
+            height: 20px;
+            position: fixed;
+            top: 72px;
+            left: 1050px;
+            border-radius: 20px;
+            background-color: red;
+            margin: 5px;
+}
+                  
+        
+        h1{
+            font-size: 45px;
+            position: fixed;
+            left: 1180px;
+            bottom: 490px;
+            color: aliceblue;
+}
+
+#start{
+    position: fixed;
+    left: 1029px;
+    top: 156px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.level{
+    position: fixed; 
+}
+.levelOne{
+    position: fixed;
+    font-size: 30px;
+    color: azure;
+    left: 1030px;
+    top: 110px;
+}
+#stop{
+    position: fixed;
+    left: 1089px;
+    top: 155px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+/* #start,#stop:hover{
+    width: 50px;
+    height: 50px;
+} */
+.simg{
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: url("../assets/external-soldier-history-flaticons-flat-flat-icons-4.png");
+    background-size: cover;
+    left: 1018px;
+    top: 73px;
+
+}
+        
+    </style>
 </head>
 <body>
+   <section class="main"> 
+    <div class="zBox1" id="zBox1"></div>
+    <div class="zBox2" id="zBox2"></div>
+    <div class="zBox3" id="zBox3"></div>
+    <div class="zBox4" id="zBox4"></div>
+    <div class="zBox5" id="zBox5"></div>
+    <div class="zBox6" id="zBox6"></div>
+    <div class="count" id="count"></div>
+    <div class="simg"></div>
+    <div class="score"></div><h1 class="scoreRate"id="sc"></h1>
+    <div class="level"> <h2 class="levelOne">Level two</h2></div>
+    <button type="button" class="btn btn-success" id="start">Play</button>
+    <button type="button" class="btn btn-danger"  id="stop">Pause</button>
+   </section>
+    <div class="shoot" id="shoot"></div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="../lib/jquery-ui.min.js"></script>
+
+<script>
+     var cueData={
+    persons:[
+      {name:'1'},
+      {name:'2'},
+      {name:'3'},
+      {name:'4'},
+      {name:'5'},
+      {name:'6'}
+    ]
+  }
+//   countM();
+var sc=0;
+$('.zBox2').css('display','none')
+$('.zBox5').css('display','none')
+$( "#shoot" ).draggable();
+$('.zBox1').droppable({
+    drop: function( event, ui ) {
+        $('.zBox1').css('height','50px');
+        $('.zBox1').css('width','50px');
+        $('.zBox1').css('background','url("../assets/blast.gif")');
+        $('.zBox1').css('background-size','cover');
+        azl();
+        $('.scoreRate').text(sc);
+        addZombie();
+         console.log(sc);
+    }
     
+});
+$('.zBox2').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox2').css('height','50px');
+        $('.zBox2').css('width','50px');
+        $('.zBox2').css('background','url("../assets/blast.gif")');
+        $('.zBox2').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+         console.log(sc);
+    }
+
+});
+$('.zBox3').droppable({
+    drop: function( event, ui ) {
+        $('.zBox3').css('height','50px');
+        $('.zBox3').css('width','50px');
+        $('.zBox3').css('background','url("../assets/blast.gif")');
+        $('.zBox3').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+         console.log(sc);
+    }
+});
+$('.zBox4').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox4').css('height','50px');
+        $('.zBox4').css('width','50px');
+        $('.zBox4').css('background','url("../assets/blast.gif")');
+        $('.zBox4').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        console.log(sc);
+    }
+});
+$('.zBox5').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox5').css('height','50px');
+        $('.zBox5').css('width','50px');
+        $('.zBox5').css('background','url("../assets/blast.gif")');
+        $('.zBox5').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        console.log(sc);
+    }
+});
+$('.zBox6').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox6').css('height','50px');
+        $('.zBox6').css('width','50px');
+        $('.zBox6').css('background','url("../assets/blast.gif")');
+        $('.zBox6').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        console.log(sc);
+    }
+});
+var stop;
+function azl(){
+    sc+=25;
+    cueData.persons.pop();
+    if(cueData.persons.length==0){
+        stop=  setTimeout(() => window.open("../pages/level2.html") , 1000 ) 
+        $('.main').empty();
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Misson Is Complited ',
+            showConfirmButton: false,
+            timer: 1500
+})
+
+    }
+}
+var i=0;
+var identity;
+var test;
+
+update();
+function update() {
+  var element = document.getElementById("count");   
+  var width = 17;
+  identity = setInterval(scene, 600);
+   function scene() {
+    if (width <=0) {
+      clearInterval(identity);
+      $('.main').empty();
+      Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Time Is Over.! please try again',
+  footer: '<a href="">What Happen?</a>'
+}
+      );
+    } else {
+      width--; 
+      element.style.width = width + '%'; 
+    }
+  }
+}
+$('#stop').click(function(){
+    clearInterval(identity);
+});
+$('#start').click(function(){
+    // setInterval(, 1000);
+    // update();
+});
+
+function addZombie(){
+    if(sc==75){
+        $('.zBox2').show();
+        $('.zBox5').show();
+        console.log('75iiiiiiii')
+    }
+    
+}
+
+</script>
 </body>
 </html>
