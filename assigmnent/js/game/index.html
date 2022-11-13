@@ -6,6 +6,7 @@
     <title>My-Game</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/styleIndex.css">
+    <link rel="icon" type="image/x-icon" href="assets/gameicon.jpg"  >
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight&family=Sora:wght@500&family=Source+Sans+Pro&family=Ubuntu:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
     <style>
         .WZOMBIE{
@@ -83,7 +84,7 @@ function move() {
       if (width >= 30) {
         clearInterval(id);
         i = 0;
-        window.open("pages/level1.html")
+        window.open("pages/level1.html","_parent")
       } else {
         width++;
         elem.style.width = width + "%";
