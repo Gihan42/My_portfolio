@@ -62,35 +62,37 @@
             left: 1000px;
             top: 380px;
         }
-        .count{
-            border: 2px solid #b2aeae;
-            width: 20px;
-            height: 200px;
-            position: relative;
-            top: 70px;
-            left: 1020px;
-            border-radius: 20px;
-            background-color: red;
-           
-      
-        }
         .score{
             width: 200px;
-            height: 100px;
+        height: 100px;
+        position: fixed;
+        background: url(../assets/photo_2022-11-13_00-01-31-removebg-preview\ \(1\).png);
+        background-size: cover;
+        left: 1000px;
+        bottom: 480px;
+    }
+    
+        .count{
+            border: 2px solid #b2aeae;
+            width:17% ;
+            height: 20px;
             position: relative;
-            background: url("../assets/photo_2022-11-13_00-01-31-removebg-preview\ \(1\).png");
-            background-size: cover;
-            left: 750px;
-            bottom: 20px;
-        }
+            top: 70px;
+            left: 845px;
+            border-radius: 20px;
+            background-color: red;
+            margin: 5px;
+}
+                  
+        
         h1{
             font-size: 45px;
-            position: relative;
-            left: 740px;
-             bottom: 21px;
-             color: aliceblue;
+            position: fixed;
+            left: 1180px;
+            bottom: 458px;
+            color: aliceblue;
 }
-        }
+        
     </style>
 </head>
 <body>
@@ -99,11 +101,11 @@
     <div class="zBox2" id="zBox2"></div>
     <div class="zBox3" id="zBox3"></div>
     <div class="zBox4" id="zBox4"></div>
-    <div class="count"></div>
-    <div class="score"></div><h1>000</h1>
+    <div class="count" id="count"></div>
+    <div class="score"></div><h1 class="scoreRate"id="sc"></h1>
    </section>
     <div class="shoot" id="shoot"></div>
-  
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script src="../lib/jquery-ui.min.js"></script>
 
@@ -116,8 +118,8 @@
       {name:'4'}
     ]
   }
-
-var length;
+//   countM();
+var sc=0;
 $( "#shoot" ).draggable();
 $('.zBox1').droppable({
     drop: function( event, ui ) {
@@ -126,6 +128,8 @@ $('.zBox1').droppable({
         $('.zBox1').css('background','url("../assets/blast.gif")');
         $('.zBox1').css('background-size','cover');
         azl();
+        $('.scoreRate').text(sc);
+         console.log(sc);
     }
     
 });
@@ -137,6 +141,8 @@ $('.zBox2').droppable(
         $('.zBox2').css('background','url("../assets/blast.gif")');
         $('.zBox2').css('background-size','cover');
         azl();
+        $('#sc').text(sc);
+         console.log(sc);
     }
 
 });
@@ -147,6 +153,8 @@ $('.zBox3').droppable({
         $('.zBox3').css('background','url("../assets/blast.gif")');
         $('.zBox3').css('background-size','cover');
         azl();
+        $('#sc').text(sc);
+         console.log(sc);
     }
 });
 $('.zBox4').droppable(
@@ -157,17 +165,49 @@ $('.zBox4').droppable(
         $('.zBox4').css('background','url("../assets/blast.gif")');
         $('.zBox4').css('background-size','cover');
         azl();
+        $('#sc').text(sc);
+        console.log(sc);
     }
 });
-
+var stop;
 function azl(){
+    sc+=25;
     cueData.persons.pop();
-    console.log("pop")
     if(cueData.persons.length==0){
-        setTimeout(() =>alert('missonpass'), 1000 ) 
-        window.open("../pages/level2.html")  
+        stop=  setTimeout(() => window.open("../pages/level2.html") , 1000 ) 
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Misson Is Complited',
+            showConfirmButton: false,
+            timer: 1500
+})
     }
 }
+var i=0;
+update();
+function update() {
+  var element = document.getElementById("count");   
+  var width = 17;
+  var identity = setInterval(scene, 1000);
+  function scene() {
+    if (width <=0) {
+      clearInterval(identity);
+      $('.main').empty();
+      Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Time Is Over.! please try',
+  footer: '<a href="">What Happen?</a>'
+}
+      );
+    } else {
+      width--; 
+      element.style.width = width + '%'; 
+    }
+  }
+}
+
 </script>
 </body>
 </html>
