@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level two</title>
+    <title>Level tree</title>
     <link rel="stylesheet" href="../lib/jquery-ui.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="../assets/levelicon-removebg-preview.png"  >
@@ -11,8 +11,10 @@
         body{
             overflow-x: hidden;
             overflow-y: hidden;
-            background: url("../assets/zombie_game_background_by_biondic2016_d4uxtyd-fullview.png");
+            background: url("../assets/5021309.webp");
             background-size: cover;
+            position: fixed;
+            bottom: 100px;
         }
         .shoot{
             background: url("../assets/download-removebg-preview.png");
@@ -21,9 +23,9 @@
             width: 52px;
             justify-content: center;
             justify-items: center;
-            position: relative;
+            position: fixed;
             left: 600px;
-            top: 0px;
+            top: 500px;
             
         }
         .main{
@@ -39,41 +41,68 @@
             left: 350px;
             display: flex;
         }
-        .zBox1,.zBox2,.zBox3,.zBox4,.zBox5,.zBox6{
+        .zBox1,.zBox2,.zBox3,.zBox4,.zBox5,.zBox6,.zBox7,.zBox8{
             height: 100px;
-            width: 50px;
-            background: url("../assets/output-onlinegiftools2.gif");
+            width: 100px;
+            background: url("../assets/output-onlinegiftools\ \(1\).gif");
             background-size: cover;
-            position: relative;
+            /* position: relative; */
+            position: fixed;
         }
         .zBox1{
-            top: 200px;
-            transform: scaleX(-1);
+            position: fixed;
+            top: 350px;
+            height: 110;
         }
         .zBox2{
             left: 400px;
             top: 300px;
-           
+            height: 120px;
+            top: 390px;
+            position: fixed;
         }
         .zBox3{
-            left: 610px;
-            top: 220px;
-            transform: scaleX(-1);
+            height: 80px;
+            left: 908px;
+            top: 310px;
+            /* transform: scaleX(-1); */
+            width: 60px;
+            position: fixed;
         }
         .zBox4{
             left: 1000px;
-            top: 380px;
+            top: 340px;
+            position: fixed;
+            height: 120px;
         }
         .zBox5{
-            left: 40px;
-            top: 83px;
+            left: 650px;
+            top: 303px;
             height: 75px;
+            position: fixed;
+            height: 50px;
+            width: 35px;
         }
         .zBox6{
-            left: 685px;
-            top: 70px;
-            height: 73px;
+            left: 410px;
+            top: 310px;
+            /* height: 73px; */
             position: fixed;
+            height: 65px;
+            width: 45px;
+        }
+        .zBox8{
+            width: 55px;
+            height: 65px;
+            top: 300px;
+            left: 740px;
+        }
+        .zBox7{
+            width: 60px;
+            height: 6opx;
+            height: 80px;
+            top: 350px;
+            left: 600px;
         }
         .score{
             width: 200px;
@@ -168,10 +197,12 @@
     <div class="zBox4" id="zBox4"></div>
     <div class="zBox5" id="zBox5"></div>
     <div class="zBox6" id="zBox6"></div>
+    <div class="zBox7" id="zBox7"></div>
+    <div class="zBox8" id="zBox8"></div>
     <div class="count" id="count"></div>
     <div class="simg"></div>
     <div class="score"></div><h1 class="scoreRate"id="sc"></h1>
-    <div class="level"> <h2 class="levelOne">Level two</h2></div>
+    <div class="level"> <h2 class="levelOne">Level three</h2></div>
     <button type="button" class="btn btn-success" id="start">Play</button>
     <button type="button" class="btn btn-danger"  id="stop">Pause</button>
     <div class="homeIcn" id="homeIcn"></div>
@@ -189,13 +220,17 @@
       {name:'3'},
       {name:'4'},
       {name:'5'},
-      {name:'6'}
+      {name:'6'},
+      {name:'7'},
+      {name:'8'}
     ]
   }
 //   countM();
 var sc=0;
 $('.zBox2').css('display','none')
 $('.zBox5').css('display','none')
+$('.zBox7').css('display','none')
+$('.zBox8').css('display','none')
 $( "#shoot" ).draggable();
 $('.zBox1').droppable({
     drop: function( event, ui ) {
@@ -206,6 +241,7 @@ $('.zBox1').droppable({
         azl();
         $('.scoreRate').text(sc);
         addZombie();
+        addZombieTwo();
          console.log(sc);
          setTimeout(() =>$('.zBox1'). css('display','none') , 1000 ) ;
     }
@@ -221,6 +257,7 @@ $('.zBox2').droppable(
         azl();
         $('#sc').text(sc);
         addZombie();
+        addZombieTwo();
          console.log(sc);
          setTimeout(() =>$('.zBox2'). css('display','none') , 1000 ) ;
     }
@@ -235,6 +272,7 @@ $('.zBox3').droppable({
         azl();
         $('#sc').text(sc);
         addZombie();
+        addZombieTwo();
          console.log(sc);
          setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
     }
@@ -249,8 +287,9 @@ $('.zBox4').droppable(
         azl();
         $('#sc').text(sc);
         addZombie();
+        addZombieTwo();
         console.log(sc);
-        setTimeout(() =>$('.zBox4'). css('display','none') , 1000 ) ;
+        setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
     }
 });
 $('.zBox5').droppable(
@@ -263,6 +302,7 @@ $('.zBox5').droppable(
         azl();
         $('#sc').text(sc);
         addZombie();
+        addZombieTwo();
         console.log(sc);
         setTimeout(() =>$('.zBox5'). css('display','none') , 1000 ) ;
     }
@@ -277,8 +317,41 @@ $('.zBox6').droppable(
         azl();
         $('#sc').text(sc);
         addZombie();
+        addZombieTwo();
         console.log(sc);
         setTimeout(() =>$('.zBox6'). css('display','none') , 1000 ) ;
+    }
+});
+$('.zBox7').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox7').css('height','50px');
+        $('.zBox7').css('width','50px');
+        $('.zBox7').css('background','url("../assets/blast.gif")');
+        $('.zBox7').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        console.log(sc);
+        setTimeout(() =>$('.zBox7'). css('display','none') , 1000 ) ;
+        
+    }
+});
+$('.zBox8').droppable(
+    {
+    drop: function( event, ui ) {
+        $('.zBox8').css('height','50px');
+        $('.zBox8').css('width','50px');
+        $('.zBox8').css('background','url("../assets/blast.gif")');
+        $('.zBox8').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        console.log(sc);
+        setTimeout(() =>$('.zBox8'). css('display','none') , 1000 ) ;
+        
     }
 });
 var stop;
@@ -306,7 +379,7 @@ update();
 function update() {
   var element = document.getElementById("count");   
   var width = 17;
-  identity = setInterval(scene, 600);
+  identity = setInterval(scene, 800);
    function scene() {
     if (width <=0) {
       clearInterval(identity);
@@ -339,7 +412,13 @@ function addZombie(){
     if(sc==75){
         $('.zBox2').show();
         $('.zBox5').show();
-        console.log('75iiiiiiii')
+    }
+    
+}
+function addZombieTwo(){
+    if(sc==125){
+        $('.zBox7').show();
+        $('.zBox8').show();
     }
     
 }

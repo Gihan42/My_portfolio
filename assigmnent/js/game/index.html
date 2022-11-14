@@ -57,6 +57,16 @@
 </section>
 <section>
     <button type="button" class="btn btn-success" id="btnplay">Play</button>
+    
+<div class="dropdown">
+    <button class="dropbtn">Level</button>
+    <div class="dropdown-content">
+      <a href="#" class="level1">Level one</a>
+      <a href="#" class="level2">Level two</a>
+      <a href="#" class="level3">Level three</a>
+      <a href="#" class="level4">Level four</a>
+    </div>
+  </div>
 </section>
 <section>
     <div class="progress" id="progress">
@@ -85,6 +95,102 @@ function move() {
         clearInterval(id);
         i = 0;
         window.open("pages/level1.html","_parent")
+      } else {
+        width++;
+        elem.style.width = width + "%";
+    
+      }
+    }
+  }
+}
+$('.level1').click(function(){
+    moveOne();
+});
+$('.level2').click(function(){
+    moveTwo();
+});
+$('.level3').click(function(){
+    moveThree();
+});
+$('.level4').click(function(){
+    moveFour();
+});
+// levelone
+function moveOne() {
+    $('#progress').show();
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("progress");
+    var width = 1;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 30) {
+        clearInterval(id);
+        i = 0;
+        window.open("pages/level1.html","_parent")
+      } else {
+        width++;
+        elem.style.width = width + "%";
+    
+      }
+    }
+  }
+}
+// leveltwo
+function moveTwo() {
+    $('#progress').show();
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("progress");
+    var width = 1;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 30) {
+        clearInterval(id);
+        i = 0;
+        window.open("pages/level2.html","_parent")
+      } else {
+        width++;
+        elem.style.width = width + "%";
+    
+      }
+    }
+  }
+}
+// levelthree
+function moveThree() {
+    $('#progress').show();
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("progress");
+    var width = 1;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 30) {
+        clearInterval(id);
+        i = 0;
+        window.open("pages/level3.html","_parent")
+      } else {
+        width++;
+        elem.style.width = width + "%";
+    
+      }
+    }
+  }
+}
+// levelFour
+function moveFour() {
+    $('#progress').show();
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("progress");
+    var width = 1;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 30) {
+        clearInterval(id);
+        i = 0;
+        window.open("pages/level4.html","_parent")
       } else {
         width++;
         elem.style.width = width + "%";

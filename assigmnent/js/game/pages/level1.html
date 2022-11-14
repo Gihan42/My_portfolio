@@ -13,6 +13,7 @@
             overflow-y: hidden;
             background: url("../assets/24Z_2103.w026.n002.243B.p1.243.jpg");
             background-size: cover;
+            
         }
         .shoot{
             background: url("../assets/download-removebg-preview.png");
@@ -189,6 +190,7 @@ $('.zBox1').droppable({
         azl();
         $('.scoreRate').text(sc);
          console.log(sc);
+         setTimeout(() =>$('.zBox1'). css('display','none') , 1000 ) ;
     }
     
 });
@@ -202,6 +204,7 @@ $('.zBox2').droppable(
         azl();
         $('#sc').text(sc);
          console.log(sc);
+         setTimeout(() =>$('.zBox2'). css('display','none') , 1000 ) ;
     }
 
 });
@@ -214,6 +217,7 @@ $('.zBox3').droppable({
         azl();
         $('#sc').text(sc);
          console.log(sc);
+         setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
     }
 });
 $('.zBox4').droppable(
@@ -226,6 +230,7 @@ $('.zBox4').droppable(
         azl();
         $('#sc').text(sc);
         console.log(sc);
+        setTimeout(() =>$('.zBox4'). css('display','none') , 1000 ) ;
     }
 });
 var stop;
@@ -272,6 +277,7 @@ function update() {
 }
 $('#stop').click(function(){
     clearInterval(identity);
+    $('#shoot').css('display','none')
 });
 $('#start').click(function(){
     // setInterval(, 1000);
