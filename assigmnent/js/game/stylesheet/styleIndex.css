@@ -5,6 +5,7 @@ body{
     background-size: cover;
     overflow-x: hidden;
     overflow-y: hidden;
+    cursor: url("../assets/download-removebg-preview.png");
 }
 h1{
     font-family: 'Inter Tight', sans-serif;

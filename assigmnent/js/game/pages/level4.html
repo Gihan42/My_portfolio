@@ -3,9 +3,874 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Level tree</title>
+    <link rel="stylesheet" href="../lib/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="../assets/levelicon-removebg-preview.png"  >
+    <style>
+        body{
+            overflow-x: hidden;
+            overflow-y: hidden;
+            background: url("../assets/vecteezy_halloween-background-with-zombies-silhouette-in-the-graveyard_.jpg");
+            background-size: cover;
+            position: fixed;
+            bottom: 100px;
+        }
+        .shoot{
+            background: url("../assets/download-removebg-preview.png");
+            background-size: cover;
+            height: 50px;
+            width: 52px;
+            justify-content: center;
+            justify-items: center;
+            position: relative;
+            left: 600px;
+            top: 0px;
+            position: absolute;
+            
+        }
+        .main{
+            height: 500px;
+            display: flex;
+        }
+        .box{
+            height: 100px;
+            width: 345px;
+            border: 1px solid red;
+            position: relative;
+            top: 150px;
+            left: 350px;
+            display: flex;
+        }
+        .zBox1,.zBox2,.zBox3,.zBox4,.zBox5,.zBox6,.zBox7,.zBox8,.zBox11{
+            height: 100px;
+            width: 100px;
+            background: url("../assets/output-onlinegiftools\ \(1\).gif");
+            background-size: cover;
+            /* position: relative; */
+            position: fixed;
+        }
+        .zBox1{
+            position: fixed;
+            top: 350px;
+            height: 110;
+        }
+        .zBox2{
+            left: 350px;
+            top: 300px;
+            height: 120px;
+            top: 420px;
+            position: fixed;
+        }
+        .zBox3{
+            height: 80px;
+            left: 908px;
+            top: 360px;
+            /* transform: scaleX(-1); */
+            width: 60px;
+            position: fixed;
+        }
+        .zBox4{
+            left: 1100px;
+            top: 420px;
+            position: fixed;
+            height: 160px;
+        }
+        .zBox5{
+            left: 650px;
+            top: 390px;
+            height: 75px;
+            position: fixed;
+            height: 60px;
+            width: 45px
+        }
+        .zBox6{
+            left: 210px;
+            top: 370px;
+            /* height: 73px; */
+            position: fixed;
+            height: 65px;
+            width: 45px;
+        }
+        .zBox8{
+            width: 55px;
+            height: 65px;
+            top: 360px;
+            left: 1200px;
+            position: fixed;
+        }
+        .zBox7{
+            width: 60px;
+            height: 6opx;
+            height: 200px;
+            top: 240px;
+            left: 485px;
+            width: 160;
+            position: fixed;
+        }
+        .zBox9{
+            width: 60px;
+            height: 6opx;
+            height: 90px;
+            top: 120px;
+            left: 485px;
+            width: 160;
+            background: url("../assets/bat2.gif");
+            background-size: cover;
+            /* position: relative; */
+            position: fixed;
+          
+        }
+        /* .zBox9:nth-child(1){
+            background: url("../assets/bat2.gif");
+            background-size: cover;
+        }
+        .zBox9:nth-child(3){
+            background: url("../assets/bat2.gif");
+            background-size: cover;
+        }
+        .zBox9:nth-child(5){
+            background: url("../assets/bat2.gif");
+            background-size: cover;
+        } */
+        .zBox10{
+        
+            width: 60px;
+            height: 6opx;
+            height: 80px;
+            top: 40px;
+            left: 785px;
+            width: 160;
+            background: url("../assets/bat1.gif");
+            background-size: cover;
+            /* position: relative; */
+            position: fixed;
+}
+.zBox11{
+            position: fixed;
+            top: 350px;
+            height: 110;
+        }
+        .score{
+            width: 200px;
+        height: 100px;
+        position: fixed;
+        background: url(../assets/photo_2022-11-13_00-01-31-removebg-preview\ \(1\).png);
+        background-size: cover;
+        left: 1000px;
+        bottom: 480px;
+    }
+    
+        .count{
+            border: 2px solid #b2aeae;
+            width:17% ;
+            height: 20px;
+            position: fixed;
+            top: 72px;
+            left: 1050px;
+            border-radius: 20px;
+            background-color: red;
+            margin: 5px;
+}
+                  
+        
+        h1{
+            font-size: 45px;
+            position: fixed;
+            left: 1180px;
+            bottom: 490px;
+            color: aliceblue;
+}
+
+#start{
+    position: fixed;
+    left: 1029px;
+    top: 190px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.level{
+    position: fixed; 
+}
+.levelOne{
+    position: fixed;
+    font-size: 30px;
+    color: azure;
+    left: 1030px;
+    top: 140px;
+}
+#stop{
+    position: fixed;
+    left: 1089px;
+    top: 190px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+/* #start,#stop:hover{
+    width: 50px;
+    height: 50px;
+} */
+.simg{
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: url("../assets/external-soldier-history-flaticons-flat-flat-icons-4.png");
+    background-size: cover;
+    left: 1018px;
+    top: 73px;
+
+}
+.homeIcn{
+    position: fixed;
+    background: url("../assets/pngtree-home-button-green-png-image_3262275-removebg-preview.png");
+    background-size: cover;
+    height: 85px;
+    width: 90px;
+    left: 1160px;
+    top: 170px;
+    cursor: pointer;
+} 
+.homeIcn:hover{
+    height: 75px;
+    width: 80px;
+}  
+.bulletCount{
+    position: fixed;
+    font-size: 30px;
+    top: 100px;
+    color: #F39C12 ;
+    /* right: 300px; */
+    height: 100px;
+    width: 100px;
+    left: 1070px;
+}
+.bulet{
+    background: url('../assets/bullet-2.png');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    left: 1024px;
+    top: 107px;
+}   
+.container{
+    border: 1px solid red;
+    position: relative;
+    height:100px ;
+    width: 700px;
+    top: 150px;
+    left: 300px;
+    display: flex;
+}  
+#gun{
+        position: absolute;
+        bottom: -97px;
+        left: 400px;
+    }  
+    </style>
 </head>
 <body>
+   <section class="main"> 
+    <div class="zBox1" id="zBox1"></div>
+    <div class="zBox2" id="zBox2"></div>
+    <div class="zBox3" id="zBox3"></div>
+    <div class="zBox4" id="zBox4"></div>
+    <div class="zBox5" id="zBox5"></div>
+    <div class="zBox6" id="zBox6"></div>
+    <div class="zBox7" id="zBox7"></div>
+    <div class="zBox8" id="zBox8"></div>
+    <div class="zBox9" id="zBox9"></div>
+    <div class="zBox10" id="zBox10"></div>
+    <div class="zBox11" id="zBox11"></div>
+    <div class="count" id="count"></div>
+    <div class="simg"></div>
+    <div id="gun"><img src="../assets/ss_13ea0884b3c6eb2ee7b53b1520a53b377f8fd8aa.1920x1080-removebg-preview.png" alt=""></div>
+    <div class="score"></div><h1 class="scoreRate"id="sc"></h1>
+    <div class="bulet"><h1 class="bulletCount">0 / 11</h1></div>
+    <div class="level"> <h2 class="levelOne">Level three</h2></div>
+    <button type="button" class="btn btn-success" id="start">Play</button>
+    <button type="button" class="btn btn-danger"  id="stop">Pause</button>
+    <div class="homeIcn" id="homeIcn"></div>
+   </section>
+    <div class="shoot" id="shoot"></div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="../lib/jquery-ui.min.js"></script>
+
+<script>
+     var cueData={
+    persons:[
+      {name:'1'},
+      {name:'2'},
+      {name:'3'},
+      {name:'4'},
+      {name:'5'},
+      {name:'6'},
+      {name:'7'},
+      {name:'8'},
+      {name:'9'},
+      {name:'10'},
+      {name:'11'}
+    ]
+  }
+//   countM();
+var sc=0;
+var bullet=20;
+$('.zBox2').css('display','none')
+$('.zBox5').css('display','none')
+$('.zBox7').css('display','none')
+$('.zBox8').css('display','none')
+ $('.zBox9').css('display','none')
+ $('.zBox1').css('display','none')
+$( "#shoot" ).click(function(){
+buletCount();
+})
+$( "#shoot" ).draggable();
+let pos;
+let pos1;
+    $( document ).mousemove(function( event ){
+        event.preventDefault()
+        
+        // $("#shoot").style.left = event.clientX + "px";
+        // $("#shoot").style.top = event.clientY + "px";
+        $("#gun").css("left",event.clientX-200 + "px");
+        $("#shoot").css("top",event.clientY + "px");
+        $("#shoot").css("left",event.clientX + "px");
+        pos = event.clientX;
+        pos1 = event.clientY;
+    });
+// $('.zBox1').droppable({
+//     drop: function( event, ui ) {
+//         $('.zBox1').css('height','50px');
+//         $('.zBox1').css('width','50px');
+//         $('.zBox1').css('background','url("../assets/blast.gif")');
+//         $('.zBox1').css('background-size','cover');
+//         azl();
+//         $('.scoreRate').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//          console.log(sc);
+//          buletCount();
+//          update();
+//          setTimeout(() =>$('.zBox1'). css('display','none') , 1000 ) ;
+//     }
     
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox1").offset().left - pos);
+    let res1 = Math.abs($(".zBox1").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox1').css('height','50px');
+        $('.zBox1').css('width','50px');
+        $('.zBox1').css('background','url("../assets/blast.gif")');
+        $('.zBox1').css('background-size','cover');
+        azl();
+        $('.scoreRate').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+         console.log(sc);
+         buletCount();
+        //  update();
+         setTimeout(() =>$('.zBox1'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox2').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox2').css('height','50px');
+//         $('.zBox2').css('width','50px');
+//         $('.zBox2').css('background','url("../assets/blast.gif")');
+//         $('.zBox2').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//          console.log(sc);
+//          buletCount();
+//          update();
+//          setTimeout(() =>$('.zBox2'). css('display','none') , 1000 ) ;
+//     }
+
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox2").offset().left - pos);
+    let res1 = Math.abs($(".zBox2").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox2').css('height','50px');
+        $('.zBox2').css('width','50px');
+        $('.zBox2').css('background','url("../assets/blast.gif")');
+        $('.zBox2').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+         console.log(sc);
+         buletCount();
+        //  update();
+         setTimeout(() =>$('.zBox2'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox3').droppable({
+//     drop: function( event, ui ) {
+//         $('.zBox3').css('height','50px');
+//         $('.zBox3').css('width','50px');
+//         $('.zBox3').css('background','url("../assets/blast.gif")');
+//         $('.zBox3').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//          console.log(sc);
+//          buletCount();
+//          update();
+//          setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox3").offset().left - pos);
+    let res1 = Math.abs($(".zBox3").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox3').css('height','50px');
+        $('.zBox3').css('width','50px');
+        $('.zBox3').css('background','url("../assets/blast.gif")');
+        $('.zBox3').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+         console.log(sc);
+         buletCount();
+        //  update();
+         setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox4').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox4').css('height','50px');
+//         $('.zBox4').css('width','50px');
+//         $('.zBox4').css('background','url("../assets/blast.gif")');
+//         $('.zBox4').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox4").offset().left - pos);
+    let res1 = Math.abs($(".zBox4").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox4').css('height','50px');
+        $('.zBox4').css('width','50px');
+        $('.zBox4').css('background','url("../assets/blast.gif")');
+        $('.zBox4').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox4'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox5').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox5').css('height','50px');
+//         $('.zBox5').css('width','50px');
+//         $('.zBox5').css('background','url("../assets/blast.gif")');
+//         $('.zBox5').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox5'). css('display','none') , 1000 ) ;
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox5").offset().left - pos);
+    let res1 = Math.abs($(".zBox5").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox5').css('height','50px');
+        $('.zBox5').css('width','50px');
+        $('.zBox5').css('background','url("../assets/blast.gif")');
+        $('.zBox5').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox5'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox6').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox6').css('height','50px');
+//         $('.zBox6').css('width','50px');
+//         $('.zBox6').css('background','url("../assets/blast.gif")');
+//         $('.zBox6').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox6'). css('display','none') , 1000 ) ;
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox6").offset().left - pos);
+    let res1 = Math.abs($(".zBox6").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox6').css('height','50px');
+        $('.zBox6').css('width','50px');
+        $('.zBox6').css('background','url("../assets/blast.gif")');
+        $('.zBox6').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox6'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox7').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox7').css('height','50px');
+//         $('.zBox7').css('width','50px');
+//         $('.zBox7').css('background','url("../assets/blast.gif")');
+//         $('.zBox7').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox7'). css('display','none') , 1000 ) ;
+        
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox7").offset().left - pos);
+    let res1 = Math.abs($(".zBox7").offset().top - pos1);
+    if(res<=80 && res1<=115){
+        alert('awa')
+        $('.zBox7').css('height','50px');
+        $('.zBox7').css('width','50px');
+        $('.zBox7').css('background','url("../assets/blast.gif")');
+        $('.zBox7').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox7'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox8').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox8').css('height','50px');
+//         $('.zBox8').css('width','50px');
+//         $('.zBox8').css('background','url("../assets/blast.gif")');
+//         $('.zBox8').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox8'). css('display','none') , 1000 ) ;
+        
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox8").offset().left - pos);
+    let res1 = Math.abs($(".zBox8").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox8').css('height','50px');
+        $('.zBox8').css('width','50px');
+        $('.zBox8').css('background','url("../assets/blast.gif")');
+        $('.zBox8').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox8'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox9').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox9').css('height','50px');
+//         $('.zBox9').css('width','50px');
+//         $('.zBox9').css('background','url("../assets/blast.gif")');
+//         $('.zBox9').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox9'). css('display','none') , 1000 ) ;
+        
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox9").offset().left - pos);
+    let res1 = Math.abs($(".zBox9").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox9').css('height','50px');
+        $('.zBox9').css('width','50px');
+        $('.zBox9').css('background','url("../assets/blast.gif")');
+        $('.zBox9').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox9'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox10').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox10').css('height','50px');
+//         $('.zBox10').css('width','50px');
+//         $('.zBox10').css('background','url("../assets/blast.gif")');
+//         $('.zBox10').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox10'). css('display','none') , 1000 ) ;
+        
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox10").offset().left - pos);
+    let res1 = Math.abs($(".zBox10").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox10').css('height','50px');
+        $('.zBox10').css('width','50px');
+        $('.zBox10').css('background','url("../assets/blast.gif")');
+        $('.zBox10').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox10'). css('display','none') , 1000 ) ;
+    }
+})
+// $('.zBox11').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox11').css('height','50px');
+//         $('.zBox11').css('width','50px');
+//         $('.zBox11').css('background','url("../assets/blast.gif")');
+//         $('.zBox11').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         addZombieTwo();
+//         addZombieThree();
+//         console.log(sc);
+//         buletCount();
+//         update();
+//         setTimeout(() =>$('.zBox11'). css('display','none') , 1000 ) ;
+        
+//     }
+// });
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox11").offset().left - pos);
+    let res1 = Math.abs($(".zBox11").offset().top - pos1);
+    if(res<=40 && res1<=100){
+        $('.zBox11').css('height','50px');
+        $('.zBox11').css('height','50px');
+        $('.zBox11').css('width','50px');
+        $('.zBox11').css('background','url("../assets/blast.gif")');
+        $('.zBox11').css('background-size','cover');
+        azl();
+        $('#sc').text(sc);
+        addZombie();
+        addZombieTwo();
+        addZombieThree();
+        console.log(sc);
+        buletCount();
+        // update();
+        setTimeout(() =>$('.zBox11'). css('display','none') , 1000 ) ;
+    }
+})
+var stop;
+function azl(){
+    sc+=25;
+    cueData.persons.pop();
+    if(cueData.persons.length==0){
+        stop=  setTimeout(() => window.open("../index.html","_parent") , 2800 ) 
+        $('.main').empty();
+        Swal.fire({
+        title: ' Congratulation !..Game is Over.',
+        width: 600,
+         padding: '3em',
+        color: '#716add',
+        background: '#fff url(/images/trees.png)',
+        backdrop: `rgba(0,0,123,0.4)
+    url("/images/nyan-cat.gif")
+    left top
+    no-repeat `
+})
+
+    }
+}
+var i=0;
+var identity;
+var test;
+
+update();
+function update() {
+  var element = document.getElementById("count");   
+  var width = 20;
+  identity = setInterval(scene, 1000);
+   function scene() {
+    if (width <=0) {
+      clearInterval(identity);
+      $('.main').empty();
+      Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Time Is Over.! please try again',
+  footer: '<a href="">What Happen?</a>'
+}
+      );
+    } else {
+      width--; 
+      element.style.width = width + '%'; 
+    }
+  }
+}
+$('#shoot').click(function(){
+    let start = Math.abs($("#stop").offset().left - pos);
+    if (start<=50){
+        clearInterval(identity);
+        $('#shoot').css('display','none');
+       
+    }
+    
+});
+$('#shoot').click(function(){
+    let start = Math.abs($("#start").offset().left -pos);
+    if (start<=50){
+
+    }
+    // setInterval(, 1000);
+    // update();
+});
+$( "#shoot").click(function(){
+    let start = Math.abs($("#homeIcn").offset().left -pos);
+    if (start<=40){
+        window.open('../index.html',"_parent");
+    }
+   
+})
+function addZombie(){
+    if(sc==75){
+        $('.zBox2').show();
+        $('.zBox5').show();
+    }
+    
+}
+function addZombieTwo(){
+    if(sc==125){
+        $('.zBox7').show();
+        $('.zBox8').show();
+    }
+    
+}
+function addZombieThree(){
+    if(sc==175){
+        $('.zBox9').show();
+        $('.zBox1').show();
+    }
+    
+}
+function buletCount(){
+    if(bullet>=0){
+         bullet--;
+        $('.bulletCount').text(bullet+" /"+" 8")
+    }
+}
+// bird fling
+// cueData1={
+//     persons:[
+//         {name:"../assets/bat2.gif"},{name:""},{name:"../assets/bat2.gif"},{name:""},{name:"../assets/bat2.gif"}
+//     ],
+    
+//     nextPerson:function (){
+//       var lastPerson= this.persons.pop();
+//       this.persons.unshift(lastPerson);
+//     }
+//  }
+//  addDiv();
+//  function addDiv(){
+//     $('.container').empty()
+// for(let i = 0; i < cueData1.persons.length ; i++){
+// $('.container').append(`<div class="zBox9" style="background: url( ${cueData1.persons[i].name})"></div>`);
+// }
+// cueData1.nextPerson()
+//  }
+//  setInterval(addDiv,900);
+</script>
 </body>
 </html>

@@ -24,6 +24,7 @@
             position: relative;
             left: 600px;
             top: 0px;
+            position: absolute;
             
         }
         .main{
@@ -109,7 +110,7 @@
 #start{
     position: fixed;
     left: 1029px;
-    top: 156px;
+    top: 190px;
     cursor: pointer;
     margin-right: 10px;
 }
@@ -121,12 +122,12 @@
     font-size: 30px;
     color: azure;
     left: 1030px;
-    top: 110px;
+    top: 140px;
 }
 #stop{
     position: fixed;
     left: 1089px;
-    top: 155px;
+    top: 190px;
     cursor: pointer;
     margin-left: 10px;
 }
@@ -151,13 +152,37 @@
     height: 85px;
     width: 90px;
     left: 1160px;
-    top: 135px;
+    top: 170px;
     cursor: pointer;
 } 
 .homeIcn:hover{
     height: 75px;
     width: 80px;
-}       
+}   
+.bulletCount{
+    position: fixed;
+    font-size: 30px;
+    top: 100px;
+    color: #F39C12 ;
+    /* right: 300px; */
+    height: 100px;
+    width: 100px;
+    left: 1070px;
+}
+.bulet{
+    background: url('../assets/bullet-2.png');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    left: 1024px;
+    top: 107px;
+} 
+#gun{
+        position: absolute;
+        bottom: 0;
+        left: 400px;
+    }   
     </style>
 </head>
 <body>
@@ -170,7 +195,9 @@
     <div class="zBox6" id="zBox6"></div>
     <div class="count" id="count"></div>
     <div class="simg"></div>
+    <div id="gun"><img src="../assets/ss_13ea0884b3c6eb2ee7b53b1520a53b377f8fd8aa.1920x1080-removebg-preview.png" alt=""></div>
     <div class="score"></div><h1 class="scoreRate"id="sc"></h1>
+    <div class="bulet"><h1 class="bulletCount">0 / 8</h1></div>
     <div class="level"> <h2 class="levelOne">Level two</h2></div>
     <button type="button" class="btn btn-success" id="start">Play</button>
     <button type="button" class="btn btn-danger"  id="stop">Pause</button>
@@ -194,27 +221,51 @@
   }
 //   countM();
 var sc=0;
+var bullet=8;
 $('.zBox2').css('display','none')
 $('.zBox5').css('display','none')
 $( "#shoot" ).draggable();
-$('.zBox1').droppable({
-    drop: function( event, ui ) {
-        $('.zBox1').css('height','50px');
+$( "#shoot" ).click(function(){
+buletCount();
+})
+let pos;
+let pos1;
+    $( document ).mousemove(function( event ){
+        event.preventDefault()
+        
+        // $("#shoot").style.left = event.clientX + "px";
+        // $("#shoot").style.top = event.clientY + "px";
+        $("#gun").css("left",event.clientX-200 + "px");
+        $("#shoot").css("top",event.clientY + "px");
+        $("#shoot").css("left",event.clientX + "px");
+        pos = event.clientX;
+        pos1 = event.clientY;
+    });
+
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox1").offset().left - pos);
+    let res1 = Math.abs($(".zBox1").offset().top - pos1);
+    if(res<=40 && res1<=100){
+    $('.zBox1').css('height','50px');
         $('.zBox1').css('width','50px');
         $('.zBox1').css('background','url("../assets/blast.gif")');
         $('.zBox1').css('background-size','cover');
         azl();
-        $('.scoreRate').text(sc);
         addZombie();
+        $('.scoreRate').text(sc);
          console.log(sc);
-         setTimeout(() =>$('.zBox1'). css('display','none') , 1000 ) ;
+         buletCount();
+        //  update();
+            setTimeout(() =>$('.zBox1'). css('display','none') , 1000 ) ;
     }
-    
-});
-$('.zBox2').droppable(
-    {
-    drop: function( event, ui ) {
-        $('.zBox2').css('height','50px');
+}) 
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox2").offset().left - pos);
+    let res1 = Math.abs($(".zBox2").offset().top - pos1); 
+  
+    if(res<=40 && res1<=100){
+    $('.zBox2').css('height','50px');
+    $('.zBox2').css('height','50px');
         $('.zBox2').css('width','50px');
         $('.zBox2').css('background','url("../assets/blast.gif")');
         $('.zBox2').css('background-size','cover');
@@ -222,12 +273,15 @@ $('.zBox2').droppable(
         $('#sc').text(sc);
         addZombie();
          console.log(sc);
+         buletCount();
+        //  update();
          setTimeout(() =>$('.zBox2'). css('display','none') , 1000 ) ;
     }
-
-});
-$('.zBox3').droppable({
-    drop: function( event, ui ) {
+}) 
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox3").offset().left - pos);
+    let res1 = Math.abs($(".zBox3").offset().top - pos1);
+    if(res<=40 && res1<=100){
         $('.zBox3').css('height','50px');
         $('.zBox3').css('width','50px');
         $('.zBox3').css('background','url("../assets/blast.gif")');
@@ -236,12 +290,15 @@ $('.zBox3').droppable({
         $('#sc').text(sc);
         addZombie();
          console.log(sc);
+         buletCount();
+        //  update();
          setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
     }
-});
-$('.zBox4').droppable(
-    {
-    drop: function( event, ui ) {
+})
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox4").offset().left - pos);
+    let res1 = Math.abs($(".zBox4").offset().top - pos1);
+    if(res<=40 && res1<=100){
         $('.zBox4').css('height','50px');
         $('.zBox4').css('width','50px');
         $('.zBox4').css('background','url("../assets/blast.gif")');
@@ -250,12 +307,15 @@ $('.zBox4').droppable(
         $('#sc').text(sc);
         addZombie();
         console.log(sc);
+        buletCount();
+        // update();
         setTimeout(() =>$('.zBox4'). css('display','none') , 1000 ) ;
     }
-});
-$('.zBox5').droppable(
-    {
-    drop: function( event, ui ) {
+})
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox5").offset().left - pos);
+    let res1 = Math.abs($(".zBox5").offset().top - pos1);
+    if(res<=40 && res1<=100){
         $('.zBox5').css('height','50px');
         $('.zBox5').css('width','50px');
         $('.zBox5').css('background','url("../assets/blast.gif")');
@@ -264,12 +324,16 @@ $('.zBox5').droppable(
         $('#sc').text(sc);
         addZombie();
         console.log(sc);
+        buletCount();
+        // update();
         setTimeout(() =>$('.zBox5'). css('display','none') , 1000 ) ;
     }
-});
-$('.zBox6').droppable(
-    {
-    drop: function( event, ui ) {
+   
+})
+$("#shoot").click(function(){
+    let res = Math.abs($(".zBox6").offset().left - pos);
+    let res1 = Math.abs($(".zBox6").offset().top - pos1);
+    if(res<=40 && res1<=100){
         $('.zBox6').css('height','50px');
         $('.zBox6').css('width','50px');
         $('.zBox6').css('background','url("../assets/blast.gif")');
@@ -278,9 +342,12 @@ $('.zBox6').droppable(
         $('#sc').text(sc);
         addZombie();
         console.log(sc);
+        buletCount();
+        // update();
         setTimeout(() =>$('.zBox6'). css('display','none') , 1000 ) ;
     }
-});
+   
+})
 var stop;
 function azl(){
     sc+=25;
@@ -324,17 +391,31 @@ function update() {
     }
   }
 }
-$('#stop').click(function(){
-    clearInterval(identity);
-    $('#shoot').css('display','none')
+$('#shoot').click(function(){
+    let start = Math.abs($("#stop").offset().left - pos);
+    if (start<=50){
+        clearInterval(identity);
+        $('#shoot').css('display','none');
+       
+    }
+    
 });
-$('#start').click(function(){
+$('#shoot').click(function(){
+    let start = Math.abs($("#start").offset().left -pos);
+    if (start<=50){
+
+    }
     // setInterval(, 1000);
     // update();
 });
-$( "#homeIcn").click(function(){
-    window.open('../index.html',"_parent");
+$( "#shoot").click(function(){
+    let start = Math.abs($("#homeIcn").offset().left -pos);
+    if (start<=50){
+        window.open('../index.html',"_parent");
+    }
+   
 })
+
 function addZombie(){
     if(sc==75){
         $('.zBox2').show();
@@ -343,7 +424,112 @@ function addZombie(){
     }
     
 }
+function buletCount(){
+    if(bullet>=0){
+         bullet--;
+        $('.bulletCount').text(bullet+" /"+" 8")
+    }
+}
+//////////////////////////////////////////////////////////
+// $('.zBox2').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox2').css('height','50px');
+//         $('.zBox2').css('width','50px');
+//         $('.zBox2').css('background','url("../assets/blast.gif")');
+//         $('.zBox2').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//          console.log(sc);
+//          buletCount();
+//          setTimeout(() =>$('.zBox2'). css('display','none') , 1000 ) ;
+//     }
 
+// });
+
+
+// $('.zBox3').droppable({
+//     drop: function( event, ui ) {
+//         $('.zBox3').css('height','50px');
+//         $('.zBox3').css('width','50px');
+//         $('.zBox3').css('background','url("../assets/blast.gif")');
+//         $('.zBox3').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//          console.log(sc);
+//          buletCount();
+//          setTimeout(() =>$('.zBox3'). css('display','none') , 1000 ) ;
+//     }
+// });
+
+
+// $('.zBox4').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox4').css('height','50px');
+//         $('.zBox4').css('width','50px');
+//         $('.zBox4').css('background','url("../assets/blast.gif")');
+//         $('.zBox4').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         console.log(sc);
+//         buletCount();
+//         setTimeout(() =>$('.zBox4'). css('display','none') , 1000 ) ;
+//     }
+// });
+
+
+
+// $('.zBox5').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox5').css('height','50px');
+//         $('.zBox5').css('width','50px');
+//         $('.zBox5').css('background','url("../assets/blast.gif")');
+//         $('.zBox5').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         console.log(sc);
+//         buletCount();
+//         setTimeout(() =>$('.zBox5'). css('display','none') , 1000 ) ;
+//     }
+// });
+
+
+// $('.zBox6').droppable(
+//     {
+//     drop: function( event, ui ) {
+//         $('.zBox6').css('height','50px');
+//         $('.zBox6').css('width','50px');
+//         $('.zBox6').css('background','url("../assets/blast.gif")');
+//         $('.zBox6').css('background-size','cover');
+//         azl();
+//         $('#sc').text(sc);
+//         addZombie();
+//         console.log(sc);
+//         buletCount();
+//         setTimeout(() =>$('.zBox6'). css('display','none') , 1000 ) ;
+//     }
+// });
+// $('.zBox1').droppable({
+//     drop: function( event, ui ) {
+//         $('.zBox1').css('height','50px');
+//         $('.zBox1').css('width','50px');
+//         $('.zBox1').css('background','url("../assets/blast.gif")');
+//         $('.zBox1').css('background-size','cover');
+//         azl();
+//         $('.scoreRate').text(sc);
+//         addZombie();
+//          console.log(sc);
+//          buletCount();
+//          setTimeout(() =>$('.zBox1'). css('display','none') , 1000 ) ;
+//     }
+    
+// });
 </script>
 </body>
 </html>
