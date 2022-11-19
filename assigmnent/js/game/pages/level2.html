@@ -225,9 +225,9 @@ var bullet=8;
 $('.zBox2').css('display','none')
 $('.zBox5').css('display','none')
 $( "#shoot" ).draggable();
-$( "#shoot" ).click(function(){
-buletCount();
-})
+// $( "#shoot" ).click(function(){
+// buletCount();
+// })
 let pos;
 let pos1;
     $( document ).mousemove(function( event ){
@@ -241,6 +241,13 @@ let pos1;
         pos = event.clientX;
         pos1 = event.clientY;
     });
+
+    $('#homeIcn,#stop,#start').mouseover(function(){
+    $('#shoot').css('display','none');
+})
+$('#homeIcn,#stop,#start').mouseleave(function(){
+    $('#shoot').css('display','block');
+})
 
 $("#shoot").click(function(){
     let res = Math.abs($(".zBox1").offset().left - pos);
@@ -368,13 +375,14 @@ function azl(){
 var i=0;
 var identity;
 var test;
+var width = 17;
+var paused = false;
 
-update();
-function update() {
-  var element = document.getElementById("count");   
-  var width = 17;
+// update();
   identity = setInterval(scene, 600);
    function scene() {
+    if(paused) return;
+    var element = document.getElementById("count"); 
     if (width <=0) {
       clearInterval(identity);
       $('.main').empty();
@@ -390,30 +398,43 @@ function update() {
       element.style.width = width + '%'; 
     }
   }
-}
-$('#shoot').click(function(){
+
+  $("#stop").click(function(e){
+    offset = [
+    $("#shoot").offsetLeft - e.clientX,
+    $("#shoot").offsetTop - e.clientY
+    ];
     let start = Math.abs($("#stop").offset().left - pos);
     if (start<=50){
-        clearInterval(identity);
+        // clearInterval(identity);
+        alert('stop')
+        paused = true;
         $('#shoot').css('display','none');
-       
     }
-    
-});
-$('#shoot').click(function(){
+})
+$("#start").click(function(e){
+    offset = [
+    $("#shoot").offsetLeft - e.clientX,
+    $("#shoot").offsetTop - e.clientY
+    ];
     let start = Math.abs($("#start").offset().left -pos);
     if (start<=50){
-
+        // setInterval(identity, 1000);
+        $('#shoot').css('display','block')
+        alert('alert')
+        paused = false;
     }
-    // setInterval(, 1000);
-    // update();
-});
-$( "#shoot").click(function(){
+})
+$("#homeIcn").click(function(e){
+    offset = [
+    $("#shoot").offsetLeft - e.clientX,
+    $("#shoot").offsetTop - e.clientY
+    ];
     let start = Math.abs($("#homeIcn").offset().left -pos);
     if (start<=50){
+        alert('home')
         window.open('../index.html',"_parent");
     }
-   
 })
 
 function addZombie(){
@@ -429,6 +450,16 @@ function buletCount(){
          bullet--;
         $('.bulletCount').text(bullet+" /"+" 8")
     }
+    else{
+        clearInterval(identity);
+        $('#shoot').css('display','none');
+        Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Ammo Pack is Empty.! please try again',
+  footer: '<a href="">What Happen?</a>'
+    });
+}
 }
 //////////////////////////////////////////////////////////
 // $('.zBox2').droppable(

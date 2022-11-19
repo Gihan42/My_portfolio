@@ -212,24 +212,46 @@
 var sc=0;
 var bullet=13;
 $( "#shoot" ).draggable();
-$( "#shoot" ).click(function(){
-buletCount();
-})
+// $( "#shoot" ).click(function(){
+// buletCount();
+// })
 let pos;
 let pos1;
+let offset = [];
+$('#homeIcn,#stop,#start').mouseover(function(){
+    $('#shoot').css('display','none');
+})
+$('#homeIcn,#stop,#start').mouseleave(function(){
+    $('#shoot').css('display','block');
+})
+// $("#shoot").mousedown(function(e) {
+//     offset = [
+//     $("#shoot").offsetLeft - e.clientX,
+//     $("#shoot").offsetTop - e.clientY
+//     ];
+// });
     $( document ).mousemove(function( event ){
         event.preventDefault()
-        
+        // $('#shoot').css('display','block');
         // $("#shoot").style.left = event.clientX + "px";
         // $("#shoot").style.top = event.clientY + "px";
-        $("#gun").css("left",event.clientX-200 + "px");
-        $("#shoot").css("top",event.clientY + "px");
-        $("#shoot").css("left",event.clientX + "px");
+        $("#gun").css("left", event.clientX-200 + "px");
+        $("#shoot").css("top", event.clientY  + "px");
+        $("#shoot").css("left",event.clientX   + "px");
         pos = event.clientX;
         pos1 = event.clientY;
     });
 
-$("#shoot").click(function(){
+    // offset = [
+    // $("#shoot").offsetLeft - e.clientX,
+    // $("#shoot").offsetTop - e.clientY
+    // ];
+
+$("#shoot").click(function(e){
+    offset = [
+    $("#shoot").offsetLeft - e.clientX,
+    $("#shoot").offsetTop - e.clientY
+    ];
     let res = Math.abs($(".zBox1").offset().left - pos);
     let res1 = Math.abs($(".zBox1").offset().top - pos1);
     if(res<=40 && res1<=100){
@@ -247,6 +269,7 @@ $("#shoot").click(function(){
 }) 
 // eken bn zombige left eke px ganai cursor eke left eke px ganai samanada balanawa
 $("#shoot").click(function(){
+    console.log("box2")
     let res = Math.abs($(".zBox2").offset().left - pos);
     let res1 = Math.abs($(".zBox2").offset().top - pos1); 
     if(res<=40 && res1<=100){
@@ -263,6 +286,7 @@ $("#shoot").click(function(){
     }
 })
 $("#shoot").click(function(){
+    console.log("box2")
     let res = Math.abs($(".zBox3").offset().left - pos);
     let res1 = Math.abs($(".zBox3").offset().top - pos1); 
   
@@ -281,6 +305,7 @@ $("#shoot").click(function(){
 })
 
 $("#shoot").click(function(){
+    console.log("box2")
     let res = Math.abs($(".zBox4").offset().left - pos);
     let res1 = Math.abs($(".zBox4").offset().top - pos1); 
   
@@ -317,13 +342,17 @@ function azl(){
 var i=0;
 var identity;
 var test;
-update();
+var width = 17;
+var paused = false;
+// update();
 
-function update() {
-  var element = document.getElementById("count");   
-  var width = 17;
+
+   
+ 
   identity = setInterval(scene, 1000);
    function scene() {
+    if(paused) return;
+    var element = document.getElementById("count");  
     if (width <=0) {
       clearInterval(identity);
       $('.main').empty();
@@ -339,36 +368,101 @@ function update() {
       element.style.width = width + '%'; 
     }
   }
-}
-$('#shoot').click(function(){
+
+// $('#shoot').click(function(e){
+//     offset = [
+//     $("#shoot").offsetLeft - e.clientX,
+//     $("#shoot").offsetTop - e.clientY
+//     ];
+//     let start = Math.abs($("#stop").offset().left - pos);
+//     if (start<=50){
+//         // clearInterval(identity);
+//         alert('stop')
+//         paused = true;
+//         $('#shoot').css('display','none');
+//     }
+// });
+$("#stop").click(function(e){
+    offset = [
+    $("#shoot").offsetLeft - e.clientX,
+    $("#shoot").offsetTop - e.clientY
+    ];
     let start = Math.abs($("#stop").offset().left - pos);
     if (start<=50){
-        clearInterval(identity);
+        // clearInterval(identity);
+        alert('stop')
+        paused = true;
         $('#shoot').css('display','none');
-       
     }
-    
-});
-$('#shoot').click(function(){
+})
+// $('#shoot').click(function(e){
+//     offset = [
+//     $("#shoot").offsetLeft - e.clientX,
+//     $("#shoot").offsetTop - e.clientY
+//     ];
+//     let start = Math.abs($("#start").offset().left -pos);
+//     if (start<=50){
+//         // setInterval(identity, 1000);
+//         $('#shoot').css('display','block')
+//         alert('alert')
+//         paused = false;
+//     }
+//     // setInterval(, 1000);
+//     // update();
+// });
+$("#start").click(function(e){
+    offset = [
+    $("#shoot").offsetLeft - e.clientX,
+    $("#shoot").offsetTop - e.clientY
+    ];
     let start = Math.abs($("#start").offset().left -pos);
     if (start<=50){
-
+        // setInterval(identity, 1000);
+        $('#shoot').css('display','block')
+        alert('alert')
+        paused = false;
     }
-    // setInterval(, 1000);
-    // update();
-});
-$( "#shoot").click(function(){
+})
+
+
+// $( "#shoot").click(function(e){
+//     offset = [
+//     $("#shoot").offsetLeft - e.clientX,
+//     $("#shoot").offsetTop - e.clientY
+//     ];
+//     let start = Math.abs($("#homeIcn").offset().left -pos);
+//     if (start<=50){
+//         alert('home')
+//         window.open('../index.html',"_parent");
+//     }
+   
+// })
+$("#homeIcn").click(function(e){
+    offset = [
+    $("#shoot").offsetLeft - e.clientX,
+    $("#shoot").offsetTop - e.clientY
+    ];
     let start = Math.abs($("#homeIcn").offset().left -pos);
     if (start<=50){
+        alert('home')
         window.open('../index.html',"_parent");
     }
-   
 })
 function buletCount(){
     if(bullet>=0){
          bullet--;
         $('.bulletCount').text(bullet+" /"+" 8")
     }
+    else{
+        clearInterval(identity);
+        $('#shoot').css('display','none');
+        Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Ammo Pack is Empty.! please try again',
+  footer: '<a href="">What Happen?</a>'
+    });
+}
 }
  //////////////////////////////
  
