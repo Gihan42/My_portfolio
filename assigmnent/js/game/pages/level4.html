@@ -264,6 +264,16 @@
         bottom: -97px;
         left: 400px;
     }  
+    .bigOne{
+        position: fixed;
+        width: 7%;
+        border: 1px solid #ffffff;
+        background: #196F3D;
+        height: 10px;
+        top: 220px;
+        border-radius: 20px;
+        left: 550px;
+    }
     </style>
 </head>
 <body>
@@ -288,6 +298,7 @@
     <button type="button" class="btn btn-success" id="start">Play</button>
     <button type="button" class="btn btn-danger"  id="stop">Pause</button>
     <div class="homeIcn" id="homeIcn"></div>
+    <div class="bigOne" id="bigOne"></div>
    </section>
     <div class="shoot" id="shoot"></div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -319,6 +330,7 @@ $('.zBox7').css('display','none')
 $('.zBox8').css('display','none')
  $('.zBox9').css('display','none')
  $('.zBox1').css('display','none')
+ $('.bigOne').css('display','none')
 // $( "#shoot" ).click(function(){
 // buletCount();
 // })
@@ -464,25 +476,30 @@ $("#shoot").click(function(){
         setTimeout(() =>$('.zBox6'). css('display','none') , 1000 ) ;
     }
 })
-
+var element2=document.getElementById('bigOne');
+var bigOneWidth=7;
 $("#shoot").click(function(){
     let res = Math.abs($(".zBox7").offset().left - pos);
     let res1 = Math.abs($(".zBox7").offset().top - pos1);
     if(res<=80 && res1<=115){
-        alert('awa')
+         if(bigOneWidth <= 0){
         $('.zBox7').css('height','50px');
         $('.zBox7').css('width','50px');
         $('.zBox7').css('background','url("../assets/blast.gif")');
         $('.zBox7').css('background-size','cover');
-        azl();
         $('#sc').text(sc);
         addZombie();
         addZombieTwo();
         addZombieThree();
+        azl();
         console.log(sc);
-        buletCount();
         // update();
         setTimeout(() =>$('.zBox7'). css('display','none') , 1000 ) ;
+    }else{
+        buletCount();
+        bigOneWidth--;
+        element2.style.width = bigOneWidth + '%'; 
+    }
     }
 })
 
@@ -657,13 +674,14 @@ function addZombie(){
     if(sc==75){
         $('.zBox2').show();
         $('.zBox5').show();
+        $('.zBox8').show();
     }
     
 }
 function addZombieTwo(){
     if(sc==125){
         $('.zBox7').show();
-        $('.zBox8').show();
+        $('.bigOne').show();
     }
     
 }
