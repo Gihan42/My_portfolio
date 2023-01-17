@@ -1677,7 +1677,7 @@ footer p:nth-child(1){
                 </ul>
             
             </li>
-            <li><a href="#" id="theme"><b><i class="fa-sharp fa-solid fa-moon"></i></b></a></li>
+            <li><a href="#" id="theme"><b><i class="fa-sharp fa-solid fa-moon" id="moontheme"></i></b></a></li>
            
         </ul>
     </div>
@@ -2136,6 +2136,7 @@ get a ....
 </main>
 
 <script src="assigmnent/js/spa/assests/jquery/jquery-3.6.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
 <script>
     let slideIndex = 1;
@@ -2164,11 +2165,35 @@ get a ....
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
     }
-   
 
+
+    let dark = false;
+
+
+   $('#theme').click(function(){
+    if (!dark){
+        $('#moontheme').css({'color':'#283747  '})
+
+    $('#home').css({'background':'#012a4a  '})
+    $('#about').css({'background':'#2E4053'})
+    $('.skills').css({'background':'#012a4a'})
+    $('.qualification_section').css({'background':'#2E4053'})
+    $('.contact').css({'background':'#012a4a'})
+    $('.service').css({'background':'#2E4053'})
+    $('.projectsection').css({'background':'#012a4a'})
+    $('.slideshow-container').css({'background':'#2E4053'})
+    $('.contact-me').css({'background':'#2E4053'})
+    $('footer').css({'background':'#2E4053'})
+    $('.card').css({'background':'#012a4a'})
+    $('.Skil-card').css({'background':'#2E4053'})
+    dark = true;
+    
+    }else{
+        location.reload();
+    }
    
-    // const tabs = document.querySelectorAll('[data-target]'),
-    // tabContents = document.querySelectorAll('[data-content]')
+   })
+
 </script>
 </body>
 </html>
