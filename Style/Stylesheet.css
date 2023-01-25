@@ -524,7 +524,7 @@ border-radius: 3%;
         width: 0%;
     }
     100%{
-        width: 75%;
+        width: 80%;
     }
 }
 @keyframes mysql {
