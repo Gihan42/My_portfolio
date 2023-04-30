@@ -3,6 +3,7 @@ margin:0;
 padding:0;
 box-sizing: border-box;
 text-decoration: none;
+
 }
 h1,h2{
     font-family: 'Source Sans Pro', sans-serif;
@@ -20,7 +21,7 @@ body{
 }
 .max-width {
     max-width:100% ;
-    padding:0 80px;
+    padding:0  8px 0 80px;
     margin: auto;
 }
 /*navbar styling*/
@@ -31,7 +32,7 @@ body{
     width: 100%;
     padding: 14px 0;
     font-family:"Calibri";
-    
+   
 }
 .navbar .max-width{
     display: flex;
@@ -40,7 +41,7 @@ body{
 }
  .logo  a{
     color: black;
-    font-size: 35px;
+    font-size: 45px;
     font-weight: 600;
 }
 .navbar .logo a span{
@@ -54,9 +55,11 @@ body{
 .menu li a{
     color: black;
     font-size: 18px;
-    font-weight: 500;
-    margin-left: 25px;
+    font-weight: 600;
+    margin-left: 35px;
     transition: color 0.3s ease;
+    font-size: 25px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 .navbar .menu li a:hover{
     color: white;
@@ -222,13 +225,14 @@ body{
     text-decoration: none;
     border:2px solid transparent;
     font-weight: bold;
-    padding: 13px 30px;
+    padding: 16px 35px;
     border-radius: 30px;
     transition: .4s;
-    width: 25%;
+    width: 35%;
     margin: 40px 20px 30px 50px;
     text-align: center;
     margin: 0;
+    font-size: 28px;
 }
 .detel a{
     color: white;
@@ -243,7 +247,7 @@ body{
      height: 380px;
      width: 350px;
      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-     margin-left: 10%;
+     margin-left: 30%;
      margin-top: 35%;
      background-color: crimson;
      position: relative;
@@ -251,6 +255,7 @@ body{
      margin: 0;
      padding: 0;
      top: 105px;
+     border: 1px solid white;
 }
 
 .social-home {
@@ -259,6 +264,10 @@ body{
     bottom:  58px;
     height: 50%;
     left: 30px;
+}
+.social-home > a img:hover{
+    width: 80px;
+    height: 80px; 
 }
 .social-home > a img{
     width:40px;
@@ -586,6 +595,7 @@ border-radius: 3%;
     background-color: #191919;
     height: 100vh;
     color: white;
+    font-size: 30px;
 }
 .section__title {
     text-align: center;
@@ -726,7 +736,7 @@ border-radius: 3%;
 .container .contactinfo .cbox .Conatctext{
     display: flex;
     margin-left: 20px;
-    font-size: 16px;
+    font-size: 26px;
     color: floralwhite;
     flex-direction: column;
     font-width: 300px;
@@ -745,13 +755,14 @@ border-radius: 3%;
     border-right : 2px solid crimson;
     border-top: 2px solid crimson;
     border-radius:20px ;
+    font-size: 26px;
  }
 .contactForm h2{
-    font-size: 30px;
+    font-size: 40px;
     font-family: "sans-serif";
     color: crimson;
     font-weight: 500;
-   margin-left: 75px;
+    margin-left: 155px;
 }
 .contactForm .inputbox{
     /*position: relative;*/
@@ -780,16 +791,16 @@ border-radius: 3%;
 
 }
 .contactForm .button-submit{
-    width: 100px;
+    width: 250px;
     background: #00bcd4;
     color: #fff;
     border:none;
     cursor: pointer;
-    padding: 10px;
-    font-size: 10px;
+    padding: 20px;
+    font-size: 20px;
     background-color: #f9004d;
     border-radius: 30px;
-    margin-left: 100px;
+    margin-left: 150px;
 
 }
 .button-submit:hover{
@@ -797,7 +808,7 @@ border-radius: 3%;
     border: 2px solid #f9004d;
     cursor: pointer;
     color: black;
-    width: 100px
+    width: 250px
 }
 
 
