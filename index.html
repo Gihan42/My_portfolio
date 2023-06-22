@@ -30,6 +30,16 @@
        width: 100%;
        position: fixed;
     }
+    .logo{
+        position: relative;
+        bottom: 20px;
+        border:1px solid white;
+    }
+    #headerIcon{
+        position: relative;
+        bottom: 20px;
+        border:1px solid white;
+    }
     .logo a{
         font-size: 20px;
         position: relative;
@@ -109,7 +119,8 @@
         width: 20px;
         height: 20px;
         
-    } 
+    }
+
 
      /*about section*/
      .main{
@@ -492,6 +503,12 @@ footer p:nth-child(1){
         height: 50px;
        width: 100%;
        position: fixed;
+    }
+
+    #headerIcon{
+        position: relative;
+        bottom: 20px;
+
     }
     .navbar .max-width {
     margin-left: 30px;
@@ -1613,9 +1630,10 @@ footer p:nth-child(1){
 <body>
 <main>
 <nav class="navbar">
-    <div class="max-width">
-        <div class="logo">
-           <img src="assets/images/my-vector-removebg-preview.png" style="height: 40px;width: 45px;padding-right: 5px;position: relative; top: 5px;"> <a href="#">portfo<span>lio...</span></a></div>
+    <div class="max-width" >
+        <div class="logo" id="headerIcon">
+           <img src="assets/images/my-vector-removebg-preview.png" style="height: 40px;width: 45px;padding-right: 5px;position: relative; top: 5px;"> <a href="#">portfo<span>lio...</span></a>
+        </div>
         <ul class="menu">
             <li><a href="#home"><b>Home</b></a></li>
             <li><a href="#about"><b>About</b></a></li>
@@ -1774,7 +1792,7 @@ get a ....
                 website accessible to all users, regardless of
                 their device.</p>
             <button type="button" >
-                <a href="assets/file/Gihan%20Madushanka.pdf" download="gmn.pdf"><span>Download My Cv</span> </a>
+                <a href="#" download="#"><span>Download My Cv</span> </a>
             </button>
         </div>
     </div>
@@ -1921,7 +1939,7 @@ get a ....
                         <span class="qualification__line"></span>
                     </div>
                     <div>
-                        <h3 class="qualification__title">Ordinary Level</h3>
+                        <h3 class="qualification__title">Advance Level</h3>
                         <span class="qualification__subtitle">Matara central Collage</span>
                         <div class="qualification__calendar">
                             <i class="fa-solid fa-calendar-days"></i>
